@@ -5,6 +5,7 @@ function App() {
   return (
     <div className="App">
       <h1>welcome to vg gruppen</h1>
+      <h2>This is the MVG</h2>
     </div>
   );
 }
