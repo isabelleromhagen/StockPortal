@@ -1,8 +1,15 @@
 import React from 'react';
 import './styling/SideBar.css' 
 import ButtonComponent from './component/ButtonComp';
+import home from './resources/home.jpg';
+import logout from './resources/logout.png';
+import portfolio from './resources/portfolio.jpg';
+import tools from './resources/tools.jpg';
 
-const nameArr =['Hem', 'Min Portfölj','Inställingar','Logga ut'];
+const nameArr =[['Hem','fa fa-home'], 
+['Min Portfölj','fa fa-briefcase'],
+['Inställingar','fa fa-cogs'],
+['Logga ut','fa fa-sign-out']];
 
 class SideBar extends React.Component {
 
@@ -17,17 +24,19 @@ class SideBar extends React.Component {
 
     generateButtons(){
         return(
-            nameArr.map((elem)=>{
+            nameArr.map(([name,iconname])=>{
 
               return <div
                className = 'sidebar'
-               
-               > <ButtonComponent
-                btnName = {elem}
+
+               > <ButtonComponent 
+                btnIcon = {iconname}
+                btnName = {name}
                 btnClassName ="sideButton"
-                btnID = {elem}
+                btnID = {name+iconname}
                 onClickFucntion ={this.dashboard}
                 />
+                
                 </div>
             }))
         
@@ -40,7 +49,8 @@ class SideBar extends React.Component {
     render(){
         return(
             <div className="sidediv">
-              {this.generateButtons()}
+            {this.generateButtons()}
+            
             </div>
         )
         
