@@ -1,0 +1,8 @@
+.sidediv{
+    position: fixed;
+    background-color: grey;
+}
+.sidbar{
+    display: block;
+    margin: 2vh;
+}
