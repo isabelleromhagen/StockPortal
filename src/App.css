@@ -2,37 +2,152 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  background-color: rgb(230, 224, 217);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.dashboardBtn {
+  float: right;
+  margin-right: 5%;
+  margin-top: 5%;
+  border-radius: 15px;
+  background-color: black;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.dashboardSubtitle {
+  float: left;
+  margin-left: 5%;
+  margin-top: 5%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.content {
+  border: 1px solid blue;
+  margin-top: 15%;
+  height: 100%;
 }
+
+#welcomeBanner {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: gold;
+}
+
+#dashboard {
+  width: 80%;
+  margin: auto;
+  padding: 10px;
+  
+}
+
+#profileDiv {
+  border: 1px solid black;
+  float: left;
+  width: 42%;
+  height: 100%;
+}
+
+img {
+  float: left;
+  margin-top: 1vh;
+  border-radius: 80px;
+  height: 20vh;
+  width: 10vw;
+  
+  
+}
+
+#personalData {
+  border: 1px solid red;
+  margin-left: 45%;
+  margin-top: 0%;
+  
+}
+
+.profileSubtitle {
+  float: left;
+  margin-left: 5%;
+  width: 100%;
+}
+
+
+#industry1 {
+  border: 1px solid green;
+  float: left;
+  margin-left: 5%;
+  width: 40%;
+}
+
+#industry2 {
+  border: 1px solid green;
+  float: right;
+  margin-right: 5%;
+  width: 40%;
+}
+
+#industry3 {
+  border: 1px solid green;
+  float: left;
+  margin-top: 5%;
+  margin-left: 5%;
+  width: 40%;
+}
+
+#industry4 {
+  border: 1px solid green;
+  float: right;
+  margin-top: 5%;
+  margin-right: 5%;
+  width: 40%;
+}
+
+#propertyDiv {
+  border: 1px solid black;
+  margin-left: 45%;
+  height: 100%;
+}
+
+#barDiagram {
+  background-color: greenyellow;
+  width: 75%;
+  height: 20px;
+}
+
+.propertyStockInfo {
+  border: 1px solid red;
+  height: 80px;
+}
+
+#sectorColor {
+  background-color: blue;
+  width: 20px;
+  height: 20px;
+  margin: 20px;
+  float: left;
+}
+
+#sectorName {
+  float: left;
+  font-weight: bold;
+  width: 20%;
+}
+
+#propertyAmount {
+ float: right; 
+ margin-right: 5%;
+ width: 20%;
+}
+
+#companyName {
+  float: left;
+  margin-top: 7%;
+  margin-left: 5%;
+  width: 30%;
+ 
+}
+
+
+
+
+/*border: 1px solid red;*/
