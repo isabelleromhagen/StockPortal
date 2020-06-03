@@ -1,17 +1,35 @@
 .sidediv{
     position: fixed;
-    background-color: grey;
+    background: #3C3C3B 0% 0% no-repeat padding-box;
+    width: 30vh;
+    height: 100vh;
+    top: 0;
 }
-.sidbar{
+.sidebar{
     display: block;
-    margin: 5vh;
+    width: 30vh; 
+    border: none;
+    height: 6vh;
+    background: #363636 0% 0% no-repeat padding-box;
+    opacity: 1;
 }
-.sidbar:hover {
+.sideButton:hover {
     box-shadow: 2vh;
-    color: hotpink;
+    color: #FDCC6B;
     cursor: pointer;
+    background: #292929 0% 0% no-repeat padding-box;;
+    opacity: 1;
 }
-.sidbar:active{
+.sideButton:active{
     color: hotpink;
     box-shadow: 2vh;
+}
+.sideButton{
+    border: none;
+    background: none;
+    display: block;
+    color: #C9B791;;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
 }

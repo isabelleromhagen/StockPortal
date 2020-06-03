@@ -1,6 +1,8 @@
 import React from 'react';
 import './styling/SideBar.css' 
-import LinkComponent from './component/LinkComp';
+import ButtonComponent from './component/ButtonComp';
+
+const nameArr =['Hem', 'Min Portfölj','Inställingar','Logga ut'];
 
 class SideBar extends React.Component {
 
@@ -10,6 +12,25 @@ class SideBar extends React.Component {
         this.state ={
         }
         this.dashboard =this.dashboard.bind(this);
+        this.generateButtons = this.generateButtons.bind(this);
+    }
+
+    generateButtons(){
+        return(
+            nameArr.map((elem)=>{
+
+              return <div
+               className = 'sidebar'
+               
+               > <ButtonComponent
+                btnName = {elem}
+                btnClassName ="sideButton"
+                btnID = {elem}
+                onClickFucntion ={this.dashboard}
+                />
+                </div>
+            }))
+        
     }
 
     dashboard(){
@@ -19,10 +40,7 @@ class SideBar extends React.Component {
     render(){
         return(
             <div className="sidediv">
-              <a className ="sidbar" onClick={this.dashboard}>Hem</a>
-              <a className ="sidbar" href="myPortfolio">Min Portfölj</a>
-              <a className ="sidbar" href="#settings">Inställningar</a>
-              <a className ="sidbar" href="logout">Logga ut</a>
+              {this.generateButtons()}
             </div>
         )
         
