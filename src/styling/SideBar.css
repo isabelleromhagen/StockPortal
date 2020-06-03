@@ -4,5 +4,14 @@
 }
 .sidbar{
     display: block;
-    margin: 2vh;
+    margin: 5vh;
+}
+.sidbar:hover {
+    box-shadow: 2vh;
+    color: hotpink;
+    cursor: pointer;
+}
+.sidbar:active{
+    color: hotpink;
+    box-shadow: 2vh;
 }
