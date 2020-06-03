@@ -16,3 +16,4 @@ const TableComponent = ({ company, holdingValue, type, holdingAmount,
         </tr>
     )
 }
+export default TableComponent;
