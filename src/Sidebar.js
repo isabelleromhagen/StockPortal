@@ -1,10 +1,6 @@
 import React from 'react';
 import './styling/SideBar.css' 
 import ButtonComponent from './component/ButtonComp';
-import home from './resources/home.jpg';
-import logout from './resources/logout.png';
-import portfolio from './resources/portfolio.jpg';
-import tools from './resources/tools.jpg';
 
 const nameArr =[['Hem','fa fa-home'], 
 ['Min Portfölj','fa fa-briefcase'],
@@ -50,7 +46,6 @@ class SideBar extends React.Component {
         return(
             <div className="sidediv">
             {this.generateButtons()}
-            
             </div>
         )
         
