@@ -1,0 +1,169 @@
+
+/*See example for colors etc.*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+    background-color: #F6FAFB;
+  }
+  
+  .container {
+    background-color: #FFFFFF;
+  }
+  
+  .dashboardBtn {
+    float: right;
+    margin-right: 5%;
+    margin-top: 5%;
+    border-radius: 15px;
+    background-color: black;
+    color: #FFFFFF;
+  }
+  
+  .dashboardSubtitle {
+    float: left;
+    margin-left: 5%;
+    margin-top: 5%;
+    /* color: #45414E14; */
+  }
+  
+  .content {
+    background-color: #FFFFFF;
+    margin-top: 15%;
+    height: 100%;
+  }
+  
+  #welcomeBanner {
+    width: 80%;
+    height: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(235, 213, 94);
+    /* border: 1 px solid #45414E14;  */
+  }
+  
+  #dashboardContainer {
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+    
+  }
+  
+  #profileDiv {
+  
+    float: left;
+    width: 42%;
+    height: 100%;
+  }
+  
+  img {
+    float: left;
+    margin-top: 1vh;
+    border-radius: 80px;
+    height: 15vh;
+    width: 7vw;
+    
+    
+  }
+  
+  #personalData {
+   
+    margin-left: 45%;
+    margin-top: 0%;
+    
+  }
+  
+  .profileSubtitle {
+    float: left;
+    margin-left: 5%;
+    width: 100%;
+  }
+
+  #industryDiv {
+      /* border: 1px solid red; */
+      margin-top: 10vh;
+      height: 20vh;
+  }
+  
+  
+  #industry1 {
+  
+    float: left;
+    margin-left: 5%;
+    width: 40%;
+  }
+  
+  #industry2 {
+  
+    float: right;
+    margin-right: 5%;
+    width: 40%;
+  }
+  
+  #industry3 {
+  
+    float: left;
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 40%;
+  }
+  
+  #industry4 {
+  
+    float: right;
+    margin-top: 5%;
+    margin-right: 5%;
+    width: 40%;
+  }
+  
+  #propertyDiv {
+    border: 1px solid white;
+    margin-left: 45%;
+    height: 100%;
+  }
+  
+  #barDiagram {
+    background-color: blue;
+    width: 75%;
+    height: 20px;
+    margin: 5px;
+  }
+  
+  .propertyStockInfo {
+   
+    height: 80px;
+  }
+  
+  #sectorColor {
+    background-color: blue;
+    width: 20px;
+    height: 20px;
+    margin: 20px;
+    float: left;
+  }
+  
+  #sectorName {
+    float: left;
+    font-weight: bold;
+    width: 20%;
+  }
+  
+  #propertyAmount {
+   float: right; 
+   margin-right: 5%;
+   width: 20%;
+  }
+  
+  #companyName {
+    float: left;
+    margin-top: 7%;
+    margin-left: 5%;
+    width: 30%;
+   
+  }
+  
+  
+  
+  
+  /*border: 1px solid red;*/

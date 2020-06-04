@@ -1,33 +1,64 @@
 import React, { Component } from "react";
 import ButtonComponent from "./ButtonComp";
 import image from "../images/cymbal.jpg"
+import '../styling/Dashboard.css'
 
+
+class User {
+    constructor(name, pNum, phone, email, address, zip, city){
+        this.name = name;
+        this.welcomeMsg = this.getWelcomeMsg;
+        this.pNum = pNum;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+        this.zip = zip;
+        this.city = city;
+
+    }
+    getWelcomeMsg() {
+        return `Välkommen ${this.name}! 
+        Du har inte något innehav ännu. Du får ett mail så fort det är uppdaterat!`;
+    }
+
+  
+}
+
+const testUser = new User(
+    'Isabelle Romhagen', '940319-1234', '079 111 2222', 'isabelle.romhagen@gmail.com', 'Lantmilsgatan 7', '41501', 'Göteborg');
+console.log(testUser);
 
 class Dashboard extends Component {
     constructor(props) {
         super(props);
+        this.user = testUser
+        this.welcomeMsg = this.user.getWelcomeMsg();
+        
 
         this.state = {
-
+            
+            
         }
     }
+    
     render() {
+    
         return(
             <div>
-                <Banner/>
+                <Banner id="welcomeBanner" welcomeMsg={this.welcomeMsg}/>
                 <DashboardContainer/>
             </div>
         );
     }    
 }
-  /*use template literal here! */
-class Banner extends Component {
-    render() {
-        const welcomeMsg = "Välkommen! Du har inte något innehav ännu. Du får ett mail så fort det är uppdaterat!";
-        return(
-            <p id="welcomeBanner">{welcomeMsg}</p>
-        );
-    }
+
+
+  
+
+const Banner = ({welcomeMsg}) => {
+    return(
+        <p>{welcomeMsg}</p>
+    );
 }
 
 class DashboardContainer extends Component {
@@ -43,110 +74,155 @@ class DashboardContainer extends Component {
 }
 
 class Profile extends Component {
+    constructor(props) {
+        super(props);
+
+        this.user = testUser;
+
+        this.state = {
+            industries: ["Industry 1", "Industry 2", "Industry 3", "Industry 4"]
+        };
+    }
     render() {
+      
         return(
             <div id="profileDiv" className="container">
-            <h4 className="dashboardSubtitle">Min profil</h4>
-            <ButtonComponent btnClassName="dashboardBtn" btnName={"Redigera"}/>
-            <div className="content">
-                <img src={image} alt="profile pic"/>
-                <PersonalData/>
-                <Industries/>
-                <Contact/>
+                <h4 className="dashboardSubtitle">Min profil</h4>
+                <ButtonComponent btnClassName="dashboardBtn" btnName={"Redigera"}/>
+                <div className="content">
+                    <img src={image} alt="profile pic"/>
+                    <PersonalData name={this.user.name} pNum={this.user.pNum}/>
+                    <div id="industryDiv">
+                        <p className="profileSubtitle">Föreslagna industrier</p>
+                        <SuggestedInd className="industry" industries={this.state.industries}/>
+                    </div>
+                    <Contact phone={this.user.phone} email={this.user.email} address={this.user.address} zip={this.user.zip} city={this.user.city}/>
+                </div>
             </div>
-        </div>
         );
     }
 }
 
-class PersonalData extends Component {
-    render() {
-        return(
-            <div id="personalData">
-            <h4>Magnus Persson</h4>
+
+const PersonalData = ({name, pNum}) => {
+    return(
+        <div id="personalData">
+            <h4>{name}</h4>
             <p>Person-/organisationsnummer</p>
-            <p>940319-XXXX</p>
-        </div>  
-        );
-    }
+            <p>{pNum}</p>
+        </div> 
+    );
 }
 
-class Industries extends Component {
-    render() {
-        return(
-            <div id="industryDiv">
-            <p className="profileSubtitle">Föreslagna industrier</p> {/*make separate component and loop! */}
-            <p className="industry" id="industry1">Industri 1</p>
-            <p className="industry" id="industry2">Industri 2</p>
-            <p className="industry" id="industry3">Industri 3</p>
-            <p className="industry" id="industry4">Industri 4</p>
+const SuggestedInd = ({industries}) => {
+    return(
+        <div>
+            {
+                industries.map((industry, index) => <p id={index} industryname={industry} key={index}>{industry}</p>)
+            }
         </div>
-        );
-    }
+    );
 }
 
 
-
-class Contact extends Component {
-    render() {
-        return(
-            <div id="contact">
-                   <p className="profileSubtitle">Kontaktuppgifter</p> 
-                   <table>
+const Contact = ({phone, email, address, zip, city}) => {
+    return(
+        <div id="contact">
+            <p className="profileSubtitle">Kontaktuppgifter</p> 
+            <table>
+               <tbody>
                         <tr>
                             <th>Telefon</th>
-                            <td>079 111 2222</td>
+                            <td>{phone}</td>
                         </tr>
                         <tr>
                             <th>Mail</th>
-                            <td>magnus.person@hotmail.com</td>
+                            <td>{email}</td>
                         </tr>
                         <tr>
                             <th>Adress</th>
-                            <td>Lantmilsgatan 7</td>
+                            <td>{address}</td>
                         </tr>
                         <tr>
                             <th>Postnummer</th>
-                            <td>41501</td>
+                            <td>{zip}</td>
                         </tr>
                         <tr>
                             <th>Postort</th>
-                            <td>Göteborg</td>
+                            <td>{city}</td>
                         </tr>
-                   </table>
-                </div>
-        );
-
-    }
+                
+               </tbody>
+                   
+            </table>
+        </div>
+    );
 }
 
+
 class Shareholding extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            
+            shares: [{
+                color: 'blue',
+                sectorname: "Byggsektorn",
+                companynames: ['Företag 1', 'företag 2'],
+                value: 32244 
+            },
+            {
+                color: 'green',
+                sectorname: "Material och råvaror",
+                companynames: ['Företag a', 'företag b'],
+                value: 10000 
+            }],
+            
+        }
+
+    }
+
+  
     render() {
+        
         return(
             <div id="propertyDiv" className="container">
                 <h4 className="dashboardSubtitle">Mitt innehav</h4>
                 <ButtonComponent btnClassName="dashboardBtn" btnName={"Min Portfölj"}/>
                 <div className="content">
-                    <h1>0 SEK</h1>
-                    <div id="barDiagram"></div>
-                    <ShareInfo/>
+                    <h1>{getTotalValue(this.state.shares)} SEK</h1>
+        <div id="barDiagram"></div> {/*TODO: find out how to tell CSS what colors should be shown and how much of each*/}
+                    <ShareInfo shares={this.state.shares}/>
                 </div>
             </div>
         );
     }
 }
 
-class ShareInfo extends Component {
-    render() {
-        return(
-            <div className="propertyStockInfo">
-            <div id="sectorColor"></div>
-            <p id="sectorName">Byggsektorn</p>
-            <p id="companyName">Företag 1, företag 2+4</p>
-            <p id="propertyValue">32 244 SEK</p>
-            </div>
-        );
-    }
+const getTotalValue = (shares) => {
+    console.log(shares);
+    // return shares[0].value + shares[0].value;
+    return 1+2;
+    
+}
+
+console.log(getTotalValue());
+
+const ShareInfo = ({shares}) => {
+    return(
+        <div>
+            {
+                shares.map((share, index) => 
+                <div key={index}>
+                    <div color={shares[index].color}></div>
+                    <p>{share.sectorname}</p>
+                    <p>{share.companynames}</p>
+                    <p>{share.value}</p>
+                </div>)
+            }
+        </div>
+    );
 }
 
 
