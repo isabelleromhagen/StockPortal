@@ -1,7 +1,7 @@
 import React from "react";
 import ButtonComponent from "./ButtonComp";
-
-const TableComponent = ({ company, holdingValue, type, holdingAmount,
+//TODO vhange component name to myportTable
+const MyportfolioTable = ({ company, holdingValue, type, holdingAmount,
     stockNumber, owns, voteValue, buttonText, buttonClickFunction, buttonClassName, buttonId }) => {
     return (
         <tr>
@@ -16,4 +16,4 @@ const TableComponent = ({ company, holdingValue, type, holdingAmount,
         </tr>
     )
 }
-export default TableComponent;
+export default MyportfolioTable;

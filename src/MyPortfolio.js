@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import TableComponent from './component/TableComponent';
+import TableComponent from './component/PortfolioTable';
 import CompanyData from './Data/mockData.json';
-import Pagination from './component/Pagination'
-let headerTitleList = ["Företag", "Innehav", "Aktietyp", "Antal Aktier", "Artikelnummer", "Ägarandel", "Röstvärde"];
+import PaginatedList from 'react-paginated-list'
+let headerTitleList = ["Företag", "Innehav", "Aktietyp", "Antal Aktier", "Aktienummer", "Ägarandel", "Röstvärde"];
 
 
 let amountToshow = 20;
+
 
 
 
@@ -15,10 +16,10 @@ class MyPortfolio extends Component {
         this.state = {
             tableArray: this.listOfStocksToShow(),
             headerTitleList: this.tableHeaderList(),
-            amountToshow:this.amountToshow,
+            currentPage:1,
+            postPerPage:this.amountToshow,
 
         }
-
 
     }
     tableHeaderList() {
@@ -33,14 +34,14 @@ class MyPortfolio extends Component {
         }
         return tableArray;
     }
+    
+
 
     render() {
-      //  const indexOfLastPost=currentPage*postPerPAge;
-       // const indexOfFirstPost=indexOfLastPost-postPerPAge;
-       // const currentPosts=posts.slice(indexOfFirstPost,indexOfLastPost)
+ 
         return (
             <div>
-                <h2>Min Portfölj</h2>
+                <h3>Min Portfölj</h3>
                 <div>
                     <table>
                         <tbody>
@@ -61,6 +62,7 @@ class MyPortfolio extends Component {
                                     buttonId={"downloadbtn"}
                                 />
                             )}
+                        
 
 
 
@@ -72,4 +74,14 @@ class MyPortfolio extends Component {
 
     }
 }
-export default MyPortfolio;
+ export default MyPortfolio;
+// const indexOfLastPost=this.state.currentPage*this.state.postPerPAge;
+// const indexOfFirstPost=this.indexOfLastPost-this.state.postPerPAge;
+// const currentPost=this.state.tableArray.slice(indexOfFirstPost,indexOfLastPost);
+
+// const paginate = pageNumer => this.setState(pageNumer);
+// <Pagination 
+// postPerPAge={this.state.postPerPage}
+// totalPosts={this.currentPost.length}
+// paginate={paginate}
+// />
