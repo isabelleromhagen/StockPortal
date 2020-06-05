@@ -1,8 +1,8 @@
 import React from "react";
 import ButtonComponent from "./ButtonComp";
-//TODO vhange component name to myportTable
-const MyportfolioTable = ({ company, holdingValue, type, holdingAmount,
-    stockNumber, owns, voteValue, buttonText, buttonClickFunction, buttonClassName, buttonId }) => {
+
+const PortfolioTable = ({ company, holdingValue, type, holdingAmount, stockNumber, owns, voteValue,
+    btnName, onClickFucntion, btnClassName, btnID }) => {
     return (
         <tr>
             <td>{company}</td>
@@ -12,8 +12,9 @@ const MyportfolioTable = ({ company, holdingValue, type, holdingAmount,
             <td>{stockNumber}</td>
             <td>{owns}</td>
             <td>{voteValue}</td>
-            <td>{<ButtonComponent btnName={buttonText} onClickFucntion={buttonClickFunction} btnClassName={buttonClassName} btnID={buttonId} />}</td>
+            <td>{<ButtonComponent btnID={btnID}></ButtonComponent>}
+            </td>
         </tr>
     )
 }
-export default MyportfolioTable;
+export default PortfolioTable;

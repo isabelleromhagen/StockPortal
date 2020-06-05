@@ -1,81 +1,123 @@
-import React, { Component } from "react";
-import TableComponent from './component/PortfolioTable';
-import CompanyData from './Data/mockData.json';
-import PaginatedList from 'react-paginated-list'
-let headerTitleList = ["Företag", "Innehav", "Aktietyp", "Antal Aktier", "Aktienummer", "Ägarandel", "Röstvärde"];
+import React, { useState } from "react";
+//import CompanyData from './Data/mockData.json';
+import PortfolioTable from "./component/PortfolioTable";
+import Pagination from "./component/Pagination";
+const headerTitleList = ["Företag", "Innehav", "Aktietyp", "Antal Aktier", "Aktienummer", "Ägarandel", "Röstvärde"];
+const amountToshow = 10;
+
+const tableHeaderList = () => (headerTitleList.map((elem) => <th>{elem}</th>));
+
+const MyPortfolio = ({ CompanyData }) => {
+    const [items, setItems] = useState(CompanyData);
+    const [header] = useState(tableHeaderList());
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage] = useState(amountToshow);
 
 
-let amountToshow = 20;
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
+
+const paginate=(pageNumber)=>setCurrentPage(pageNumber);
 
 
-
-
-class MyPortfolio extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            tableArray: this.listOfStocksToShow(),
-            headerTitleList: this.tableHeaderList(),
-            currentPage:1,
-            postPerPage:this.amountToshow,
-
-        }
-
-    }
-    tableHeaderList() {
-        headerTitleList = headerTitleList.map((elem) => <th>{elem}</th>)
-        return headerTitleList;
-    }
-
-    listOfStocksToShow() {
-        const tableArray = [];
-        for (let i = 0; i < amountToshow; i++) {
-            tableArray.push(CompanyData[i]);
-        }
-        return tableArray;
-    }
-    
-
-
-    render() {
- 
-        return (
+    return (
+        <div className="container">
+  
             <div>
-                <h3>Min Portfölj</h3>
-                <div>
-                    <table>
-                        <tbody>
-                    
-                            {this.state.headerTitleList}
-
-                            {this.state.tableArray.map((elem) =>
-                                <TableComponent
-                                    company={elem.company}
-                                    holdingValue={elem.Innehav}
-                                    type={elem.Aktietyp}
-                                    holdingAmount={elem.antalaktier}
-                                    stockNumber={elem.Aktienummer}
-                                    owns={undefined}
-                                    voteValue={elem.Röstvärde}
-                                    buttonText={"Download"}
-                                    buttonClassName={"onclickDownload"}
-                                    buttonId={"downloadbtn"}
-                                />
-                            )}
-                        
-
-
-
-                        </tbody>
-                    </table>
-                </div>
+                <table>
+                    <tbody>
+                        {header}
+                        {currentItems.map((elem) =>
+                            <PortfolioTable
+                                company={elem.company}
+                                holdingValue={elem.holdingValue}
+                                type={elem.type}
+                                holdingAmount={elem.holdingAmount}
+                                stockNumber={elem.stockNumber}
+                                owns={elem.owns}
+                                voteValue={elem.voteValue}
+                            />
+                        )}
+                    </tbody>
+                </table>
             </div>
-        )
+        <div className="pagination" style={{marginTop:"60",backgroundColor:"red" }}>
+            <Pagination itemsPerPAge={itemsPerPage} totalItems={items.length} paginate={paginate}/>
+            </div>
+        </div>
+    )
 
-    }
+
 }
- export default MyPortfolio;
-// const indexOfLastPost=this.state.currentPage*this.state.postPerPAge;
+export default MyPortfolio;
+
+// class MyPortfolio extends Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             tableArray: this.listOfStocksToShow(),
+//             headerTitleList: this.tableHeaderList(),
+//             currentPage:1,
+//             postPerPage:this.amountToshow,
+
+//         }
+
+//     }
+//     tableHeaderList() {
+//         headerTitleList = headerTitleList.map((elem) => <th>{elem}</th>)
+//         return headerTitleList;
+//     }
+
+//     listOfStocksToShow() {
+//         const tableArray = [];
+//         for (let i = 0; i < amountToshow; i++) {
+//             tableArray.push(CompanyData[i]);
+//         }
+//         return tableArray;
+//     }
+
+
+
+//     render() {
+
+//         return (
+//             <div>
+//                 <h3>Min Portfölj</h3>
+//                 <h3>Min Portfölj</h3>
+
+//                 <div>
+//                     <table>
+//                         <tbody>
+
+//                             {this.state.headerTitleList}
+
+//                             {this.state.tableArray.map((elem) =>
+//                                 <TableComponent
+//                                     company={elem.company}
+//                                     holdingValue={elem.Innehav}
+//                                     type={elem.Aktietyp}
+//                                     holdingAmount={elem.antalaktier}
+//                                     stockNumber={elem.Aktienummer}
+//                                     owns={undefined}
+//                                     voteValue={elem.Röstvärde}
+//                                     buttonText={"Download"}
+//                                     buttonClassName={"onclickDownload"}
+//                                     buttonId={"downloadbtn"}
+//                                 />
+//                             )}
+
+
+
+
+//                         </tbody>
+//                     </table>
+//                 </div>
+//             </div>
+//         )
+
+//     }
+// }
 // const indexOfFirstPost=this.indexOfLastPost-this.state.postPerPAge;
 // const currentPost=this.state.tableArray.slice(indexOfFirstPost,indexOfLastPost);
 
