@@ -1,10 +1,15 @@
 import React, { useState } from "react";
+import './styling/portfolio.css'
+import TablePagination from "@material-ui/core/TablePagination";
 //import CompanyData from './Data/mockData.json';
 import PortfolioTable from "./component/PortfolioTable";
 import Pagination from "./component/Pagination";
-import ButtonComponent from "./component/ButtonComp";
 const headerTitleList = ["Företag", "Innehav", "Aktietyp", "Antal Aktier", "Aktienummer", "Ägarandel", "Röstvärde"];
-const amountToshow = 10;
+// props = {
+//     date: PropTypes.instanceOf(Date).isRequired,
+//     updateInterval: PropTypes.number
+//   };
+let amountToshow = 10;
 
 const tableHeaderList = () => (headerTitleList.map((elem) => <th>{elem}</th>));
 
@@ -12,21 +17,31 @@ const MyPortfolio = ({ CompanyData }) => {
     const [items, setItems] = useState(CompanyData);
     const [header] = useState(tableHeaderList());
     const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage] = useState(10);
-    const [pagemNumers,setpageNumbers]=useState();
+    const [page, setPage] = useState(0);
+    const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const handleChangePage = (event, newPage) => { setPage(newPage); };
+    const handleChangeRowsPerPage = event => {
+        setRowsPerPage(parseInt(event.target.value, 10));
+        setPage(0);
+    };
 
-
-   
-
-    const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
-
-    const paginate = pageNumber => setCurrentPage(pageNumber);
-    console.log(items.length);
-    console.log(currentPage)
-
-
+    // componentDidMount() {
+    //     this.intervalUpdate = setInterval(() => {
+    //       this.forceUpdate();
+    //     }, this.props.updateInterval);
+    //   }
+        
+    //   componentWillUnmount() {
+    //     if (this.intervalUpdate) {
+    //       clearInterval(this.intervalUpdate);
+    //       this.intervalUpdate = null;
+    //     }
+    //   }
+    // const [itemsPerPage, setItemPerPage] = useState(amountToshow);
+    //const indexOfLastItem = currentPage * itemsPerPage;
+    //const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = items.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
+    //const paginate = pageNumber => setCurrentPage(pageNumber);
     return (
         <div className="container">
 
@@ -37,6 +52,8 @@ const MyPortfolio = ({ CompanyData }) => {
                         {header}
                         {currentItems.map((elem, index) =>
                             <PortfolioTable
+                                className={"table"}
+                                key={index}
                                 company={elem.company}
                                 holdingValue={elem.holdingValue}
                                 type={elem.type}
@@ -44,24 +61,26 @@ const MyPortfolio = ({ CompanyData }) => {
                                 stockNumber={elem.stockNumber}
                                 owns={elem.owns}
                                 voteValue={elem.voteValue}
+                                btnClassName={"downloadBtn"}
                                 btnID={index}
-                                btnName={"Delete"}
+                                btnIcon={"fa fa-download"}
+
                             />
                         )}
                     </tbody>
                 </table>
             </div>
-            <div className="pagination" style={{ marginTop: "60", backgroundColor: "orange" }}>
-                <Pagination
-                    itemsPerPage={itemsPerPage}
-                    totalItems={items.length}
-                    
-                    paginate={paginate} />
-            </div>
+
+            <TablePagination className={"paginationBar"}
+                rowsPerPageOptions={[5, 10, 25, 50, 100]}
+                count={items.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                onChangePage={handleChangePage}
+                onChangeRowsPerPage={handleChangeRowsPerPage}
+            />
         </div>
     )
-
-
 }
 export default MyPortfolio;
 
@@ -140,3 +159,11 @@ export default MyPortfolio;
 // totalPosts={this.currentPost.length}
 // paginate={paginate}
 // />
+
+// <div className="pagination">
+// <Pagination
+//     itemsPerPage={itemsPerPage}
+//     totalItems={items.length} 
+//     paginate={paginate} />
+
+// </div>
