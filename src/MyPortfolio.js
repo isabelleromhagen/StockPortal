@@ -2,6 +2,7 @@ import React, { useState } from "react";
 //import CompanyData from './Data/mockData.json';
 import PortfolioTable from "./component/PortfolioTable";
 import Pagination from "./component/Pagination";
+import ButtonComponent from "./component/ButtonComp";
 const headerTitleList = ["Företag", "Innehav", "Aktietyp", "Antal Aktier", "Aktienummer", "Ägarandel", "Röstvärde"];
 const amountToshow = 10;
 
@@ -11,24 +12,30 @@ const MyPortfolio = ({ CompanyData }) => {
     const [items, setItems] = useState(CompanyData);
     const [header] = useState(tableHeaderList());
     const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage] = useState(amountToshow);
+    const [itemsPerPage] = useState(10);
+    const [pagemNumers,setpageNumbers]=useState();
 
+
+   
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
 
-const paginate=(pageNumber)=>setCurrentPage(pageNumber);
+    const paginate = pageNumber => setCurrentPage(pageNumber);
+    console.log(items.length);
+    console.log(currentPage)
 
 
     return (
         <div className="container">
-  
+
             <div>
+                <h4>MyPortfolio</h4>
                 <table>
                     <tbody>
                         {header}
-                        {currentItems.map((elem) =>
+                        {currentItems.map((elem, index) =>
                             <PortfolioTable
                                 company={elem.company}
                                 holdingValue={elem.holdingValue}
@@ -37,13 +44,19 @@ const paginate=(pageNumber)=>setCurrentPage(pageNumber);
                                 stockNumber={elem.stockNumber}
                                 owns={elem.owns}
                                 voteValue={elem.voteValue}
+                                btnID={index}
+                                btnName={"Delete"}
                             />
                         )}
                     </tbody>
                 </table>
             </div>
-        <div className="pagination" style={{marginTop:"60",backgroundColor:"red" }}>
-            <Pagination itemsPerPAge={itemsPerPage} totalItems={items.length} paginate={paginate}/>
+            <div className="pagination" style={{ marginTop: "60", backgroundColor: "orange" }}>
+                <Pagination
+                    itemsPerPage={itemsPerPage}
+                    totalItems={items.length}
+                    
+                    paginate={paginate} />
             </div>
         </div>
     )
