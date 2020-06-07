@@ -6,7 +6,7 @@ import PortfolioTable from "./component/PortfolioTable";
 import Pagination from "./component/Pagination";
 const headerTitleList = ["Företag", "Innehav", "Aktietyp", "Antal Aktier", "Aktienummer", "Ägarandel", "Röstvärde"];
 let amountToshow = 10;
-const updateDate=()=>{
+const updateDate = () => {
     let newDate = new Date();
     let date = newDate.getDate();
     let dateHuman = (date <= 9) ? "0" + date : date;
@@ -17,9 +17,9 @@ const updateDate=()=>{
     let min = newDate.getMinutes();
     let minHuman = (min <= 9) ? "0" + min : min;
     return (
-       // `Latest update ${this.year}-${this.monthHuman}-${this.dateHuman} ${this.hour}:${this.minHuman}`
-            year + "-" + monthHuman + "-" + dateHuman + "  " + hour + ":" + minHuman
-        );
+        // `Latest update ${this.year}-${this.monthHuman}-${this.dateHuman} ${this.hour}:${this.minHuman}`
+        year + "-" + monthHuman + "-" + dateHuman + "  " + hour + ":" + minHuman
+    );
 }
 
 const tableHeaderList = () => (headerTitleList.map((elem) => <th>{elem}</th>));
@@ -30,61 +30,61 @@ const MyPortfolio = ({ CompanyData }) => {
     const [header] = useState(tableHeaderList());
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
     const handleChangePage = (event, newPage) => { setPage(newPage); };
     const handleChangeRowsPerPage = event => {
         setRowsPerPage(parseInt(event.target.value, amountToshow));
         setPage(0);
     };
 
-
     const currentItems = items.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
 
     return (
 
-        <div className="container">
-
+        <div className="portFolio-container">
             <div>
-                <h4>MyPortfolio</h4>
-                <p>{latestUpdate}</p>
-                <table>
-                    <tbody>
-                        {header}
-                        {currentItems.map((elem, index) =>
-                            <PortfolioTable
-                                className={"table"}
-                                key={index}
-                                company={elem.company}
-                                holdingValue={elem.holdingValue}
-                                type={elem.type}
-                                holdingAmount={elem.holdingAmount}
-                                stockNumber={elem.stockNumber}
-                                owns={elem.owns}
-                                voteValue={elem.voteValue}
-                                btnClassName={"downloadBtn"}
-                                btnID={index}
-                                btnIcon={"fa fa-download"}
-
-                            />
-                        )}
-                    </tbody>
-                </table>
-            </div>
-            <hr></hr>
-            <div>
-                <TablePagination className={"paginationBar"}
-                    rowsPerPageOptions={[5, 10, 25, 50, 100]}
-                    count={items.length}
-                    rowsPerPage={rowsPerPage}
-                    page={page}
-                    onChangePage={handleChangePage}
-                    onChangeRowsPerPage={handleChangeRowsPerPage}
-                />
+                <div className="portFolio-container" id="portfolio-header">
+                    <h4>MyPortfolio</h4>
+                    <p>{latestUpdate}</p>
+                </div>
+                <div className="portFolio-container" id="portfolio-table">
+                    <table>
+                        <tbody>
+                            {header}
+                            {currentItems.map((elem, index) =>
+                                <PortfolioTable
+                                    className={"table"}
+                                    key={index}
+                                    company={elem.company}
+                                    holdingValue={elem.holdingValue}
+                                    type={elem.type}
+                                    holdingAmount={elem.holdingAmount}
+                                    stockNumber={elem.stockNumber}
+                                    owns={elem.owns}
+                                    voteValue={elem.voteValue}
+                                    btnClassName={"downloadBtn"}
+                                    btnID={index}
+                                    btnIcon={"fa fa-download"}
+                                />
+                            )}
+                        </tbody>
+                    </table>
+                </div>
+                <hr></hr>
+                <div className="portFolio-container" id="paginationBar">
+                    <TablePagination
+                        rowsPerPageOptions={[5, 10, 25, 50, 100]}
+                        count={items.length}
+                        rowsPerPage={rowsPerPage}
+                        page={page}
+                        onChangePage={handleChangePage}
+                        onChangeRowsPerPage={handleChangeRowsPerPage}
+                    />
+                </div>
             </div>
         </div>
-    )
-}
 
+    );
+};
 export default MyPortfolio;
 
 // class MyPortfolio extends Component {
