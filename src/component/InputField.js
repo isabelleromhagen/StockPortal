@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 
 const InputField = ({headline ,type, name, onChangeAction}) => {
@@ -8,7 +8,7 @@ const InputField = ({headline ,type, name, onChangeAction}) => {
         <input
         type={type}
         name={name}
-        onChange={ () => onChangeAction('Kalle')}
+        onChange={ event => onChangeAction(event.target.value)}
         />
     </div>
     );
