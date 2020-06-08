@@ -5,7 +5,9 @@ import TablePagination from "@material-ui/core/TablePagination";
 import PortfolioTable from "./component/PortfolioTable";
 import Pagination from "./component/Pagination";
 const headerTitleList = ["Företag", "Innehav", "Aktietyp", "Antal Aktier", "Aktienummer", "Ägarandel", "Röstvärde"];
+const site = "Min portfölj";
 let amountToshow = 10;
+
 const updateDate = () => {
     let newDate = new Date();
     let date = newDate.getDate();
@@ -17,69 +19,68 @@ const updateDate = () => {
     let min = newDate.getMinutes();
     let minHuman = (min <= 9) ? "0" + min : min;
     return (
-        // `Latest update ${this.year}-${this.monthHuman}-${this.dateHuman} ${this.hour}:${this.minHuman}`
-        year + "-" + monthHuman + "-" + dateHuman + "  " + hour + ":" + minHuman
+        //   `Latest update ${this.year}-${this.monthHuman}-${this.dateHuman} ${this.hour}:${this.minHuman}`
+        ("Senast uppdaterat " + year + "-" + monthHuman + "-" + dateHuman + "  " + hour + ":" + minHuman)
     );
 }
 
-const tableHeaderList = () => (headerTitleList.map((elem) => <th>{elem}</th>));
+const tableHeaderList = (index) => (headerTitleList.map((elem) => <th key={index}>{elem}</th>));
 
 const MyPortfolio = ({ CompanyData }) => {
     const [latestUpdate, getLatestUpdate] = useState(updateDate);
     const [items, setItems] = useState(CompanyData);
     const [header] = useState(tableHeaderList());
     const [page, setPage] = useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(10);
-    const handleChangePage = (event, newPage) => { setPage(newPage); };
-    const handleChangeRowsPerPage = event => {
-        setRowsPerPage(parseInt(event.target.value, amountToshow));
+    const [rowsPerPage, setRowsPerPage] = useState(amountToshow);
+    const handleChangePage = (e, newPage) => { setPage(newPage); };
+    const handleChangeRowsPerPage = e => {
+        setRowsPerPage(parseInt(e.target.value, amountToshow));
         setPage(0);
     };
-
     const currentItems = items.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
 
     return (
+        <div className="background">
+            <h4 id="header"> {site}  | <p id="headerText">{latestUpdate}</p></h4>
+            <div className="portFolio-container">
 
-        <div className="portFolio-container">
-            <div>
-                <div className="portFolio-container" id="portfolio-header">
-                    <h4>MyPortfolio</h4>
-                    <p>{latestUpdate}</p>
-                </div>
-                <div className="portFolio-container" id="portfolio-table">
-                    <table>
-                        <tbody>
+                <table id="portfolio-table">
+                    <thead>
+                        <tr>
                             {header}
-                            {currentItems.map((elem, index) =>
-                                <PortfolioTable
-                                    className={"table"}
-                                    key={index}
-                                    company={elem.company}
-                                    holdingValue={elem.holdingValue}
-                                    type={elem.type}
-                                    holdingAmount={elem.holdingAmount}
-                                    stockNumber={elem.stockNumber}
-                                    owns={elem.owns}
-                                    voteValue={elem.voteValue}
-                                    btnClassName={"downloadBtn"}
-                                    btnID={index}
-                                    btnIcon={"fa fa-download"}
-                                />
-                            )}
-                        </tbody>
-                    </table>
-                </div>
-                <hr></hr>
-                <div className="portFolio-container" id="paginationBar">
-                    <TablePagination
-                        rowsPerPageOptions={[5, 10, 25, 50, 100]}
-                        count={items.length}
-                        rowsPerPage={rowsPerPage}
-                        page={page}
-                        onChangePage={handleChangePage}
-                        onChangeRowsPerPage={handleChangeRowsPerPage}
-                    />
-                </div>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {currentItems.map((elem, index) =>
+                            <PortfolioTable
+
+                                key={index}
+                                company={elem.company}
+                                holdingValue={elem.holdingValue}
+                                type={elem.type}
+                                holdingAmount={elem.holdingAmount}
+                                stockNumber={elem.stockNumber}
+                                owns={elem.owns}
+                                voteValue={elem.voteValue}
+                                ClassName={"downloadBtn"}
+                                btnID={index}
+                                btnIcon={"fa fa-download"}
+                            />
+                        )}
+                    </tbody>
+                </table>
+
+                <TablePagination
+                    component="portfolio-table"
+                    rowsPerPageOptions={[5, 10, 25, 50, 75]}
+                    count={items.length}
+                    rowsPerPage={rowsPerPage}
+                    page={page}
+                    onChangePage={handleChangePage}
+                    onChangeRowsPerPage={handleChangeRowsPerPage}
+                />
+
             </div>
         </div>
 
