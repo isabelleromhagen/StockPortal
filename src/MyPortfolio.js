@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './styling/portfolio.css'
 import TablePagination from "@material-ui/core/TablePagination";
 //import CompanyData from './Data/mockData.json';
@@ -27,8 +27,9 @@ const updateDate = () => {
 const tableHeaderList = (index) => (headerTitleList.map((elem) => <th key={index}>{elem}</th>));
 
 const MyPortfolio = ({ CompanyData }) => {
+    const [isInlogged,setIsinlogged ]=useState(true); //TODO fix the metod for login
     const [latestUpdate, getLatestUpdate] = useState(updateDate);
-    const [items, setItems] = useState(CompanyData);
+    const [items, setItems] = useState([]);
     const [header] = useState(tableHeaderList());
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(amountToshow);
@@ -37,6 +38,13 @@ const MyPortfolio = ({ CompanyData }) => {
         setRowsPerPage(parseInt(e.target.value, amountToshow));
         setPage(0);
     };
+    
+    useEffect(() => {
+        setItems(isInlogged ? CompanyData: [])
+      },[]);
+    
+
+    
     const currentItems = items.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
 
     return (
