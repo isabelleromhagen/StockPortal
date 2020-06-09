@@ -41,7 +41,7 @@ const MyPortfolio = ({ CompanyData }) => {
 
     return (
         <div className="background">
-            <h4 id="header"> {site}  | <p id="headerText">{latestUpdate}</p></h4>
+           <div id="header"> <h4 > {site}  </h4> | <p id="headerText">{latestUpdate}</p></div>
             <div className="portFolio-container">
 
                 <table id="portfolio-table">

@@ -26,15 +26,15 @@
 }
 
 #header {
+    margin-top: 2vh;
+    display: flex;
     margin-left: 244px;
-    width      : 110px;
-    height     : 22px;
+    width      : 100%;
     color      : #656565;
 }
 
 #headerText {
-    width : 178px;
-    height: 13px;
+    display: inline;
     color : #A1A8C3;
 }
 
