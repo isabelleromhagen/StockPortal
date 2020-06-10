@@ -176,8 +176,9 @@ class Shareholding extends Component {
                 color: 'green',
                 sectorname: "Material och råvaror",
                 companynames: ['Företag a', 'företag b'],
-                value: 10000 
-            }],
+                value: 10000
+            }
+        ],
             
         }
 
@@ -185,13 +186,12 @@ class Shareholding extends Component {
 
     getTotalValue = () => {
        if(this.state.shares) {
-           console.log(this.state.shares[0].value);
-           let totalValue = 0;
-   
-           for(let i=0; i<this.state.shares.length; i++) {
-               totalValue += this.state.shares[i].value;
-           }  
-           return totalValue;
+     
+        return this.state.shares.map((item) => {
+            return item.value;
+        }).reduce((total, value) => {
+            return total + value;
+        });
        } else {
            return 0;
        }
