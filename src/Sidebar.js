@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './styling/SideBar.css' 
 import ButtonComponent from './component/ButtonComp';
 
@@ -14,17 +14,19 @@ const SideBar = () =>{
     const [viewState, setViewState] = useState("DashBoard");
 
 
+    useEffect(()=>{
+        console.log("new View:  " + viewState);
+    })
 
     const changeViewState =(e) =>{
-        setViewState(e.btnName);
-        console.log(e.type);
-        console.log(viewState);
-
+       
+        setViewState(views[e.target.value]);
+        
     }
 
 
     const generateButtons = 
-    nameArr.map(([name,iconname,index])=>{
+    nameArr.map(([name, iconname],index)=>{
       return  <div
        className = 'sidebar'>
         <ButtonComponent 
@@ -32,6 +34,7 @@ const SideBar = () =>{
         btnName = {name}
         btnClassName ="sideButton"
         btnID = {name+iconname}
+        btnValue = {index}
         onClickFucntion ={changeViewState}
         />
         </div>
