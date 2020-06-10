@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './styling/SideBar.css' 
 import ButtonComponent from './component/ButtonComp';
 
@@ -7,6 +7,46 @@ const nameArr =[['Hem','fa fa-home'],
 ['Inställingar','fa fa-cogs'],
 ['Logga ut','fa fa-sign-out']];
 
+const views = ['DashBoard','My portfolio','Settings','Log out'];
+
+const SideBar = () =>{
+
+    const [viewState, setViewState] = useState("DashBoard");
+
+
+
+    const changeViewState =(e) =>{
+        setViewState(e.btnName);
+        console.log(e.type);
+        console.log(viewState);
+
+    }
+
+
+    const generateButtons = 
+    nameArr.map(([name,iconname,index])=>{
+      return  <div
+       className = 'sidebar'>
+        <ButtonComponent 
+        btnIcon = {iconname}
+        btnName = {name}
+        btnClassName ="sideButton"
+        btnID = {name+iconname}
+        onClickFucntion ={changeViewState}
+        />
+        </div>
+    })
+
+    
+        return(
+            <div className="sidediv">
+            {generateButtons}
+            </div>
+        )
+       
+
+};
+/*
 class SideBar extends React.Component {
 
     constructor(props){
@@ -51,6 +91,6 @@ class SideBar extends React.Component {
         
 
     }
-}
+}*/
 
 export default SideBar;

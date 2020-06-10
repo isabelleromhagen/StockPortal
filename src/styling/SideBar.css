@@ -1,4 +1,13 @@
-
+/*
+vh : height
+vw : width
+vmin : min storlek vid skärm ändring?
+vmax : max -||-
+*/
+*{
+    margin: 0;
+    padding: 0;
+}
 .sidediv{
     position: fixed;
     background: #3C3C3B 0% 0% no-repeat padding-box;
