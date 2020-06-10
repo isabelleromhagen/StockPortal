@@ -26,7 +26,7 @@ class User {
 
 const testUser = new User(
     'Isabelle Romhagen', '940319-1234', '079 111 2222', 'isabelle.romhagen@gmail.com', 'Lantmilsgatan 7', '41501', 'Göteborg');
-console.log(testUser);
+// console.log(testUser);
 
 class Dashboard extends Component {
     constructor(props) {
@@ -166,23 +166,37 @@ class Shareholding extends Component {
 
         this.state = {
             
-            // shares: [{
-            //     color: 'blue',
-            //     sectorname: "Byggsektorn",
-            //     companynames: ['Företag 1', 'företag 2'],
-            //     value: 32244 
-            // },
-            // {
-            //     color: 'green',
-            //     sectorname: "Material och råvaror",
-            //     companynames: ['Företag a', 'företag b'],
-            //     value: 10000 
-            // }],
+            shares: [{
+                color: 'blue',
+                sectorname: "Byggsektorn",
+                companynames: ['Företag 1', 'företag 2'],
+                value: 32244 
+            },
+            {
+                color: 'green',
+                sectorname: "Material och råvaror",
+                companynames: ['Företag a', 'företag b'],
+                value: 10000 
+            }],
             
         }
 
     }
 
+    getTotalValue = () => {
+       if(this.state.shares) {
+           console.log(this.state.shares[0].value);
+           let totalValue = 0;
+   
+           for(let i=0; i<this.state.shares.length; i++) {
+               totalValue += this.state.shares[i].value;
+           }  
+           return totalValue;
+       } else {
+           return 0;
+       }
+        
+    }
   
     render() {
         
@@ -191,7 +205,7 @@ class Shareholding extends Component {
                 <h4 className="dashboardSubtitle">Mitt innehav</h4>
                 <ButtonComponent btnClassName="dashboardBtn" btnName={"Min Portfölj"}/>
                 <div className="content">
-                    <h1>{getTotalValue(this.state.shares)} SEK</h1>
+                    <h1>{this.getTotalValue()} SEK</h1>
                      {/*TODO: find out how to tell CSS what colors should be shown and how much of each*/}
                     <ShareInfo shares={this.state.shares}/>
                 </div>
@@ -200,14 +214,8 @@ class Shareholding extends Component {
     }
 }
 
-const getTotalValue = (shares) => {
-    console.log(shares);
-    // return shares[0].value + shares[0].value;
-    return 1+2;
-    
-}
+ 
 
-console.log(getTotalValue());
 
 const ShareInfo = ({shares}) => {
     if(shares) {
