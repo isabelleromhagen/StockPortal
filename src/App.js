@@ -1,14 +1,12 @@
 import React from 'react';
 import './App.css';
-import LoginPage from './start/LoginPage';
-import RegistartionPage from './start/RegistrationPage'
-import StartPage from './start/StartPage';
+import SettingPage from './loggedIn/settings/SettingsPage';
 
 function App() {
 
   return (
     <div className="App">
-      <StartPage />
+      <SettingPage />
     </div>
   );
 }
