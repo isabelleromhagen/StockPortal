@@ -1,48 +1,74 @@
 
 /*See example for colors etc.*/
-
+@import url(https://fonts.googleapis.com/css?family=Poppins);
 
 * {
     margin: 0;
     padding: 0;
+  }
+
+  body {
     background-color: #F6FAFB;
+  }
+
+  .welcomeBanner {
+    width: 80%;
+    height: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5vw;
+    border-radius: 4px;
+    box-shadow: 0px 1px 15px #45414E14;
+    background-color: #FFD98D;
+    text-align: left;
+    font-family: 'Poppins';
+    font-weight: lighter ;
+    
+    /* font: Light 16px/21px Poppins; */
+    
+  
+    letter-spacing: 0.23px;
+    color: #3D4465;
+    opacity: 1;
   }
   
   .container {
     background-color: #FFFFFF;
+     /* border: 1px solid red;  */
   }
   
   .dashboardBtn {
     float: right;
     margin-right: 5%;
     margin-top: 5%;
-    border-radius: 15px;
-    background-color: black;
+    padding: 1vh;
+    border-radius: 4px;
+    background: #3C3C3B;
     color: #FFFFFF;
+    opacity: 1;
   }
   
   .dashboardSubtitle {
-    float: left;
+    text-align: left;
+    font-family: 'Poppins';
     margin-left: 5%;
     margin-top: 5%;
-    /* color: #45414E14; */
+    letter-spacing: 0px;
+    color: #3C4368;
+    opacity: 1;
   }
   
   .content {
     background-color: #FFFFFF;
+    /* border: 1px solid red; */
+    box-shadow: 0px 1px 15px #45414E14;
+    border-radius: 4px;
+    opacity: 1;
     margin-top: 15%;
     height: 100%;
   }
   
-  #welcomeBanner {
-    width: 80%;
-    height: 5vh;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: rgb(235, 213, 94);
-    /* border: 1 px solid #45414E14;  */
-  }
-  
+
   #dashboardContainer {
     width: 80%;
     margin: auto;
@@ -63,7 +89,7 @@
     border-radius: 80px;
     height: 15vh;
     width: 7vw;
-    
+    opacity: 1;
     
   }
   
@@ -71,6 +97,7 @@
    
     margin-left: 45%;
     margin-top: 0%;
+/*  border: 1px solid red; */
     
   }
   
@@ -93,30 +120,7 @@
     margin-left: 5%;
     width: 40%;
   }
-  
-  #industry2 {
-  
-    float: right;
-    margin-right: 5%;
-    width: 40%;
-  }
-  
-  #industry3 {
-  
-    float: left;
-    margin-top: 5%;
-    margin-left: 5%;
-    width: 40%;
-  }
-  
-  #industry4 {
-  
-    float: right;
-    margin-top: 5%;
-    margin-right: 5%;
-    width: 40%;
-  }
-  
+
   #propertyDiv {
     border: 1px solid white;
     margin-left: 45%;
@@ -162,6 +166,9 @@
     width: 30%;
    
   }
+
+ 
+  
   
   
   

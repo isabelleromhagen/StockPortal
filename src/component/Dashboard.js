@@ -45,7 +45,7 @@ class Dashboard extends Component {
     
         return(
             <div>
-                <Banner id="welcomeBanner" welcomeMsg={this.welcomeMsg}/>
+                <Banner  welcomeMsg={this.welcomeMsg}/>
                 <DashboardContainer/>
             </div>
         );
@@ -57,7 +57,7 @@ class Dashboard extends Component {
 
 const Banner = ({welcomeMsg}) => {
     return(
-        <p>{welcomeMsg}</p>
+        <p className="welcomeBanner">{welcomeMsg}</p>
     );
 }
 
@@ -166,18 +166,18 @@ class Shareholding extends Component {
 
         this.state = {
             
-            shares: [{
-                color: 'blue',
-                sectorname: "Byggsektorn",
-                companynames: ['Företag 1', 'företag 2'],
-                value: 32244 
-            },
-            {
-                color: 'green',
-                sectorname: "Material och råvaror",
-                companynames: ['Företag a', 'företag b'],
-                value: 10000 
-            }],
+            // shares: [{
+            //     color: 'blue',
+            //     sectorname: "Byggsektorn",
+            //     companynames: ['Företag 1', 'företag 2'],
+            //     value: 32244 
+            // },
+            // {
+            //     color: 'green',
+            //     sectorname: "Material och råvaror",
+            //     companynames: ['Företag a', 'företag b'],
+            //     value: 10000 
+            // }],
             
         }
 
@@ -192,7 +192,7 @@ class Shareholding extends Component {
                 <ButtonComponent btnClassName="dashboardBtn" btnName={"Min Portfölj"}/>
                 <div className="content">
                     <h1>{getTotalValue(this.state.shares)} SEK</h1>
-        <div id="barDiagram"></div> {/*TODO: find out how to tell CSS what colors should be shown and how much of each*/}
+                     {/*TODO: find out how to tell CSS what colors should be shown and how much of each*/}
                     <ShareInfo shares={this.state.shares}/>
                 </div>
             </div>
@@ -210,19 +210,30 @@ const getTotalValue = (shares) => {
 console.log(getTotalValue());
 
 const ShareInfo = ({shares}) => {
-    return(
-        <div>
-            {
-                shares.map((share, index) => 
-                <div key={index}>
-                    <div color={shares[index].color}></div>
-                    <p>{share.sectorname}</p>
-                    <p>{share.companynames}</p>
-                    <p>{share.value}</p>
-                </div>)
-            }
-        </div>
-    );
+    if(shares) {
+        return(
+            <div>
+            <div id="barDiagram"></div>
+                {
+                    shares.map((share, index) => 
+                    <div key={index}>
+                        <div color={shares[index].color}></div>
+                        <p>{share.sectorname}</p>
+                        <p>{share.companynames}</p>
+                        <p>{share.value}</p>
+                    </div>)
+                }
+            </div>
+        );
+    }
+    else {
+        return(
+            <div>
+                <h2>Inget innehav tillagt ännu</h2>
+            </div>
+        );
+    }
+  
 }
 
 
