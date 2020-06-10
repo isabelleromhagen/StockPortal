@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import InputField from "../../component/InputField";
 import FormComp from "../../component/FormComp";
+import ButtonComp from "../../component/ButtonComp";
 
 const MyProfile = () => {
   const [imageName, setImageName] = useState("");
@@ -21,6 +22,10 @@ const MyProfile = () => {
 
   const handelUpload = () => {
     return <input type="file" />;
+  };
+
+  const deleteMyData = () => {
+    alert("Data deleted");
   };
 
   const onProfileSave = (event) => {
@@ -111,6 +116,8 @@ const MyProfile = () => {
           </div>
         }
       />
+      <br />
+      <ButtonComp btnName = "Deleta min data" onClickFucntion = {deleteMyData}/>
     </div>
   );
 };
