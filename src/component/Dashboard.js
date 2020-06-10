@@ -5,7 +5,7 @@ import '../styling/Dashboard.css'
 
 
 class User {
-    constructor(name, pNum, phone, email, address, zip, city){
+    constructor(name, pNum, phone, email, address, zip, city, hasStocks, latestUpdate){
         this.name = name;
         this.welcomeMsg = this.getWelcomeMsg;
         this.pNum = pNum;
@@ -14,18 +14,24 @@ class User {
         this.address = address;
         this.zip = zip;
         this.city = city;
+        this.hasStocks = hasStocks;
+        this.latestUpdate = latestUpdate;
 
     }
     getWelcomeMsg() {
-        return `Välkommen ${this.name}! 
-        Du har inte något innehav ännu. Du får ett mail så fort det är uppdaterat!`;
+        if(!this.hasStocks) {
+            return `Välkommen ${this.name}! 
+            Du har inte något innehav ännu. Du får ett mail så fort det är uppdaterat!`;
+        } else {
+            return `Välkommen ${this.name}! Ditt innehav blev senast uppdaterat ${this.latestUpdate}.
+            Ta gärna en titt!`
+        }
     }
-
-  
 }
 
 const testUser = new User(
-    'Isabelle Romhagen', '940319-1234', '079 111 2222', 'isabelle.romhagen@gmail.com', 'Lantmilsgatan 7', '41501', 'Göteborg');
+    'Isabelle Romhagen', '940319-1234', '079 111 2222', 'isabelle.romhagen@gmail.com',
+     'Lantmilsgatan 7', '41501', 'Göteborg', true, '2020-06-09');
 // console.log(testUser);
 
 class Dashboard extends Component {
@@ -177,7 +183,14 @@ class Shareholding extends Component {
                 sectorname: "Material och råvaror",
                 companynames: ['Företag a', 'företag b'],
                 value: 10000
+            },
+            {
+                color: 'red',
+                sectorname: "Läkemedel",
+                companynames: ['Företag a', 'företag b'],
+                value: 12345
             }
+
         ],
             
         }
