@@ -9,6 +9,7 @@ const InputField = ({headline ,type, name, onChangeAction}) => {
         type={type}
         name={name}
         onChange={ event => onChangeAction(event.target.value)}
+        placeholder={headline}
         />
     </div>
     );
