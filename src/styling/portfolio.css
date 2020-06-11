@@ -1,0 +1,70 @@
+* {
+    margin        : 0;
+    padding       : 0;
+    letter-spacing: 0px;
+    text-align    : left;
+    opacity       : 1;
+}
+
+.background {
+    background: #F6FAFB 0% 0% no-repeat padding-box;
+    opacity   : 1;
+    width     : 1280px;
+    height    : 800px;
+}
+
+.portFolio-container {
+    background   : #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow   : 0px 1px 15px #45414E14;
+    border-radius: 4px;
+    margin-top   : 73px;
+    margin-left  : 246px;
+    width        : 1010px;
+    height       : 702px;
+    opacity      : 1;
+
+}
+
+#header {
+    margin-top: 2vh;
+    display: flex;
+    margin-left: 244px;
+    width      : 100%;
+    color      : #656565;
+}
+
+#headerText {
+    display: inline;
+    color : #A1A8C3;
+}
+
+#portfolio-table {
+    width  : 1012px;
+    height : 521px;
+    opacity: 1;
+}
+
+.paginationBar {
+    border     : 1px solid red;
+    margin-left: 80vw;
+
+}
+
+tbody,
+th,
+tr,
+td {
+    color: #3C3C3B;
+}
+
+th {
+    color: #A1A8C3;
+}
+
+button {
+    color           : #FDCC6B;
+    background-color: #FFFFFF;
+    opacity         : 1;
+    border          : 0;
+    font-size       : 20px
+}

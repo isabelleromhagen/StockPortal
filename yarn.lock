@@ -8589,6 +8589,11 @@ react-is@^16.12.0, react-is@^16.8.1, react-is@^16.8.4:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-paginated-list@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-paginated-list/-/react-paginated-list-1.0.4.tgz#045d74720059911f4c7995734e9a25a0bc058b4e"
+  integrity sha512-YdE/9fP9kHKoIXY0KlmB6v55oDsRyQtc9VL1qC9AEO4yv8aeLs3IbSICgXMI4Ur3bUOgxa+Jn70E+8XQdGwDPQ==
+
 react-scripts@3.4.1:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-3.4.1.tgz#f551298b5c71985cc491b9acf3c8e8c0ae3ada0a"

@@ -1,4 +1,5 @@
 import React from 'react';
+import MyPortfolio from './MyPortfolio';
 import './App.css';
 import Sidebar from './Sidebar';
 
