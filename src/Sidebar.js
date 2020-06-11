@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './styling/SideBar.css' 
 import ButtonComponent from './component/ButtonComp';
+import molndal from './resources/molndal.png';
 
 const nameArr =[['Hem','fa fa-home'], 
 ['Min Portfölj','fa fa-briefcase'],
@@ -43,7 +44,9 @@ const SideBar = () =>{
     
         return(
             <div className="sidediv">
+            <img src={molndal} id ="sideImageLoggo"></img>
             {generateButtons}
+            {viewState}
             </div>
         )
        
