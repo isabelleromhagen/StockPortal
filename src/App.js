@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Sidebar from './Sidebar';
-import CompanyData from './Data/mockData.json';
+import CompanyData from './data/mockData.json';
 
 
 
