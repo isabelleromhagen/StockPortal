@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import './styling/portfolio.css'
 import TablePagination from "@material-ui/core/TablePagination";
-//import CompanyData from './Data/mockData.json';
 import PortfolioTable from "./component/PortfolioTable";
 import Pagination from "./component/Pagination";
 const headerTitleList = ["Företag", "Innehav", "Aktietyp", "Antal Aktier", "Aktienummer", "Ägarandel", "Röstvärde"];
 const site = "Min portfölj";
 let amountToshow = 10;
 
+// Redundent when we have database connection.
 const updateDate = () => {
     let newDate = new Date();
     let date = newDate.getDate();
@@ -28,7 +28,7 @@ const tableHeaderList = (index) => (headerTitleList.map((elem) => <th key={index
 
 const MyPortfolio = ({ CompanyData }) => {
     const [isInlogged,setIsinlogged ]=useState(false); //TODO fix the metod for login
-    const [laStocksUpdate, getLaStocksUpdate] = useState(updateDate);
+    const [laStocksUpdate, setLaStocksUpdate] = useState(updateDate);
     const [items, setItems] = useState([]);
     const [header] = useState(tableHeaderList());
     const [page, setPage] = useState(0);
@@ -96,87 +96,3 @@ const Stocks=()=>{ return (currentItems.map((elem, index) =>
     );
 };
 export default MyPortfolio;
-
-// class MyPortfolio extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             tableArray: this.listOfStocksToShow(),
-//             headerTitleList: this.tableHeaderList(),
-//             currentPage:1,
-//             postPerPage:this.amountToshow,
-
-//         }
-
-//     }
-//     tableHeaderList() {
-//         headerTitleList = headerTitleList.map((elem) => <th>{elem}</th>)
-//         return headerTitleList;
-//     }
-
-//     listOfStocksToShow() {
-//         const tableArray = [];
-//         for (let i = 0; i < amountToshow; i++) {
-//             tableArray.push(CompanyData[i]);
-//         }
-//         return tableArray;
-//     }
-
-
-
-//     render() {
-
-//         return (
-//             <div>
-//                 <h3>Min Portfölj</h3>
-//                 <h3>Min Portfölj</h3>
-
-//                 <div>
-//                     <table>
-//                         <tbody>
-
-//                             {this.state.headerTitleList}
-
-//                             {this.state.tableArray.map((elem) =>
-//                                 <TableComponent
-//                                     company={elem.company}
-//                                     holdingValue={elem.Innehav}
-//                                     type={elem.Aktietyp}
-//                                     holdingAmount={elem.antalaktier}
-//                                     stockNumber={elem.Aktienummer}
-//                                     owns={undefined}
-//                                     voteValue={elem.Röstvärde}
-//                                     buttonText={"Download"}
-//                                     buttonClassName={"onclickDownload"}
-//                                     buttonId={"downloadbtn"}
-//                                 />
-//                             )}
-
-
-
-
-//                         </tbody>
-//                     </table>
-//                 </div>
-//             </div>
-//         )
-
-//     }
-// }
-// const indexOfFirstPost=this.indexOfLastPost-this.state.postPerPAge;
-// const currentPost=this.state.tableArray.slice(indexOfFirstPost,indexOfLastPost);
-
-// const paginate = pageNumer => this.setState(pageNumer);
-// <Pagination 
-// postPerPAge={this.state.postPerPage}
-// totalPosts={this.currentPost.length}
-// paginate={paginate}
-// />
-
-// <div className="pagination">
-// <Pagination
-//     itemsPerPage={itemsPerPage}
-//     totalItems={items.length} 
-//     paginate={paginate} />
-
-// </div>

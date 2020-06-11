@@ -1,8 +1,7 @@
 import React from "react";
 import ButtonComponent from "./ButtonComp";
 
-const PortfolioTable = ({ company, holdingValue, type, holdingAmount, stockNumber, owns, voteValue,
-    btnName, onClickFucntion, btnClassName, btnID,btnIcon }) => {
+const PortfolioTable = ({ company, holdingValue, type, holdingAmount, stockNumber, owns, voteValue, btnIcon }) => {
     return (
         <tr>
             <td key>{company}</td>
