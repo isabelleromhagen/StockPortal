@@ -1,0 +1,176 @@
+
+/*See example for colors etc.*/
+@import url(https://fonts.googleapis.com/css?family=Poppins);
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: #F6FAFB;
+  }
+
+  .welcomeBanner {
+    width: 80%;
+    height: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5vw;
+    border-radius: 4px;
+    box-shadow: 0px 1px 15px #45414E14;
+    background-color: #FFD98D;
+    text-align: left;
+    font-family: 'Poppins';
+    font-weight: lighter ;
+    
+    /* font: Light 16px/21px Poppins; */
+    
+  
+    letter-spacing: 0.23px;
+    color: #3D4465;
+    opacity: 1;
+  }
+  
+  .container {
+    background-color: #FFFFFF;
+     /* border: 1px solid red;  */
+  }
+  
+  .dashboardBtn {
+    float: right;
+    margin-right: 5%;
+    margin-top: 5%;
+    padding: 1vh;
+    border-radius: 4px;
+    background: #3C3C3B;
+    color: #FFFFFF;
+    opacity: 1;
+  }
+  
+  .dashboardSubtitle {
+    text-align: left;
+    font-family: 'Poppins';
+    margin-left: 5%;
+    margin-top: 5%;
+    letter-spacing: 0px;
+    color: #3C4368;
+    opacity: 1;
+  }
+  
+  .content {
+    background-color: #FFFFFF;
+    /* border: 1px solid red; */
+    box-shadow: 0px 1px 15px #45414E14;
+    border-radius: 4px;
+    opacity: 1;
+    margin-top: 15%;
+    height: 100%;
+  }
+  
+
+  #dashboardContainer {
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+    
+  }
+  
+  #profileDiv {
+  
+    float: left;
+    width: 42%;
+    height: 100%;
+  }
+  
+  img {
+    float: left;
+    margin-top: 1vh;
+    border-radius: 80px;
+    height: 15vh;
+    width: 7vw;
+    opacity: 1;
+    
+  }
+  
+  #personalData {
+   
+    margin-left: 45%;
+    margin-top: 0%;
+/*  border: 1px solid red; */
+    
+  }
+  
+  .profileSubtitle {
+    float: left;
+    margin-left: 5%;
+    width: 100%;
+  }
+
+  #industryDiv {
+      /* border: 1px solid red; */
+      margin-top: 10vh;
+      height: 20vh;
+  }
+  
+  
+  #industry1 {
+  
+    float: left;
+    margin-left: 5%;
+    width: 40%;
+  }
+
+  #propertyDiv {
+    border: 1px solid white;
+    margin-left: 45%;
+    height: 100%;
+  }
+  
+  #barDiagram {
+    background-color: blue;
+    width: 75%;
+    height: 20px;
+    margin: 5px;
+  }
+  
+  .propertyStockInfo {
+   
+    height: 80px;
+  }
+  
+  #sectorColor {
+    background-color: blue;
+    width: 20px;
+    height: 20px;
+    margin: 20px;
+    float: left;
+  }
+  
+  #sectorName {
+    float: left;
+    font-weight: bold;
+    width: 20%;
+  }
+  
+  #propertyAmount {
+   float: right; 
+   margin-right: 5%;
+   width: 20%;
+  }
+  
+  #companyName {
+    float: left;
+    margin-top: 7%;
+    margin-left: 5%;
+    width: 30%;
+   
+  }
+
+ 
+  
+  
+  
+  
+  
+  /*border: 1px solid red;*/
