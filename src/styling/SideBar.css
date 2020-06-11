@@ -16,10 +16,11 @@ vmax : max -||-
     top: 0;
 }
 .sidebar{
+    
     display: block;
-    width: 30vh; 
+    width: 13.6vw; 
     border: none;
-    height: 6vh;
+    height: 10vh;
     background: #363636 0% 0% no-repeat padding-box;
     opacity: 1;
 }
@@ -35,6 +36,7 @@ vmax : max -||-
     box-shadow: 2vh;
 }
 .sideLink{
+    
     border: none;
     background: none;
     display: block;
@@ -44,7 +46,7 @@ vmax : max -||-
     opacity: 0.4;
 }
 #sideImageLoggo{    
-    width: 30vh;
+    width: 13.6vw;
 }
 
 

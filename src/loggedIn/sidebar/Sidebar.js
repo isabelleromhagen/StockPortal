@@ -41,7 +41,8 @@ const SideBar = () =>{
 
     const generateLinks = 
     nameArr.map(([name, iconname],index)=>{
-      return  <div>
+      return  <div 
+      className ="sidebar">
       <LinkComponent
       linkName ={name}
       linkID ={name +iconname}
