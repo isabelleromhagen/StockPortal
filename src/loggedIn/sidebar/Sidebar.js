@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import './styling/SideBar.css' 
-import ButtonComponent from './component/ButtonComp';
-import molndal from './resources/molndal.png';
+import '../../styling/SideBar.css' 
+import ButtonComponent from '../../component/ButtonComp';
+import molndal from '../../images/molndal.png';
 
 const nameArr =[['Hem','fa fa-home'], 
 ['Min Portfölj','fa fa-briefcase'],

@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import Sidebar from './Sidebar';
+import './styling/App.css';
+import Sidebar from './loggedIn/sidebar/Sidebar';
 import CompanyData from './data/mockData.json';
 
 
@@ -11,9 +11,6 @@ function App() {
     <div className="App">
     <Sidebar/>
       <h1 id="current_view">welcome to vg gruppen</h1>
-      <h2>This is the MVG</h2>
-      <h3>bärs ä gött</h3>
-      
     </div>
   );
 }

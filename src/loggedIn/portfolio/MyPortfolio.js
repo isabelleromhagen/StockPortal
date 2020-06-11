@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './styling/portfolio.css'
 import TablePagination from "@material-ui/core/TablePagination";
-import PortfolioTable from "./component/PortfolioTable";
-import Pagination from "./component/Pagination";
+import PortfolioTable from "../../component/PortfolioTable";
 const headerTitleList = ["Företag", "Innehav", "Aktietyp", "Antal Aktier", "Aktienummer", "Ägarandel", "Röstvärde"];
 const site = "Min portfölj";
 let amountToshow = 10;

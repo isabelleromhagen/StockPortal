@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import ButtonComponent from "./ButtonComp";
+import ButtonComponent from "../../component/ButtonComp";
 import image from "../images/cymbal.jpg"
 import '../styling/Dashboard.css'
 
