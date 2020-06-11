@@ -23,18 +23,18 @@ vmax : max -||-
     background: #363636 0% 0% no-repeat padding-box;
     opacity: 1;
 }
-.sideButton:hover {
+.sideLink:hover {
     box-shadow: 2vh;
     color: #FDCC6B;
     cursor: pointer;
     background: #292929 0% 0% no-repeat padding-box;;
     opacity: 1;
 }
-.sideButton:active{
+.sideLink:active{
     color: hotpink;
     box-shadow: 2vh;
 }
-.sideButton{
+.sideLink{
     border: none;
     background: none;
     display: block;

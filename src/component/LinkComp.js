@@ -1,16 +1,17 @@
 import React from 'react';
+import {NavLink, Route} from 'react-router-dom';
 
-
-const LinkComponent = ({ linkName, linkClass, linkID, onClick }) => {
+const LinkComponent = ({ linkName, linkClass, linkID, onClickLink, linkIcon }) => {
     return (
-        <a
-        href={onClick}
+        <NavLink
+        to={onClickLink}
+        id={linkID}
+        activeClassName ={linkClass}
         className ={linkClass}
-        id ={linkID}
-        key ={linkID}
         >
+        <i class={linkIcon}></i>
         {linkName}
-        </a>
+        </NavLink>
     );
   };
 

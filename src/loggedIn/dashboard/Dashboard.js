@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import ButtonComponent from "../../component/ButtonComp";
-import image from "../images/cymbal.jpg"
-import '../styling/Dashboard.css'
+import image from "../../images/cymbal.jpg"
+import '../../styling/Dashboard.css'
 
 const Dashboard = () => {
     const [firstName, setFirstName] = useState('anonym');
