@@ -25,6 +25,7 @@ const views = ["/home","/my_portfolio","/settings","/disconnect"];
 
 const SideBar = () =>{
 
+    
     const [viewState, setViewState] = useState(views[0]);
 
 
