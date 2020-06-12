@@ -10,7 +10,6 @@ import LinkComponent from '../../component/LinkComp';
 
 const logOut = () =><div><h1>skräpskräpskräpskräpskräpskräpskräpskräp</h1> </div>;
 const fyranollfyra = () => <div> fyra noll fyra </div>;
-const Titletest = () =><header> <h1> fel title test </h1></header>;
 
 
 
@@ -77,7 +76,7 @@ const Routes = (
     </Switch>
     </div>
     </BrowserRouter>
-    
+        
     );
 
 export default Routes;
