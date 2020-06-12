@@ -8,7 +8,7 @@ const ButtonComponent = ({ btnName, onClickFucntion, btnClassName, btnID,btnIcon
       id = {btnID}
       key ={btnID}
       value = {btnValue}
-      ><i class={btnIcon}></i>
+      ><i className={btnIcon}></i>
         {btnName}
       </button>
     );
