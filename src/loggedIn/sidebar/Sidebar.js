@@ -1,18 +1,32 @@
 import React, {useState, useEffect} from 'react';
 import '../../styling/SideBar.css' 
-import ButtonComponent from '../../component/ButtonComp';
 import molndal from '../../images/molndal.png';
+import Dashboard from '../../loggedIn/dashboard/Dashboard'
+import MyPortfolio from '../../loggedIn/portfolio/MyPortfolio';
+import SettingsPage from '../../loggedIn/settings/SettingsPage';
+import {BrowserRouter, Route, Switch} from "react-router-dom";
+import LinkComponent from '../../component/LinkComp';
+
+
+const logOut = () =><div><h1>skräpskräpskräpskräpskräpskräpskräpskräp</h1> </div>;
+const fyranollfyra = () => <div> fyra noll fyra </div>;
+
+
+
+
+
 
 const nameArr =[['Hem','fa fa-home'], 
 ['Min Portfölj','fa fa-briefcase'],
 ['Inställingar','fa fa-cogs'],
 ['Logga ut','fa fa-sign-out']];
 
-const views = ['DashBoard','My portfolio','Settings','Log out'];
+const views = ["/home","/my_portfolio","/settings","/disconnect"];
 
 const SideBar = () =>{
 
-    const [viewState, setViewState] = useState("DashBoard");
+    
+    const [viewState, setViewState] = useState(views[0]);
 
 
     useEffect(()=>{
@@ -21,82 +35,49 @@ const SideBar = () =>{
 
     const changeViewState =(e) =>{
        
-        setViewState(views[e.target.value]);
-        
+        setViewState(views[0])
     }
 
 
-    const generateButtons = 
+    const generateLinks = 
     nameArr.map(([name, iconname],index)=>{
-      return  <div
-       className = 'sidebar'>
-        <ButtonComponent 
-        btnIcon = {iconname}
-        btnName = {name}
-        btnClassName ="sideButton"
-        btnID = {name+iconname}
-        btnValue = {index}
-        onClickFucntion ={changeViewState}
-        />
-        </div>
+      return  <div 
+      className ="sidebar">
+      <LinkComponent
+      linkName ={name}
+      linkID ={name +iconname}
+      linkClass = "sideLink"
+      linkIcon = {iconname}
+      onClickLink ={views[index]}
+     />
+      </div>
+      
     })
 
-    
         return(
             <div className="sidediv">
-            <img src={molndal} id ="sideImageLoggo"></img>
-            {generateButtons}
-            {viewState}
+            <img src={molndal} id ="sideImageLoggo" alt="campusImage"></img>
+            {generateLinks}
             </div>
         )
        
 
 };
-/*
-class SideBar extends React.Component {
 
-    constructor(props){
-        super(props)
-
-        this.state ={
-        }
-        this.dashboard =this.dashboard.bind(this);
-        this.generateButtons = this.generateButtons.bind(this);
-    }
-
-    generateButtons(){
-        return(
-            nameArr.map(([name,iconname])=>{
-
-              return <div
-               className = 'sidebar'
-
-               > <ButtonComponent 
-                btnIcon = {iconname}
-                btnName = {name}
-                btnClassName ="sideButton"
-                btnID = {name+iconname}
-                onClickFucntion ={this.dashboard}
-                />
-                
-                </div>
-            }))
+const Routes = (
+    <BrowserRouter>
+    <div>
+    <SideBar/>
+    <Switch>
+    <Route path ="/disconnect" component ={logOut} />
+    <Route path ="/home" component ={Dashboard} />
+    <Route path ="/my_portfolio" component ={MyPortfolio} />
+    <Route path ="/settings" component ={SettingsPage} />
+    <Route component={fyranollfyra} />
+    </Switch>
+    </div>
+    </BrowserRouter>
         
-    }
+    );
 
-    dashboard(){
-        console.log('dashboard');
-    }
-
-    render(){
-        return(
-            <div className="sidediv">
-            {this.generateButtons()}
-            </div>
-        )
-        
-
-    }
-}*/
-
-export default SideBar;
+export default Routes;
