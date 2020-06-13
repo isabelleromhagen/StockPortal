@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import '../../styling/portfolio.css'
+import '../../styling/portfolio.css';
 import TablePagination from "@material-ui/core/TablePagination";
 import PortfolioTable from "../../component/PortfolioTable";
 const headerTitleList = ["Företag", "Innehav", "Aktietyp", "Antal Aktier", "Aktienummer", "Ägarandel", "Röstvärde"];

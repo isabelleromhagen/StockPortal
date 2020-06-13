@@ -7,16 +7,21 @@ import PreferredInd from './PreferredInd';
 
     const Profile = ({userData}) => {
 
-        if(userData) {
+        if(userData.length > 0) {
             return(
                 <div id="profileDiv" className="container">
                         <h4 className="dashboardSubtitle">Min profil</h4>
                         <ButtonComponent btnClassName="dashboardBtn" btnName={"Redigera"}/>
                         <div className="content">
                             <img src={'../../images/cymbal.jpg'} alt="profile pic"/>
-                            <PersonalData firstname={userData.firstname}/>
+                            
+                            {userData.length > 0 ? <PersonalData firstname={userData[0].firstname}
+                                lastname={userData[0].lastname} pNum={userData[0].socNumber}/> :
+                                <p>Ingen användardata</p>}
+                            
+                            
                             <div id="industryDiv">
-                                <p className="profileSubtitle">Föreslagna industrier</p>
+                                <p className="profileSubtitle">Föredragna industrier</p>
                                 {
                                     userData.map((element, index) => <PreferredInd id={index} industryData={element} key={index}/>)
                                 }
@@ -26,13 +31,10 @@ import PreferredInd from './PreferredInd';
                     </div>
             );
         } else {
-            return(<p>bläää</p>);
+            return(<p>Hittade ingen användardata</p>);
         }
        
    
     }
 
     export default Profile;
-
-    //firstName={'userData[0].firstname'} lastName={userData[0].lastname} pNum={userData[0].socNumber}
-    //phone={userData[0].phone} email={userData[0].email} address={userData[0].address} zip={userData[0].zip} city={userData[0].city}

@@ -28,7 +28,7 @@ import ShareInfo from './ShareInfo';
                             <ShareInfo share={share} key={index}/>)
                         : 
                             <h2>Inget innehav tillagt ännu</h2>
-                    })
+                    }
                    
                 </div>
             </div>

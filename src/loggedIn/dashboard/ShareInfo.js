@@ -12,14 +12,3 @@ const ShareInfo = ({share, index}) => {
 };
 
 export default ShareInfo;
-
-// <div>
-//             <div id="barDiagram"></div>
-//                 {shares.map((share, index) => 
-//                     <div key={index}>
-//                         <div color={shares[index].color}></div>
-//                         <p>{share.sectorname}</p>
-//                         <p>{share.companynames}</p>
-//                         <p>{share.value}</p>
-//                     </div>)}
-//             </div>

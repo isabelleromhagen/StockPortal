@@ -26,31 +26,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-//*********************** TEST DATA **************************//
-
-//    <Profile data={data}/>
-// const testUser = new User(
-//     'Isabelle Romhagen', '940319-1234', '079 111 2222', 'isabelle.romhagen@gmail.com',
-//      'Lantmilsgatan 7', '41501', 'Göteborg', true, '2020-06-09');
-// console.log(testUser);
-
-
-// [{
-//     color: 'blue',
-//     sectorname: "Byggsektorn",
-//     companynames: ['Företag 1', 'företag 2'],
-//     value: 32244 
-// },
-// {
-//     color: 'green',
-//     sectorname: "Material och råvaror",
-//     companynames: ['Företag a', 'företag b'],
-//     value: 10000
-// },
-// {
-//     color: 'red',
-//     sectorname: "Läkemedel",
-//     companynames: ['Företag a', 'företag b'],
-//     value: 12345
-// }]

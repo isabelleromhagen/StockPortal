@@ -6,13 +6,13 @@ const Contact = ({data}) => {
             <p className="profileSubtitle">Kontaktuppgifter</p> 
             <table>
                 <tbody>
-                           {/* <tr>
+                            <tr>
                                 <th>Telefon</th>
                                 <td>{data[0].phone}</td>
-                           </tr>*/}
+                           </tr>
                             <tr>
                                 <th>Mail</th>
-                            {/*    <td>{data[0].email}</td>
+                                <td>{data[0].email}</td>
                             </tr>
                             <tr>
                                 <th>Adress</th>
@@ -20,11 +20,11 @@ const Contact = ({data}) => {
                             </tr>
                             <tr>
                                 <th>Postnummer</th>
-                                <td>{data[0].zip}</td>
+                                <td>{data[0].zipcode}</td>
                             </tr>
                             <tr>
                                 <th>Postort</th>
-                        <td>{data[0].city}</td>*/}
+                        <td>{data[0].city}</td>
                             </tr>
                 </tbody>     
             </table>
