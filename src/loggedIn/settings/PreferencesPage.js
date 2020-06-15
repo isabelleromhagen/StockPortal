@@ -19,7 +19,7 @@ const PreferencesPage = () => {
     }
 
     return (
-        <div>
+        <div className="container">
 
         <FormComp
         headline = "Ställ in vad du gillar att investera i"

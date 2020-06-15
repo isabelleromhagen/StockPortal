@@ -13,7 +13,7 @@ const ChangePasswordPage = () => {
     }
 
   return (
-    <div>
+    <div className="container">
       <FormComp
         onSubmitAction={onPasswordChangedSubmit}
         buttonId="profileSaveButton"

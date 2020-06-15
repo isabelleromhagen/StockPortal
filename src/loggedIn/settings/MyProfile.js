@@ -34,7 +34,7 @@ const MyProfile = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       {imageName ? (
         <img
           id="Hang-image"

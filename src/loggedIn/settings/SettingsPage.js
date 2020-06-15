@@ -8,7 +8,7 @@ const SettingPage = () => {
     const [currentPage, setCurrentPage] = useState(0);
 
     return (
-        <div>
+        <div className="container">
             <h2>Inställningar</h2>
             <div>
                 <ButtonComponent btnName="Min Profil" onClickFucntion={() => setCurrentPage(0)} />
