@@ -20,7 +20,7 @@ const MyProfile = () => {
     setImageName("katten");
   }, []);
 
-  const handelUpload = () => {
+  const handleUpload = () => {
     return <input type="file" />;
   };
 
@@ -117,7 +117,7 @@ const MyProfile = () => {
         }
       />
       <br />
-      <ButtonComp btnName = "Deleta min data" onClickFucntion = {deleteMyData}/>
+      <ButtonComp btnName = "Ta bort min data" onClickFucntion = {deleteMyData}/>
     </div>
   );
 };
