@@ -8,7 +8,6 @@ function App() {
     <div className="App">
 
     {Routes}
-          <h1 id="current_view">welcome to vg gruppen</h1>
     
       </div>
   );
