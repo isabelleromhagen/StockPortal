@@ -70,7 +70,7 @@ const PreferencesPage = () => {
             </div>
 
             <div id="tips">
-                <p className="greyText">tips, ifall du väljer att intgrera din bank kan vi anpassa dina investeringar utefter din ekonomi och preferences</p>
+                <p className="greyText">(Tips, ifall du väljer att intgrera din bank kan vi anpassa dina investeringar utefter din ekonomi och preferences)</p>
                 <div className="inLine">
                     <a href="#!"> Integrera min bank </a>
                     <p className="greyText">(Detta skickar dig vidare till din bank.....)</p>
