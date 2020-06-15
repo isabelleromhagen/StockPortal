@@ -1,0 +1,10 @@
+*{
+    margin : 0;
+    padding: 0;
+}
+
+.container {
+    float : left;
+    width : 42%;
+    height: 100%;
+}
