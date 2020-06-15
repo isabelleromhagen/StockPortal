@@ -24,24 +24,23 @@ import ShareInfo from './ShareInfo';
                 } else {
                     return 0;
                 } 
-               
             }
         return(
             <div id="propertyDiv" className="container">
                 <h4 className="dashboardSubtitle">Mitt innehav</h4>
                 <ButtonComponent btnClassName="dashboardBtn" btnName={"Min Portfölj"}/>
                     <h1>{getTotalValue()} SEK</h1>
-                    <div id="fullbar">
+                    <container id="fullbar">
                         {shares.length > 0 ? 
                             shares.map((share, index) => 
                             <div share={share} key={index} className="bar" style={{width: getBarSize(index), backgroundColor: shares[index].backgroundColor}}/>)
                         : 
                         <div></div>
                         }
-                    </div>
+                    </container>
                     {shares.length > 0 ? 
                             shares.map((share, index) => 
-                            <ShareInfo share={share} key={index}/>)
+                            <ShareInfo className="shareInfo" share={share} key={index}/>)
                         : 
                             <h2>Inget innehav tillagt ännu</h2>
                     }
