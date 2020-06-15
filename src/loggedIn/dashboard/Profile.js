@@ -12,14 +12,11 @@ import PreferredInd from './PreferredInd';
                 <div id="profileDiv" className="container">
                         <h4 className="dashboardSubtitle">Min profil</h4>
                         <ButtonComponent btnClassName="dashboardBtn" btnName={"Redigera"}/>
-                        <div className="content">
-                            <img src={'../../images/cymbal.jpg'} alt="profile pic"/>
+                        <img src={'../../images/cymbal.jpg'} alt="profile pic"/>
                             
                             {userData.length > 0 ? <PersonalData firstname={userData[0].firstname}
                                 lastname={userData[0].lastname} pNum={userData[0].socNumber}/> :
                                 <p>Ingen användardata</p>}
-                            
-                            
                             <div id="industryDiv">
                                 <p className="profileSubtitle">Föredragna industrier</p>
                                 {
@@ -27,7 +24,6 @@ import PreferredInd from './PreferredInd';
                                 }
                             </div>
                             <Contact data={userData}/>
-                        </div>
                     </div>
             );
         } else {

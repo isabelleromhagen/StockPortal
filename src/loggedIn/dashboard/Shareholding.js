@@ -3,8 +3,9 @@ import ButtonComponent from '../../component/ButtonComp';
 import ShareInfo from './ShareInfo';
 
 
+
     const Shareholding = ({shares}) => {
-        let getTotalValue = () => {
+        const getTotalValue = () => {
                 if(shares.length > 0) {
                     return shares.map((item) => {
                         return item.amount;
@@ -15,24 +16,39 @@ import ShareInfo from './ShareInfo';
                     return 0;
                 }              
             }
+            const getBarSize = (index) => {
+                let width = 0;
+                if(shares.length > 0) {
+                    width = (shares[index].amount/getTotalValue())*100;
+                return width + '%';
+                } else {
+                    return 0;
+                } 
+               
+            }
         return(
             <div id="propertyDiv" className="container">
                 <h4 className="dashboardSubtitle">Mitt innehav</h4>
                 <ButtonComponent btnClassName="dashboardBtn" btnName={"Min Portfölj"}/>
-                <div className="content">
                     <h1>{getTotalValue()} SEK</h1>
-                    <div id="barDiagram"></div>
-
+                    <div id="fullbar">
+                        {shares.length > 0 ? 
+                            shares.map((share, index) => 
+                            <div share={share} key={index} className="bar" style={{width: getBarSize(index), backgroundColor: shares[index].backgroundColor}}/>)
+                        : 
+                        <div></div>
+                        }
+                    </div>
                     {shares.length > 0 ? 
                             shares.map((share, index) => 
                             <ShareInfo share={share} key={index}/>)
                         : 
                             <h2>Inget innehav tillagt ännu</h2>
                     }
-                   
-                </div>
             </div>
         );
     }
 
 export default Shareholding;
+
+// <div className="bar" style={{width: getBarSize()}} ></div>
