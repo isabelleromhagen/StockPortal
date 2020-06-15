@@ -63,11 +63,10 @@ vmax : max -||-
     margin-bottom: 2vh;
 }
 #sideImageLoggo{    
-    width: 13.6vw;
+    width: 12.6vw;
     margin-top: 3vh;
     margin-bottom: 3vh;
-    background: #3C3C3B 0% 0% no-repeat padding-box;
-      
+    height: auto;
 }
 
 
