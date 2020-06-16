@@ -13,7 +13,7 @@ const ChangePasswordPage = () => {
     }
 
   return (
-    <div>
+    <div className="container">
       <FormComp
         onSubmitAction={onPasswordChangedSubmit}
         buttonId="profileSaveButton"
@@ -21,19 +21,19 @@ const ChangePasswordPage = () => {
         inputFields={
           <div>
             <InputField
-              headline="Nuvarande lösenord: "
+              headline="Nuvarande lösenord "
               type="text"
               name="currentPass"
               onChangeAction={(value) => setCurrentPass(value)}
             />
             <InputField
-              headline="Nytt lösenord: "
+              headline="Nytt lösenord "
               type="text"
               name="newPass"
               onChangeAction={(value) => setNewPass(value)}
             />
             <InputField
-            headline="Bekräfta nytt lösenord: "
+            headline="Bekräfta nytt lösenord "
             type="text"
             name="reenterpass"
             onChangeAction={(value) => setReEnterPass(value)}

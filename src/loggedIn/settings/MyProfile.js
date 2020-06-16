@@ -34,7 +34,7 @@ const MyProfile = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       {imageName ? (
         <img
           id="Hang-image"
@@ -45,7 +45,7 @@ const MyProfile = () => {
         <p></p>
       )}
       <InputField
-        headline="Uppload profile picture"
+        headline="Ladda upp bild"
         type="file"
         name="profilepic"
         onChangeAction={(value) => setImageUpload(value)}
@@ -58,13 +58,13 @@ const MyProfile = () => {
           <div>
             <div className="inLine">
               <InputField
-                headline="Förnamn: "
+                headline="Förnamn "
                 type="text"
                 name="firstname"
                 onChangeAction={(value) => setFirstName(value)}
               />
               <InputField
-                headline="Efternamn: "
+                headline="Efternamn "
                 type="text"
                 name="lastname"
                 onChangeAction={(value) => setLastName(value)}
@@ -73,13 +73,13 @@ const MyProfile = () => {
 
             <div className="inLine">
               <InputField
-                headline="Personnummer: "
+                headline="Personnummer "
                 type="text"
                 name="securitynumber"
                 onChangeAction={(value) => setSecurityNumber(value)}
               />
               <InputField
-                headline="Adress: "
+                headline="Adress "
                 type="text"
                 name="adress"
                 onChangeAction={(value) => setAdress(value)}
@@ -88,26 +88,26 @@ const MyProfile = () => {
 
             <div className="inLine">
               <InputField
-                headline="City: "
+                headline="Stad "
                 type="text"
                 name="stad"
                 onChangeAction={(value) => setCity(value)}
               />
               <InputField
-                headline="Postnummer: "
+                headline="Postnummer "
                 type="text"
                 name="areaCode"
                 onChangeAction={(value) => setAreaCode(value)}
               />
             </div>
             <InputField
-              headline="Telefonnumber: "
+              headline="Telefonnummer "
               type="text"
               name="telephonenumber"
               onChangeAction={(value) => setTelephonenumber(value)}
             />
             <InputField
-              headline="Mail: "
+              headline="Epost "
               type="text"
               name="email"
               onChangeAction={(value) => setEmail(value)}
@@ -117,7 +117,7 @@ const MyProfile = () => {
         }
       />
       <br />
-      <ButtonComp btnName = "Ta bort min data" onClickFucntion = {deleteMyData}/>
+      <ButtonComp btnName = "Radera min profil" onClickFucntion = {deleteMyData}/>
     </div>
   );
 };
