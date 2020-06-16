@@ -19,7 +19,7 @@ const fyranollfyra = () => <div> fyra noll fyra </div>;
 const nameArr =[['Hem','fa fa-home'], 
 ['Min Portfölj','fa fa-briefcase'],
 ['Inställingar','fa fa-cogs'],
-['Logga ut','fa fa-sign-out']];
+['Logga_ut','fa fa-sign-out']];
 
 const views = ["/home","/my_portfolio","/settings","/disconnect"];
 
@@ -43,9 +43,10 @@ const SideBar = () =>{
     nameArr.map(([name, iconname],index)=>{
       return  <div 
       className ="sidebar">
+      
       <LinkComponent
       linkName ={name}
-      linkID ={name +iconname}
+      linkID ={name}
       linkClass = "sideLink"
       linkIcon = {iconname}
       onClickLink ={views[index]}
@@ -56,6 +57,7 @@ const SideBar = () =>{
 
         return(
             <div className="sidediv">
+            
             <img src={molndal} id ="sideImageLoggo" alt="campusImage"></img>
             {generateLinks}
             </div>

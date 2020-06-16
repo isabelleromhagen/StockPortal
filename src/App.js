@@ -8,7 +8,10 @@ function App() {
     <div className="App">
 
     {Routes}
+<<<<<<< HEAD
           <h1 id="current_view"></h1>
+=======
+>>>>>>> MattiasDev
     
       </div>
   );

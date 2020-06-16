@@ -9,8 +9,9 @@ const LinkComponent = ({ linkName, linkClass, linkID, onClickLink, linkIcon }) =
         activeClassName ={linkClass}
         className ={linkClass}
         >
+        {(linkID && linkID ==='Logga_ut') ? <hr id="logg_out_line"></hr> :null}
         <i class={linkIcon}></i>
-        {linkName}
+          {" "+linkName}
         </NavLink>
     );
   };
