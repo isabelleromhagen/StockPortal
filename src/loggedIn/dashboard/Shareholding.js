@@ -1,5 +1,5 @@
 import React from 'react';
-import ButtonComponent from '../../component/ButtonComp';
+import { NavLink } from 'react-router-dom';
 import ShareInfo from './ShareInfo';
 
 
@@ -28,16 +28,16 @@ import ShareInfo from './ShareInfo';
         return(
             <div id="propertyDiv" className="container">
                 <h4 className="dashboardSubtitle">Mitt innehav</h4>
-                <ButtonComponent btnClassName="dashboardBtn" btnName={"Min Portfölj"}/>
+                <NavLink className="dashboardBtn"  to={"/my_portfolio"}>Min portfölj</NavLink> 
                     <h1>{getTotalValue()} SEK</h1>
-                    <container id="fullbar">
+                    <div id="fullbar">
                         {shares.length > 0 ? 
                             shares.map((share, index) => 
                             <div share={share} key={index} className="bar" style={{width: getBarSize(index), backgroundColor: shares[index].backgroundColor}}/>)
                         : 
                         <div></div>
                         }
-                    </container>
+                    </div>
                     {shares.length > 0 ? 
                             shares.map((share, index) => 
                             <ShareInfo className="shareInfo" share={share} key={index}/>)
@@ -49,5 +49,3 @@ import ShareInfo from './ShareInfo';
     }
 
 export default Shareholding;
-
-// <div className="bar" style={{width: getBarSize()}} ></div>

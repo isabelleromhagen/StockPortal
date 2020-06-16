@@ -42,10 +42,11 @@
     float: right;
     margin-right: 5%;
     margin-top: 5%;
-    padding: 1vh;
+    padding: 2vh;
     border-radius: 4px;
     background: #3C3C3B;
     color: #FFFFFF;
+    text-decoration: none;
     opacity: 1;
   }
   
@@ -145,6 +146,7 @@
     
     height: 80px;
   }
+
   
   /* #sectorColor {
     background-color: blue;

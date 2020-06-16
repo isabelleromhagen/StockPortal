@@ -1,17 +1,17 @@
 import React from 'react';
-import ButtonComponent from '../../component/ButtonComp';
 import PersonalData from './PersonalData';
 import Contact from './Contact';
 import PreferredInd from './PreferredInd';
+import { NavLink } from 'react-router-dom';
 
 
     const Profile = ({userData}) => {
-
+        
         if(userData.length > 0) {
             return(
                 <div id="profileDiv" className="container">
                         <h4 className="dashboardSubtitle">Min profil</h4>
-                        <ButtonComponent btnClassName="dashboardBtn" btnName={"Redigera"}/>
+                        <NavLink className="dashboardBtn" value={"Redigera"} to={"/settings"}>Redigiera</NavLink>  
                         <img src={'../../images/cymbal.jpg'} alt="profile pic"/>
                             
                             {userData.length > 0 ? <PersonalData firstname={userData[0].firstname}
@@ -32,5 +32,7 @@ import PreferredInd from './PreferredInd';
        
    
     }
+
+   
 
     export default Profile;

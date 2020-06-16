@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from "react";
-import '../../styling/Dashboard.css'
-import Profile from './Profile';
+import '../../styling/Dashboard.css';
 import Shareholding from './Shareholding';
 import Banner from './Banner';
 import Data from '../../data/userShareData.json';
+import Profile from "./Profile";
 
 
 const Dashboard = () => {

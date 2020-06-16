@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import '../../styling/SideBar.css' 
 import molndal from '../../images/molndal.png';
-import Dashboard from '../../loggedIn/dashboard/Dashboard'
-import MyPortfolio from '../../loggedIn/portfolio/MyPortfolio';
-import SettingsPage from '../../loggedIn/settings/SettingsPage';
+import Dashboard from '../dashboard/Dashboard'
+import MyPortfolio from '../portfolio/MyPortfolio';
+import SettingsPage from '../settings/SettingsPage';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import LinkComponent from '../../component/LinkComp';
 
