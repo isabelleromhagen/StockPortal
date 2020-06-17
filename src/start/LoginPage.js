@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FormComp from '../component/FormComp';
 import InputField from '../component/InputField';
 import ButtonComp from '../component/ButtonComp';
+import { NavLink } from 'react-router-dom';
 
 const LoginPage = ({goToRegistation, goToLostPassword}) => {
     const [email, setEmail] = useState('');
@@ -10,6 +11,7 @@ const LoginPage = ({goToRegistation, goToLostPassword}) => {
     const onLoginAction = (event) => {
         event.preventDefault();
         alert("Email:" + email + " pass: " + password);
+       
     }
 
     return (
@@ -25,6 +27,9 @@ const LoginPage = ({goToRegistation, goToLostPassword}) => {
           <br />
           <ButtonComp btnName = 'Register Here' onClickFucntion ={() => goToRegistation()}/>
           <ButtonComp btnName = 'Lost Password' onClickFucntion ={() => goToLostPassword()}/>
+          
+          <NavLink to="/home"> click me!</NavLink>
+    
       </div>
     );
   };
