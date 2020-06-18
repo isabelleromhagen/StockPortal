@@ -13,9 +13,6 @@ const fyranollfyra = () => <div> fyra noll fyra </div>;
 
 
 
-
-
-
 const nameArr =[['Hem','fa fa-home'], 
 ['Min Portfölj','fa fa-briefcase'],
 ['Inställingar','fa fa-cogs'],
