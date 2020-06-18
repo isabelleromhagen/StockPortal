@@ -10,14 +10,15 @@ import Profile from "./Profile";
 
 const Dashboard = () => {
     const [isInlogged, setIsinlogged] = useState(true);
-    const [data, setData] = useState([]);
+    const [userData, setUserData] = useState([]);
+    const [shareData, setShareData] = useState([]);
+    const [prefData, setPrefData] = useState([]);
 
-   useEffect(() => {
-        setData(isInlogged ? data : [])
+//    useEffect(() => {
+//         setData(isInlogged ? data : [])
        
-    }, []);
+//     }, []);
    useEffect(()=>{
-       console.log('in dashboard use effect');
        fetch("http://localhost:3000/users",{
            method: "GET"
        })
@@ -25,18 +26,44 @@ const Dashboard = () => {
        .then((data)=>{
       
         console.log(data);
-        setData(data)
+        setUserData(data)
         // setLastUpdate(data[0].datepurchased)
     })
    },[]);
 
+   useEffect(()=>{
+    fetch("http://localhost:3000/portfolio",{
+        method: "GET"
+    })
+    .then((response)=>response.json())
+    .then((data)=>{
+   
+     console.log(data);
+     setShareData(data)
+     // setLastUpdate(data[0].datepurchased)
+    })
+    },[]);
+
+    useEffect(()=>{
+        fetch("http://localhost:3000/preference",{
+            method: "GET"
+        })
+        .then((response)=>response.json())
+        .then((data)=>{
+    
+        console.log(data);
+        setPrefData(data)
+        // setLastUpdate(data[0].datepurchased)
+    })
+    },[]);
+
     return(
         <div>
-            {data.length > 0 ? <Banner text={`Välkommen ${data[0].firstname}! 
-            Ditt innehav uppdaterades 2020-06-11. Ta gärna en titt!`}/> : <Banner text={`Välkommen ${data.firstname}! 
+            {shareData.length > 0 ? <Banner text={`Välkommen ${userData[0].firstname}! 
+            Ditt innehav uppdaterades 2020-06-11. Ta gärna en titt!`}/> : <Banner text={`Välkommen ${userData.firstname}! 
             Du har inte något innehav ännu. Du får ett mail så fort det är uppdaterat!`}/>}
-            <Profile userData={data}/>
-            <Shareholding shares={data}/>
+            <Profile userData={userData} prefData={prefData}/>
+            <Shareholding shares={shareData}/>
         </div>
     );
 };

@@ -16,7 +16,7 @@ const Contact = ({data}) => {
                             </tr>
                             <tr>
                                 <th>Adress</th>
-                                <td>{data[0].address}</td>
+                                <td>{data[0].adress}</td>
                             </tr>
                             <tr>
                                 <th>Postnummer</th>

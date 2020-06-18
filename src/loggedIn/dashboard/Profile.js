@@ -5,7 +5,7 @@ import PreferredInd from './PreferredInd';
 import { NavLink } from 'react-router-dom';
 
 
-    const Profile = ({userData}) => {
+    const Profile = ({userData, prefData}) => {
         
         if(userData.length > 0) {
             return(
@@ -20,7 +20,7 @@ import { NavLink } from 'react-router-dom';
                             <div id="industryDiv">
                                 <p className="profileSubtitle">Föredragna industrier</p>
                                 {
-                                    userData.map((element, index) => <PreferredInd id={index} industryData={element} key={index}/>)
+                                    prefData.map((element, index) => <PreferredInd id={index} industryData={element} key={index}/>)
                                 }
                             </div>
                             <Contact data={userData}/>

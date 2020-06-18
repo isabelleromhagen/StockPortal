@@ -8,9 +8,9 @@ import ShareInfo from './ShareInfo';
         const getTotalValue = () => {
                 if(shares.length > 0) {
                     return shares.map((item) => {
-                        return item.amount;
-                    }).reduce((total, amount) => {
-                        return total + amount;
+                        return item.stockvalue;
+                    }).reduce((total, stockvalue) => {
+                        return total + stockvalue;
                     });
                 } else {
                     return 0;
@@ -19,7 +19,7 @@ import ShareInfo from './ShareInfo';
             const getBarSize = (index) => {
                 let width = 0;
                 if(shares.length > 0) {
-                    width = (shares[index].amount/getTotalValue())*100;
+                    width = (shares[index].stockvalue/getTotalValue())*100;
                 return width + '%';
                 } else {
                     return 0;
@@ -29,11 +29,18 @@ import ShareInfo from './ShareInfo';
             <div id="propertyDiv" className="container">
                 <h4 className="dashboardSubtitle">Mitt innehav</h4>
                 <NavLink className="dashboardBtn"  to={"/my_portfolio"}>Min portfölj</NavLink> 
-                    <h1>{getTotalValue()} SEK</h1>
+                    <div> 
+                        {shares.length > 0 && !null ?
+                            <h1>{getTotalValue()} SEK</h1>
+                                :
+                            <h1>{0} SEK</h1>
+                        }
+                    </div>
+                
                     <div id="fullbar">
                         {shares.length > 0 ? 
                             shares.map((share, index) => 
-                            <div share={share} key={index} className="bar" style={{width: getBarSize(index), backgroundColor: shares[index].backgroundColor}}/>)
+                            <div share={share} key={index} className="bar" style={{width: getBarSize(index), backgroundColor: shares[index].color}}/>)
                         : 
                         <div></div>
                         }
