@@ -26,6 +26,8 @@ const updateDate = () => {
 const tableHeaderList = (index) => (headerTitleList.map((elem) => <th key={index}>{elem}</th>));
 
 const MyPortfolio = ({ CompanyData }) => {
+    const site="Min portfölj";
+    const [lastupdate, setlastUpdate] = useState();
     const [isInlogged,setIsinlogged ]=useState(false); //TODO fix the metod for login
     const [laStocksUpdate, setLaStocksUpdate] = useState(updateDate);
     const [items, setItems] = useState([]);
@@ -43,6 +45,18 @@ const MyPortfolio = ({ CompanyData }) => {
         setItems(isInlogged ? CompanyData: [])
       },[]);
   
+      useEffect(()=>{
+        fetch("http://localhost:3000/portfolio",{
+            method: "GET"
+        })
+        .then((response)=>response.json())
+        .then((data)=>{
+            
+         console.log(data[0])
+         setItems(data)
+         setlastUpdate(data[0].datepurchased)
+     })
+    },[]);
 
 const Stocks=()=>{ return (currentItems.map((elem, index) =>
     <PortfolioTable
