@@ -12,7 +12,7 @@ import { NavLink } from 'react-router-dom';
                 <div id="profileDiv" className="container">
                         <h4 className="dashboardSubtitle">Min profil</h4>
                         <NavLink className="dashboardBtn" value={"Redigera"} to={"/settings"}>Redigiera</NavLink>  
-                        <img src={'../../images/cymbal.jpg'} alt="profile pic"/>
+                        <img  alt="profile pic"/>
                             
                             {userData.length > 0 ? <PersonalData firstname={userData[0].firstname}
                                 lastname={userData[0].lastname} pNum={userData[0].socNumber}/> :
