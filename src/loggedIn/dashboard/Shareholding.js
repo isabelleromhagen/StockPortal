@@ -7,24 +7,24 @@ import _ from 'lodash';
 
     const Shareholding = ({shares}) => {
             
-        const getTotalValue = (values) => {
-            if(values && values.length > 0 && typeof(values[0]) === 'object') {
-                return values.map((elemValue) => {
-                    return elemValue.stockvalue;
-                }).reduce((total, stockvalue) => {
-                    return total + stockvalue;
-                });
-            } 
-            if(values && values.length > 0) {
-                return values.map((value) => {
-                    return value;
-                }).reduce((total, stockvalue) => {
-                    return total + stockvalue;
-                });
-            } else {
-                return 0;
-            }              
-        }
+            const getTotalValue = (values) => {
+                if(values && values.length > 0 && typeof(values[0]) === 'object') {
+                    return values.map((elemValue) => {
+                        return elemValue.stockvalue;
+                    }).reduce((total, stockvalue) => {
+                        return total + stockvalue;
+                    });
+                } 
+                if(values && values.length > 0) {
+                    return values.map((value) => {
+                        return value;
+                    }).reduce((total, stockvalue) => {
+                        return total + stockvalue;
+                    });
+                } else {
+                    return 0;
+                }              
+            }
             const getBarSize = (index) => {
                 let width = 0;
                 if(shares.length > 0) {
