@@ -22,10 +22,10 @@ const updateDate = () => {
     );
 }
 
-const tableHeaderList = (index) => (headerTitleList.map((elem) => <th key={index}>{elem}</th>));
+const tableHeaderList = () => (headerTitleList.map((elem) => <th key={elem}>{elem}</th>));
 
 const MyPortfolio = ({ CompanyData }) => {
-    const site="Min portfölj";
+    const site = "Min portfölj";
     const [lastupdate, setlastUpdate] = useState();
     const [isInlogged, setIsinlogged] = useState(false); //TODO fix the metod for login
     const [laStocksUpdate, setLaStocksUpdate] = useState(updateDate);
@@ -44,38 +44,38 @@ const MyPortfolio = ({ CompanyData }) => {
         setItems(isInlogged ? CompanyData : [])
     }, []);
 
-   useEffect(()=>{
-       fetch("http://localhost:3000/portfolio",{
-           method: "GET"
-       })
-       .then((response)=>response.json())
-       .then((data)=>{
-           
-        console.log(data[0])
-        setItems(data)
-        setlastUpdate(data[0].datepurchased)
-    })
-   },[]);
+    useEffect(() => {
+        fetch("http://localhost:3000/portfolio", {
+            method: "GET"
+        })
+            .then((response) => response.json())
+            .then((data) => {
+
+                console.log(data[0])
+                setItems(data)
+                setlastUpdate(data[0].datepurchased)
+            })
+    }, []);
 
 
 
 
     const Stocks = () => {
-        return (currentItems.map((elem, index) =>
-            <PortfolioTable
-                key={index}
-                company={elem.company}
-                holdingValue={elem.stockvalue}
-                type={elem.stocktype}
-                holdingAmount={elem.amount}
-                stockNumber={elem.stocknumber}
-                owns={elem.ownamount}
-                voteValue={elem.votevalue}
-                ClassName={"downloadBtn"}
-                btnID={index}
-                btnIcon={"fa fa-download"}
-            />)
-        )
+        return (
+            <>{currentItems.map((elem, index) =>
+                <PortfolioTable
+                    key={index}
+                    company={elem.company}
+                    holdingValue={elem.stockvalue}
+                    type={elem.stocktype}
+                    holdingAmount={elem.amount}
+                    stockNumber={elem.stocknumber}
+                    owns={elem.ownamount}
+                    voteValue={elem.votevalue}
+                    btnIcon={"fa fa-download"}
+
+                />)
+            }</>)
     };
 
 
@@ -91,14 +91,14 @@ const MyPortfolio = ({ CompanyData }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {items.length > 0 ? <Stocks /> : <p>Du har inget innehav</p>}
+                        {items.length > 0 ? <Stocks /> : <p>  Du har inget innehav</p>}
 
 
                     </tbody>
                 </table>
 
                 <TablePagination
-                    component="portfolio-table"
+                    component="portFolio-container"
                     rowsPerPageOptions={[5, 10, 25, 50, 75]}
                     count={items.length}
                     rowsPerPage={rowsPerPage}
