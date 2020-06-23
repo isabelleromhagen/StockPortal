@@ -1,14 +1,13 @@
 import React from 'react';
 import './styling/App.css';
 import Routes from './loggedIn/sidebar/Sidebar';
-import CompanyData from './data/mockData.json';
-
+import StartPage from './start/StartPage';
 function App() {
   return (
     <div className="App">
 
-    {Routes}
-    
+  {/*  {Routes}*/}
+      <StartPage/>
       </div>
   );
 }
