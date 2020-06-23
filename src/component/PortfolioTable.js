@@ -11,7 +11,9 @@ const PortfolioTable = ({ company, holdingValue, type, holdingAmount, stockNumbe
             <td>{stockNumber}</td>
             <td>{owns}</td>
             <td>{voteValue}</td>
-            <td>{<ButtonComponent btnIcon={btnIcon}></ButtonComponent>}
+            <td>{<ButtonComponent 
+                btnIcon={btnIcon}                
+                ></ButtonComponent>}
             </td>
         </tr>
     )
