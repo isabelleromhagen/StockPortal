@@ -5,13 +5,15 @@ const PortfolioTable = ({ company, holdingValue, type, holdingAmount, stockNumbe
     return (
         <tr>
             <td key>{company}</td>
-            <td>{holdingValue}</td>
+            <td>{holdingValue} {"SEK"}</td>
             <td>{type}</td>
             <td>{holdingAmount}</td>
             <td>{stockNumber}</td>
             <td>{owns}</td>
             <td>{voteValue}</td>
-            <td>{<ButtonComponent btnIcon={btnIcon}></ButtonComponent>}
+            <td>{<ButtonComponent 
+                btnIcon={btnIcon}                
+                ></ButtonComponent>}
             </td>
         </tr>
     )
