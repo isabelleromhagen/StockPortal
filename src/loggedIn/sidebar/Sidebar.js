@@ -19,7 +19,7 @@ const fyranollfyra = () => <div> fyra noll fyra </div>;
 const nameArr =[['Hem','fa fa-home'], 
 ['Min Portfölj','fa fa-briefcase'],
 ['Inställingar','fa fa-cogs'],
-['Logga_ut','fa fa-sign-out']];
+['Logga ut','fa fa-sign-out']];
 
 const views = ["/home","/my_portfolio","/settings","/disconnect"];
 
@@ -30,7 +30,7 @@ const SideBar = () =>{
 
 
     useEffect(()=>{
-        console.log("new View:  " + viewState);
+        
     })
 
     const changeViewState =(e) =>{
@@ -42,7 +42,7 @@ const SideBar = () =>{
     const generateLinks = 
     nameArr.map(([name, iconname],index)=>{
       return  <div 
-      className ="sidebar">
+      className ="sidebar" key={index}>
       
       <LinkComponent
       linkName ={name}
@@ -58,7 +58,7 @@ const SideBar = () =>{
         return(
             <div className="sidediv">
             
-            <img src={molndal} id ="sideImageLoggo" alt="campusImage"></img>
+            <img src={molndal} id ="sideImageLogo" alt="campusImage"></img>
             {generateLinks}
             </div>
         )
