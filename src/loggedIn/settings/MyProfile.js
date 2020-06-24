@@ -3,19 +3,22 @@ import InputField from "../../component/InputField";
 import FormComp from "../../component/FormComp";
 import ButtonComp from "../../component/ButtonComp";
 
+
 const MyProfile = () => {
   const [imageName, setImageName] = useState("");
   const [imageUpload, setImageUpload] = useState("");
-
+  const [userData, setUserData] = useState([]);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [securityNumber, setSecurityNumber] = useState("");
+  const [socnumber, setSecurityNumber] = useState("");
   const [adress, setAdress] = useState("");
   const [city, setCity] = useState("");
-  const [areaCode, setAreaCode] = useState("");
-  const [telephonenumber, setTelephonenumber] = useState("");
+  const [zipcode, setAreaCode] = useState("");
+  const [phone, setTelephonenumber] = useState("");
   const [email, setEmail] = useState("");
-
+  // const [userData, setUserData] = useState(["Dan", "Andersson", "880512", "Stigen 2", "Stockholm", "12345", "08080808", "danne.a@gmail.com"]);
+  // const [userData, setUserData] = useState([]);
+  // const [edits, setEdits] = useState([]);
 
   useEffect(() => {
     setImageName("katten");
@@ -29,32 +32,40 @@ const MyProfile = () => {
     alert("Data deleted");
   };
 
+  useEffect(()=>{
+    fetch("http://localhost:3000/users/2",{
+        method: "GET"
+    })
+    .then((response)=>response.json())
+    .then((data)=>{
+   
+     setUserData(data)
+   
+ })
+},[]);
+
   useEffect(() => {
     // onProfileSave();
 
   });
   let onProfileSave = (event) => {
     event.preventDefault();
-    fetch('http://localhost:3000/update-users/7', {
-      method: "PUT",
-      body: JSON.stringify(firstName),
-   //   body: JSON.stringify(lastName)
 
+    fetch('http://localhost:3000/update-users/2', {
+      method: "PUT",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+       body: JSON.stringify({firstName, lastName, socnumber, adress, zipcode, city, email, phone}),
     })
     .then((response) => response.json())
         .then((data) => {
 
-          //  console.log(data)
         })
         .catch ((error)=>{
           console.log(error,'COuldnt upload')
         })
-        console.log(JSON.stringify(firstName));
-
-   // console.log('first',firstName);
   };
- 
-
 
   return (
     <div className="container">
@@ -84,13 +95,13 @@ const MyProfile = () => {
                 headline="Förnamn "
                 type="text"
                 name="firstname"
-                onChangeAction={(value) => setFirstName(value)}
+                onChangeAction={(value) => value !== "" && setFirstName(value)}
               />
               <InputField
                 headline="Efternamn "
                 type="text"
                 name="lastname"
-                onChangeAction={(value) => setLastName(value)}
+                onChangeAction={(value) => value !== "" && setLastName(value)}
               />
             </div>
 
@@ -99,13 +110,13 @@ const MyProfile = () => {
                 headline="Personnummer "
                 type="text"
                 name="securitynumber"
-                onChangeAction={(value) => setSecurityNumber(value)}
+                onChangeAction={(value) => value !== "" && setSecurityNumber(value)}
               />
               <InputField
                 headline="Adress "
                 type="text"
                 name="adress"
-                onChangeAction={(value) => setAdress(value)}
+                onChangeAction={(value) => value !== "" && setAdress(value)}
               />
             </div>
 
@@ -114,26 +125,26 @@ const MyProfile = () => {
                 headline="Stad "
                 type="text"
                 name="stad"
-                onChangeAction={(value) => setCity(value)}
+                onChangeAction={(value) => value !== "" && setCity(value)}
               />
               <InputField
                 headline="Postnummer "
                 type="text"
                 name="areaCode"
-                onChangeAction={(value) => setAreaCode(value)}
+                onChangeAction={(value) => value !== "" && setAreaCode(value)}
               />
             </div>
             <InputField
               headline="Telefonnummer "
               type="text"
               name="telephonenumber"
-              onChangeAction={(value) => setTelephonenumber(value)}
+              onChangeAction={(value) => value !== "" && setTelephonenumber(value)}
             />
             <InputField
               headline="Epost "
               type="text"
               name="email"
-              onChangeAction={(value) => setEmail(value)}
+              onChangeAction={(value) => value !== "" && setEmail(value)}
             />
             <hr />
           </div>
