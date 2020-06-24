@@ -9,7 +9,6 @@ import FyraNollFyra from '../loggedIn/404error/fyranollfyra';
 import { RootRef } from '@material-ui/core';
 import ProtectedRoute from '../component/ProtectedRouteComp'
 
-/*{["/home","/my_portfolio","/settings"]} */
 const Routes = (
 
 

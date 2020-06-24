@@ -25,6 +25,7 @@ const SideBar = (props) =>{
     nameArr.map(([name, iconname],index)=>{
       return  <div 
       className ="sidebar"
+      key ={name +index}
       onClick= {(name && name ==='Logga_ut') ? {logoutAction}:null}
       >
       <LinkComponent

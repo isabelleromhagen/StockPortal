@@ -1,12 +1,17 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 const FyraNollFyra = () =>{
 
     return (
         
-        <div>
+        <div className="fyranollfyradiv">
         
-        <h1>404 NOT FOUND</h1>
+        <h1 className="fyranollfyradiv">404 NOT FOUND</h1>
+        <p className="fyranollfyradiv"> filthy hackers get nothing!</p>
+        <br/>
+        <Link className="fyranollfyradiv" to="/">loggin page</Link>
+
         </div>
 
     )
