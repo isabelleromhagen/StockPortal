@@ -117,7 +117,7 @@ const MyProfile = () => {
         }
       />
       <br />
-      <ButtonComp btnName = "Radera min profil" onClickFucntion = {deleteMyData}/>
+      <ButtonComp btnName = "Radera min profil" onClickFunction = {deleteMyData}/>
     </div>
   );
 };

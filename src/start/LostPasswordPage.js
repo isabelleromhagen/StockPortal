@@ -27,7 +27,7 @@ const LostPasswordPage = ({goToLogin}) => {
           />
           {myPass && <p>{myPass}</p>}
           <br />
-          <ButtonComp btnName = 'Login Here' onClickFucntion ={() => goToLogin()}/>
+          <ButtonComp btnName = 'Login Here' onClickFunction ={() => goToLogin()}/>
       </div>
     );
   };

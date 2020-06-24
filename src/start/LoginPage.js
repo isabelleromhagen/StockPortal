@@ -23,8 +23,8 @@ const LoginPage = ({goToRegistation, goToLostPassword}) => {
               } 
           />
           <br />
-          <ButtonComp btnName = 'Register Here' onClickFucntion ={() => goToRegistation()}/>
-          <ButtonComp btnName = 'Lost Password' onClickFucntion ={() => goToLostPassword()}/>
+          <ButtonComp btnName = 'Register Here' onClickFunction ={() => goToRegistation()}/>
+          <ButtonComp btnName = 'Lost Password' onClickFunction ={() => goToLostPassword()}/>
       </div>
     );
   };
