@@ -5,22 +5,7 @@ import PortfolioTable from "../../component/PortfolioTable";
 const headerTitleList = ["Företag", "Innehav", "Aktietyp", "Antal Aktier", "Aktienummer", "Ägarandel", "Röstvärde"];
 let amountToshow = 10;
 
-// Redundent when we have database connection.
-const updateDate = () => {
-    let newDate = new Date();
-    let date = newDate.getDate();
-    let dateHuman = (date <= 9) ? "0" + date : date;
-    let month = newDate.getMonth() + 1;
-    let monthHuman = (month <= 9) ? "0" + month : month;
-    let year = newDate.getFullYear();
-    let hour = newDate.getHours();
-    let min = newDate.getMinutes();
-    let minHuman = (min <= 9) ? "0" + min : min;
-    return (
-        //   `LaStocks update ${this.year}-${this.monthHuman}-${this.dateHuman} ${this.hour}:${this.minHuman}`
-        ("Senast uppdaterat " + year + "-" + monthHuman + "-" + dateHuman + "  " + hour + ":" + minHuman)
-    );
-}
+
 
 const tableHeaderList = () => (headerTitleList.map((elem) => <th key={elem}>{elem}</th>));
 
@@ -28,7 +13,6 @@ const MyPortfolio = ({ CompanyData }) => {
     const site = "Min portfölj";
     const [lastupdate, setlastUpdate] = useState();
     const [isInlogged, setIsinlogged] = useState(false); //TODO fix the metod for login
-    const [laStocksUpdate, setLaStocksUpdate] = useState(updateDate);
     const [items, setItems] = useState([]);
     const [header] = useState(tableHeaderList());
     const [page, setPage] = useState(0);
@@ -53,6 +37,7 @@ const MyPortfolio = ({ CompanyData }) => {
 
                 console.log(data[0])
                 setItems(data)
+               
                 setlastUpdate(data[0].datepurchased)
             })
     }, []);

@@ -16,6 +16,7 @@ const MyProfile = () => {
   const [telephonenumber, setTelephonenumber] = useState("");
   const [email, setEmail] = useState("");
 
+
   useEffect(() => {
     setImageName("katten");
   }, []);
@@ -28,10 +29,32 @@ const MyProfile = () => {
     alert("Data deleted");
   };
 
-  const onProfileSave = (event) => {
+  useEffect(() => {
+    // onProfileSave();
+
+  });
+  let onProfileSave = (event) => {
     event.preventDefault();
-    alert(lastName);
+    fetch('http://localhost:3000/update-users/7', {
+      method: "PUT",
+      body: JSON.stringify(firstName),
+   //   body: JSON.stringify(lastName)
+
+    })
+    .then((response) => response.json())
+        .then((data) => {
+
+          //  console.log(data)
+        })
+        .catch ((error)=>{
+          console.log(error,'COuldnt upload')
+        })
+        console.log(JSON.stringify(firstName));
+
+   // console.log('first',firstName);
   };
+ 
+
 
   return (
     <div className="container">
@@ -42,8 +65,8 @@ const MyProfile = () => {
           src={require("../../images/" + imageName + ".jpg")}
         />
       ) : (
-        <p></p>
-      )}
+          <p></p>
+        )}
       <InputField
         headline="Ladda upp bild"
         type="file"
