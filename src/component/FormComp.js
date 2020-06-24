@@ -1,14 +1,14 @@
 import React from 'react';
 
 
-const FormComp = ({ headline, inputFields, onSubmitAction, buttonId, value }) => {
+const FormComp = ({ headline, inputFields, onSubmitAction, buttonId, value, isDisabled }) => {
     return (
         <div>
             <form onSubmit = {onSubmitAction}>
                 <h1>{headline}</h1>
                 {inputFields}
                 <br />
-                <input type='submit' id={buttonId} value={value}/> 
+                <input disabled ={isDisabled} type='submit' id={buttonId} value={value}/> 
             </form>
         </div>
     );
