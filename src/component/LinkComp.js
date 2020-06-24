@@ -1,8 +1,9 @@
 import React from 'react';
-import {NavLink, Route} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 const LinkComponent = ({ linkName, linkClass, linkID, onClickLink, linkIcon }) => {
-    return (
+ 
+  return (
         <NavLink
         to={onClickLink}
         id={linkID}

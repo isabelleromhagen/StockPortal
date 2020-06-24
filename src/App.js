@@ -1,6 +1,7 @@
 import React from 'react';
 import './styling/App.css';
-import Routes from './loggedIn/sidebar/Sidebar';
+
+import Routes from './routes/Routes'
 
 function App() {
   return (
