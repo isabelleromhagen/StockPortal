@@ -34,7 +34,7 @@ const RegistrationPage = ({goToLogin}) => {
                 } 
             />
             <br />
-            <ButtonComp btnName = 'Login Here' onClickFucntion ={() => goToLogin()} />
+            <ButtonComp btnName = 'Login Here' onClickFunction ={() => goToLogin()} />
         </div>
     );
 };

@@ -8,7 +8,7 @@ import Auth from '../../routes/Authenticated';
 const nameArr =[['Hem','fa fa-home'], 
 ['Min Portfölj','fa fa-briefcase'],
 ['Inställingar','fa fa-cogs'],
-['Logga ut','fa fa-sign-out']];
+['Logga_ut','fa fa-sign-out']];
 
 const views = ["/home","/my_portfolio","/settings","/"];
 

@@ -1,9 +1,9 @@
 import React from 'react';
 
 
-const ButtonComponent = ({ btnName, onClickFucntion, btnClassName, btnID,btnIcon,btnValue }) => {
+const ButtonComponent = ({ btnName, onClickFunction, btnClassName, btnID,btnIcon,btnValue }) => {
     return (
-      <button onClick={onClickFucntion}
+      <button onClick={onClickFunction}
       className = {btnClassName}
       id = {btnID}
       key ={btnID}
