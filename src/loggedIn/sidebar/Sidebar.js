@@ -15,25 +15,18 @@ const views = ["/home","/my_portfolio","/settings","/"];
 const SideBar = (props) =>{
 
     
-    const [viewState, setViewState] = useState(views[0]);
-
-
-    useEffect(()=>{
-        console.log("new View:  " + viewState);
-    })
-
     const logoutAction = () =>{
-        console.log("nej")
         Auth.logout(()=>{
-            props.history.push("/loggin");
+            props.history.push("/");
         });
     }
 
     const generateLinks = 
     nameArr.map(([name, iconname],index)=>{
       return  <div 
-      className ="sidebar">
-      
+      className ="sidebar"
+      onClick= {(name && name ==='Logga_ut') ? {logoutAction}:null}
+      >
       <LinkComponent
       linkName ={name}
       linkID ={name}
@@ -47,7 +40,6 @@ const SideBar = (props) =>{
 
         return(
             <div className="sidediv">
-            <button onClick ={logoutAction} > log out again</button>
             <img src={molndal} id ="sideImageLoggo" alt="campusImage"></img>
             {generateLinks}
             </div>

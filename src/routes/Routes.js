@@ -9,17 +9,18 @@ import FyraNollFyra from '../loggedIn/404error/fyranollfyra';
 import { RootRef } from '@material-ui/core';
 import ProtectedRoute from '../component/ProtectedRouteComp'
 
-
+/*{["/home","/my_portfolio","/settings"]} */
 const Routes = (
 
 
     <BrowserRouter>
     
     <div>  
-    <ProtectedRoute path ='/' component={SideBar} />
-    <Route to='/'> <Redirect to='/loggin'/> </Route>
+
+    <ProtectedRoute path ={["/home","/my_portfolio","/settings"]} component={SideBar} />
     <Switch>
-    <Route path="/loggin" component={StartPage} exact ={true} />
+
+    <Route exact path ='/' component={StartPage} />
     <ProtectedRoute exact ={true} path ="/home" component ={Dashboard} />
     <ProtectedRoute exact ={true} path ="/my_portfolio" component ={MyPortfolio} />
     <ProtectedRoute exact ={true} path ="/settings" component ={SettingsPage} />

@@ -13,6 +13,7 @@ class Auth {
         callBack();
     }
     isAuthenticated(){
+
         return this.authenticated;
 
     }
