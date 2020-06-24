@@ -5,37 +5,30 @@ import SettingsPage from '../loggedIn/settings/SettingsPage';
 import {BrowserRouter, Route, Switch, Redirect} from "react-router-dom";
 import StartPage from '../start/StartPage';
 import SideBar from '../loggedIn/sidebar/Sidebar'
-
-
-const logOut = () =><div><h1>skräpskräpskräpskräpskräpskräpskräpskräp</h1> </div>;
-const fyranollfyra = () => <div> fyra noll fyra </div>;
-
-const isLoggedIn = false;
+import FyraNollFyra from '../loggedIn/404error/fyranollfyra';
+import { RootRef } from '@material-ui/core';
+import ProtectedRoute from '../component/ProtectedRouteComp'
 
 
 const Routes = (
 
 
     <BrowserRouter>
-    {isLoggedIn ? <div>
-        <Redirect exact from="/" to="/loggin:isLoggedIn"></Redirect>
-        <StartPage sendData = {isLoggedIn}/> </div>:
-    <div>
     
-    <SideBar/>
-    <Redirect exact from="/" to="/home"></Redirect>
+    <div>  
+    <ProtectedRoute path ='/' component={SideBar} />
+    <Route to='/'> <Redirect to='/loggin'/> </Route>
     <Switch>
-    <Route exact ={true} path="/loggin:isLoggedIn" component={StartPage} ></Route>
-    <Route path ="/disconnect" component ={StartPage} />
-    <Route exact ={true} path ="/home" component ={Dashboard} />
-    <Route exact ={true} path ="/my_portfolio" component ={MyPortfolio} />
-    <Route exact ={true} path ="/settings" component ={SettingsPage} />
-    <Route component={fyranollfyra} />
+    <Route path="/loggin" component={StartPage} exact ={true} />
+    <ProtectedRoute exact ={true} path ="/home" component ={Dashboard} />
+    <ProtectedRoute exact ={true} path ="/my_portfolio" component ={MyPortfolio} />
+    <ProtectedRoute exact ={true} path ="/settings" component ={SettingsPage} />
+    <Route component={FyraNollFyra} />
     </Switch>
     </div>
-}
+
     </BrowserRouter>
         
     );
 
-export default Routes;
+export default Routes;  

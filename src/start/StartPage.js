@@ -3,7 +3,7 @@ import LoginPage from './LoginPage';
 import RegistrationPage from './RegistrationPage';
 import LostPasswordPage from './LostPasswordPage';
 
-const StartPage = () => {
+const StartPage = (props) => {
     const [currentPage, setCurrentPage] = useState(0);
 
     const goToLogin = () => {
@@ -19,7 +19,7 @@ const StartPage = () => {
 
     return (
         <div>
-           {currentPage === 0 && <LoginPage goToRegistation = {goToRegistation} goToLostPassword = {goToLostPassword}/>}
+           {currentPage === 0 && <LoginPage goToRegistation = {goToRegistation} goToLostPassword = {goToLostPassword} props ={props}/>}
            {currentPage === 1 && <RegistrationPage goToLogin={goToLogin}/>}
            {currentPage === 2 && <LostPasswordPage goToLogin={goToLogin}/>}
         </div>
