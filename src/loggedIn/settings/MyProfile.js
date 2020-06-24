@@ -33,18 +33,22 @@ const MyProfile = () => {
     // onProfileSave();
 
   });
+
   let onProfileSave = (event) => {
     event.preventDefault();
+    console.log(firstName);
     fetch('http://localhost:3000/update-users/7', {
       method: "PUT",
-      body: JSON.stringify(firstName),
-   //   body: JSON.stringify(lastName)
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({firstName})
 
     })
     .then((response) => response.json())
         .then((data) => {
 
-          //  console.log(data)
+            console.log(data)
         })
         .catch ((error)=>{
           console.log(error,'COuldnt upload')
