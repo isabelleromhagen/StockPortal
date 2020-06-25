@@ -6,13 +6,37 @@ import ButtonComp from '../component/ButtonComp';
 
 const LostPasswordPage = ({goToLogin}) => {
     const [email, setEmail] = useState('');
-    const [secret, setSecret] = useState('');
-    const [myPass, setMyPass] = useState('');
+    const [secretword, setSecretWord] = useState('');
+    const [infoMessage, setInfoMessage] = useState('');
 
     const onLoginAction = (event) => {
         event.preventDefault();
-        alert("Email:" + email + " Secret: " + secret);
-        setMyPass('hej1');
+
+        if(!email || !secretword) {
+            setInfoMessage("You need to write in all fields");
+            return;
+        }
+
+        fetch("http://localhost:3001/lostPassword", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email,
+                    secretword,
+                }),
+            })
+            .then((response) => response.json())
+            .then((data) => { 
+            if(data.sucess) {
+                setInfoMessage("Your password is reset to be same as your secret");
+            }
+            else {
+                setInfoMessage(data.message);
+            }
+        });
+
     }
 
     return (
@@ -21,11 +45,11 @@ const LostPasswordPage = ({goToLogin}) => {
               inputFields = { 
               <div>
                   <InputField headline='Email: ' type = 'text' name='email' onChangeAction={ value => setEmail(value)}/>
-                  <InputField headline='Secret word: ' type = 'text' name='secret' onChangeAction={ value => setSecret(value)}/>
+                  <InputField headline='Secret word: ' type = 'text' name='secret' onChangeAction={ value => setSecretWord(value)}/>
               </div>  
               } 
           />
-          {myPass && <p>{myPass}</p>}
+          {infoMessage && <p>{infoMessage}</p>}
           <br />
           <ButtonComp btnName = 'Login Here' onClickFunction ={() => goToLogin()}/>
       </div>
