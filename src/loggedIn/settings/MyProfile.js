@@ -18,7 +18,7 @@ const MyProfile = () => {
   const [email, setEmail] = useState("");
   // const [userData, setUserData] = useState(["Dan", "Andersson", "880512", "Stigen 2", "Stockholm", "12345", "08080808", "danne.a@gmail.com"]);
   // const [userData, setUserData] = useState([]);
-  // const [edits, setEdits] = useState([]);
+  
 
   useEffect(() => {
     setImageName("katten");
@@ -33,34 +33,70 @@ const MyProfile = () => {
   };
 
   useEffect(()=>{
-    fetch("http://localhost:3000/users/2",{
-        method: "GET"
-    })
-    .then((response)=>response.json())
-    .then((data)=>{
+    async function fetchData() {
+      await fetch("http://localhost:3000/users/5",{
+          method: "GET"
+      })
+        .then((response)=> response.json())
+        .then((data)=>{
+            console.log('data from db: ', data);
+            if(data.length > 0){
+                setFirstName(data[0].firstname);
+                setLastName(data.lastname)
+                setSecurityNumber(data.socnumber)
+                setAdress(data.adress)
+                setCity(data.city)
+                setAreaCode(data.zipcode)
+                setTelephonenumber(data.phone)
+                setEmail(data.email)
+                console.log('after setting data from db: ',data[0].firstname);
+                
+            }
    
-     setUserData(data)
-   
- })
-},[]);
+      })
+    }
+    fetchData();
+    console.log('values in hooks: ', firstName, lastName, email);
+  },[]);
 
-  useEffect(() => {
-    // onProfileSave();
+  // useEffect(() => {
+  //   // onProfileSave();
 
-  });
-  let onProfileSave = (event) => {
+  // });
+  const onProfileSave = (event) => {
     event.preventDefault();
 
-    fetch('http://localhost:3000/update-users/2', {
-      method: "PUT",
-      headers: {
-        'Content-Type': 'application/json',
-      },
-       body: JSON.stringify({firstName, lastName, socnumber, adress, zipcode, city, email, phone}),
-    })
-    .then((response) => response.json())
-        .then((data) => {
+  
+    
+    // let updatedData = [firstName, lastName, socnumber, adress, zipcode, city, email, phone];
+    console.log('updated data: ', firstName, lastName, socnumber, adress, zipcode, city, email, phone);
 
+    let formData = new FormData();
+    let updatedData = [firstName, lastName, socnumber, adress, zipcode, city, email, phone];
+    // formData.append(updatedData);
+    // formData = updatedData.map((elem) => {
+    //   formData.append('updatedData', elem)
+    //   return formData
+    // })
+
+    for(let i=0; i<updatedData.length; i++) {
+      formData.append('updatedData', updatedData[i]);
+    }
+
+    fetch('http://localhost:3000/update-users/5', {
+      // method: "PUT",
+      method: "POST",
+      headers: {
+        // 'Content-Type': 'application/json',
+        'Content-Type': 'multipart/form-data',
+      },
+      //  body: JSON.stringify({firstName}),
+      body: formData,
+   
+    })
+    .then(response => response.json())
+        .then(result => {
+          console.log('data efter sista then', result);
         })
         .catch ((error)=>{
           console.log(error,'COuldnt upload')
@@ -151,7 +187,7 @@ const MyProfile = () => {
         }
       />
       <br />
-      <ButtonComp btnName = "Radera min profil" onClickFunction = {deleteMyData}/>
+      <ButtonComp btnName = "Radera min data" onClickFunction = {deleteMyData}/>
     </div>
   );
 };
