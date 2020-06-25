@@ -87,7 +87,7 @@ const MyProfile = () => {
 
         <input ref={register} type="file" name="profilpic" />
 
-        <button>Upload image</button> 
+        <button style={{background:"#FDCC6B",color:"#FFFFFF"}}>Upload image</button> 
 
       </form>
 
