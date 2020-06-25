@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useForm } from 'react-hook-form';
 import InputField from "../../component/InputField";
 import FormComp from "../../component/FormComp";
 import ButtonComp from "../../component/ButtonComp";
+import edit from "../../images/edit-button.svg";
 
 const MyProfile = () => {
   const [imageName, setImageName] = useState("");
@@ -15,8 +17,21 @@ const MyProfile = () => {
   const [areaCode, setAreaCode] = useState("");
   const [telephonenumber, setTelephonenumber] = useState("");
   const [email, setEmail] = useState("");
+  const { register, handleSubmit } = useForm();
 
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+    formData.append('profilpic', data.profilpic[0])
+    const res = await fetch('http://localhost:3000/upload-image/7', {
+      method: "POST",
+      body: formData
 
+    }).then(res => res.json())
+    console.log(JSON.stringify(res))
+
+  }
+
+//TODO get the image from ./image when API is incorp.
   useEffect(() => {
     setImageName("katten");
   }, []);
@@ -29,10 +44,7 @@ const MyProfile = () => {
     alert("Data deleted");
   };
 
-  useEffect(() => {
-    // onProfileSave();
 
-  });
 
   let onProfileSave = (event) => {
     event.preventDefault();
@@ -42,22 +54,22 @@ const MyProfile = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({firstName})
+      body: JSON.stringify({ firstName })
 
     })
-    .then((response) => response.json())
-        .then((data) => {
+      .then((response) => response.json())
+      .then((data) => {
 
-            console.log(data)
-        })
-        .catch ((error)=>{
-          console.log(error,'COuldnt upload')
-        })
-        console.log(JSON.stringify(firstName));
+        console.log(data)
+      })
+      .catch((error) => {
+        console.log(error, 'COuldnt upload')
+      })
+    console.log(JSON.stringify(firstName));
 
-   // console.log('first',firstName);
+    // console.log('first',firstName);
   };
- 
+
 
 
   return (
@@ -71,12 +83,19 @@ const MyProfile = () => {
       ) : (
           <p></p>
         )}
-      <InputField
-        headline="Ladda upp bild"
+      <form onSubmit={handleSubmit(onSubmit)}>
+
+        <input ref={register} type="file" name="profilpic" />
+
+        <button>Upload image</button> 
+
+      </form>
+
+      {/* <InputField
         type="file"
         name="profilepic"
         onChangeAction={(value) => setImageUpload(value)}
-      />
+      /> */}
       <FormComp
         onSubmitAction={onProfileSave}
         buttonId="profileSaveButton"
@@ -144,7 +163,7 @@ const MyProfile = () => {
         }
       />
       <br />
-      <ButtonComp btnName = "Radera min profil" onClickFunction = {deleteMyData}/>
+      <ButtonComp btnName="Radera min profil" onClickFunction={deleteMyData} />
     </div>
   );
 };
