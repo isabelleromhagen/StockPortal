@@ -85,7 +85,7 @@ const Dashboard = () => {
     },[]);
 
     return(
-        <div>   
+        <div>   git 
             {userData && shareData && shareData.length > 0 ? <Banner text={`Välkommen ${userData.firstname}! 
             Ditt innehav uppdaterades ${lastUpdate}. Ta gärna en titt!`}/> : <Banner text={`Välkommen ${userData.firstname}! 
             Du har inte något innehav ännu. Du får ett mail så fort det är uppdaterat!`}/>}
