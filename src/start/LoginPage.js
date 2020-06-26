@@ -24,7 +24,7 @@ const LoginPage = ({goToRegistation, goToLostPassword, props}) => {
             props.history.push('/home');
             return;
            }
-           setInfoMessage(message + (3-loginCount) + " tries left");
+           setInfoMessage(message +" "+ (3-loginCount) + " tries left");
            setloginCount(loginCount +1);
        });
        
