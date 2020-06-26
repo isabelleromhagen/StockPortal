@@ -3,14 +3,50 @@ import InputField from "../../component/InputField";
 import FormComp from "../../component/FormComp";
 
 const ChangePasswordPage = () => {
-    const [currentPass, setCurrentPass] = useState("");
-    const [newPass, setNewPass] = useState("");
-    const [reEnterPass, setReEnterPass] = useState("");
+  const [old_password, setCurrentPass] = useState("");
+  const [new_password, setNewPass] = useState("");
+  const [reEnterPass, setReEnterPass] = useState("");
+  const [infoMessage, setInfoMessage] = useState("");
+  const id_token = localStorage.getItem("id_token");
 
-    const onPasswordChangedSubmit = (event) => {
-        event.preventDefault();
-        alert(newPass);
+  const onPasswordChangedSubmit = (event) => {
+    event.preventDefault();
+
+    if (!old_password || !new_password || !reEnterPass) {
+      setInfoMessage("Du måste skirva i alla fält");
+      return;
     }
+
+    if (new_password !== reEnterPass) {
+      setInfoMessage("Lösenorden matchar inte");
+      return;
+    }
+
+    if (!id_token) {
+      setInfoMessage("Du har inget login-token. Var god logga in igen.");
+      return;
+    }
+
+    fetch("http://localhost:3001/updatePassword", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        old_password,
+        new_password,
+        id_token,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.sucess) {
+          setInfoMessage("Du bytte lösenord");
+        } else {
+          setInfoMessage(data.message);
+        }
+      });
+  };
 
   return (
     <div className="container">
@@ -22,23 +58,24 @@ const ChangePasswordPage = () => {
           <div>
             <InputField
               headline="Nuvarande lösenord "
-              type="text"
+              type="password"
               name="currentPass"
               onChangeAction={(value) => setCurrentPass(value)}
             />
             <InputField
               headline="Nytt lösenord "
-              type="text"
+              type="password"
               name="newPass"
               onChangeAction={(value) => setNewPass(value)}
             />
             <InputField
-            headline="Bekräfta nytt lösenord "
-            type="text"
-            name="reenterpass"
-            onChangeAction={(value) => setReEnterPass(value)}
-          />
-          <hr />
+              headline="Bekräfta nytt lösenord "
+              type="password"
+              name="reenterpass"
+              onChangeAction={(value) => setReEnterPass(value)}
+            />
+            {infoMessage && <p>{infoMessage}</p>}
+            <hr />
           </div>
         }
       />
