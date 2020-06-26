@@ -26,9 +26,8 @@ class Auth {
             });
         }
     }
-    logout(callBack) {
+    logout() {
         localStorage.removeItem('id_token');
-        callBack();
     }
     isAuthenticated(){
         return localStorage.getItem('id_token') != null;

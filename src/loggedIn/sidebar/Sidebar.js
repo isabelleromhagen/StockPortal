@@ -16,17 +16,15 @@ const SideBar = (props) =>{
 
     
     const logoutAction = () =>{
-        Auth.logout(()=>{
-            props.history.push("/");
-        });
-    }
+        Auth.logout();
+    };
 
     const generateLinks = 
     nameArr.map(([name, iconname],index)=>{
       return  <div 
       className ="sidebar"
       key ={name +index}
-      onClick= {(name && name ==='Logga_ut') ? {logoutAction}:null}
+      onClick= { () => name ==='Logga_ut' && logoutAction()}
       >
       <LinkComponent
       linkName ={name}
