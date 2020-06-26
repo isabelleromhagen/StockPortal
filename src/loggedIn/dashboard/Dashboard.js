@@ -9,37 +9,56 @@ import Profile from "./Profile";
 
 const Dashboard = () => {
     // const [isInlogged, setIsinlogged] = useState(true);
-    const [userData, setUserData] = useState([]);
+    const [userData, setUserData] = useState({});
     const [shareData, setShareData] = useState([]);
     const [prefData, setPrefData] = useState([]);
     const [lastUpdate, setLastUpdate] = useState();
+    const id_token = localStorage.getItem('id_token');
 
-//    useEffect(() => {
-//         setData(isInlogged ? data : [])
-       
-//     }, []);
-    useEffect(()=>{
-       
-           fetch("http://localhost:3000/users/5",{
-                method: "GET"
+
+      useEffect(() => {
+          const fetchUserData = async () => {
+              
+        await fetch("http://localhost:3001/getProfileInfo", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                id_token
+            }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                   
+                    console.log(data);
+                    setUserData(data);
+                
+                
+                
+               console.log(userData);
             })
-            .then((response)=>response.json())
-            .then((data)=>{
-           
-             setUserData(data)
-            
-         })
-        
-    },[]);
+          }
+
+          fetchUserData();
+          
+    }, []);
 
    useEffect(()=>{
-    fetch("http://localhost:3000/portfolio",{
-        method: "GET"
+    fetch("http://localhost:3001/portfolio",{
+        method: "POST",
+          headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                id_token
+            }),
     })
-    .then((response)=>response.json())
+    .then((response) => response.json())
     .then((data)=>{
    
      setShareData(data);
+     console.log(data);
      let date = new Date(data[0].datepurchased);
      setLastUpdate(date.toLocaleDateString());
      
@@ -47,20 +66,26 @@ const Dashboard = () => {
     },[]);
 
     useEffect(()=>{
-        fetch("http://localhost:3000/preference",{
-            method: "GET"
+        fetch("http://localhost:3001/getPreferencesInfo",{
+            method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                id_token
+            }),
         })
         .then((response)=>response.json())
         .then((data)=>{
     
-        setPrefData(data)
-        
+        setPrefData(data);
+        console.log(data);
     })
     },[]);
 
     return(
         <div>   
-            {shareData && shareData.length > 0 ? <Banner text={`Välkommen ${userData[0].firstname}! 
+            {userData && shareData && shareData.length > 0 ? <Banner text={`Välkommen ${userData.firstname}! 
             Ditt innehav uppdaterades ${lastUpdate}. Ta gärna en titt!`}/> : <Banner text={`Välkommen ${userData.firstname}! 
             Du har inte något innehav ännu. Du får ett mail så fort det är uppdaterat!`}/>}
             <Profile userData={userData} prefData={prefData}/>

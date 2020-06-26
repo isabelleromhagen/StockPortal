@@ -7,16 +7,16 @@ import { NavLink } from 'react-router-dom';
 
     const Profile = ({userData, prefData}) => {
         
-        if(userData.length > 0) {
+        if(userData) {
             return(
                 <div id="profileDiv" className="container">
                         <h4 className="dashboardSubtitle">Min profil</h4>
                         <NavLink className="dashboardBtn" value={"Redigera"} to={"/settings"}>Redigiera</NavLink>  
                         <img  alt="profile pic"/>
                             
-                            {userData.length > 0 ? <PersonalData firstname={userData[0].firstname}
-                                lastname={userData[0].lastname} pNum={userData[0].socNumber}/> :
-                                <p>Ingen användardata</p>}
+                            <PersonalData firstname={userData.firstname}
+                                lastname={userData.lastname}/> 
+                               
                             <div id="industryDiv">
                                 <p className="profileSubtitle">Föredragna industrier</p>
                                 {

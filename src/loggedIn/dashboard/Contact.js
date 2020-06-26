@@ -8,23 +8,23 @@ const Contact = ({data}) => {
                 <tbody>
                             <tr>
                                 <th>Telefon</th>
-                                <td>{data[0].phone}</td>
+                                <td>{data.phone}</td>
                            </tr>
                             <tr>
                                 <th>Mail</th>
-                                <td>{data[0].email}</td>
+                                <td>{data.email}</td>
                             </tr>
                             <tr>
                                 <th>Adress</th>
-                                <td>{data[0].adress}</td>
+                                <td>{data.adress}</td>
                             </tr>
                             <tr>
                                 <th>Postnummer</th>
-                                <td>{data[0].zipcode}</td>
+                                <td>{data.zipcode}</td>
                             </tr>
                             <tr>
                                 <th>Postort</th>
-                        <td>{data[0].city}</td>
+                        <td>{data.city}</td>
                             </tr>
                 </tbody>     
             </table>
