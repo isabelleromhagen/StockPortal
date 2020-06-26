@@ -59,10 +59,6 @@ const PreferencesPage = () => {
       });
   }, []);
 
-  const onPreferencesSave = () => {
-    console.log(financeCheck);
-  };
-
   const callChange = (value, catid) => {
     console.log(catid + "is " + value );
      if(value) {
@@ -101,49 +97,6 @@ const PreferencesPage = () => {
           }
         });
      }
-    //  else {
-    //   console.log();
-    // }
-    // fetch("http://localhost:3001/getPreferencesInfo", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     id_token,
-    //   }),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     if (data[0]) {
-    //       data.map((category) => {
-    //         switch (category.catname) {
-    //           case "Industri":
-    //             setIndustriCheck(true);
-    //             break;
-    //           case "IT":
-    //             setItCheck(true);
-    //             break;
-    //           case "Läkemedel":
-    //             setDrugsCheck(true);
-    //             break;
-    //           case "Bygg":
-    //             setConstructionCheck(true);
-    //             break;
-    //           case "Finans":
-    //             setFinanceCheck(true);
-    //             break;
-    //           case "Fastigheter":
-    //             setRealesateCheck(true);
-    //             break;
-    //           default:
-    //             break;
-    //         }
-    //       });
-    //     } else if (data.message) {
-    //       setInfoMessage("Vi kunde inte ladda dina instsällningar");
-    //     }
-    //   });
   };
 
   return (

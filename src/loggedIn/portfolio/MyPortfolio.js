@@ -9,7 +9,7 @@ const headerTitleList = ["Företag", "Innehav", "Aktietyp", "Antal Aktier", "Akt
 
 const tableHeaderList = () => (headerTitleList.map((elem) => <th key={elem}>{elem}</th>));
 
-const MyPortfolio = ({ CompanyData }) => {
+const MyPortfolio = () => {
     let amountToshow = 10;
     const site = "Min portfölj";
     const [lastupdate, setlastUpdate] = useState();
@@ -17,13 +17,13 @@ const MyPortfolio = ({ CompanyData }) => {
     const [header] = useState(tableHeaderList());
     const id_token = localStorage.getItem('id_token');
     const [page, setPage] = useState(0);
+    const [currentItems, setCurrentItems] = useState('');
     const [rowsPerPage, setRowsPerPage] = useState(amountToshow);
     const handleChangePage = (e, newPage) => { setPage(newPage); };
     const handleChangeRowsPerPage = e => {
         setRowsPerPage(parseInt(e.target.value, amountToshow));
         setPage(0);
     };
-    const currentItems = items.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
 
 
 
@@ -39,11 +39,13 @@ const MyPortfolio = ({ CompanyData }) => {
         })
             .then((response) => response.json())
             .then((data) => {
-
+                if(data[0]) {
                 console.log(data[0])
-                setItems(data)
+                setCurrentItems(data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage));
                 let date = new Date(data[0].datepurchased);
                 setlastUpdate(date.toLocaleDateString());
+                }
+                
             })
     }, []);
 
@@ -78,7 +80,7 @@ const MyPortfolio = ({ CompanyData }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {items.length > 0 ? <Stocks /> : <p>  Du har inget innehav</p>}
+                        {currentItems ? <Stocks /> : <p>  Du har inget innehav</p>}
 
 
                     </tbody>
