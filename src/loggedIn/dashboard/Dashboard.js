@@ -30,7 +30,6 @@ const Dashboard = () => {
         })
             .then((response) => response.json())
             .then((data) => {
-                   
                     console.log(data);
                     setUserData(data);
                 
@@ -57,10 +56,12 @@ const Dashboard = () => {
     .then((response) => response.json())
     .then((data)=>{
    
-     setShareData(data);
-     console.log(data);
-     let date = new Date(data[0].datepurchased);
-     setLastUpdate(date.toLocaleDateString());
+        if(data[0]) {
+            setShareData(data);
+            console.log(data);
+            let date = new Date(data[0].datepurchased);
+            setLastUpdate(date.toLocaleDateString());
+        }
      
     })
     },[]);
@@ -84,7 +85,7 @@ const Dashboard = () => {
     },[]);
 
     return(
-        <div>   
+        <div>   git 
             {userData && shareData && shareData.length > 0 ? <Banner text={`Välkommen ${userData.firstname}! 
             Ditt innehav uppdaterades ${lastUpdate}. Ta gärna en titt!`}/> : <Banner text={`Välkommen ${userData.firstname}! 
             Du har inte något innehav ännu. Du får ett mail så fort det är uppdaterat!`}/>}
