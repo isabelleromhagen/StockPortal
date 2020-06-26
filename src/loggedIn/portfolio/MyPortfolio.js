@@ -42,6 +42,7 @@ const MyPortfolio = () => {
                 if(data[0]) {
                 console.log(data[0])
                 setCurrentItems(data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage));
+                setItems(data);
                 let date = new Date(data[0].datepurchased);
                 setlastUpdate(date.toLocaleDateString());
                 }
