@@ -50,7 +50,7 @@ const MyPortfolio = ({ CompanyData }) => {
             <>{currentItems.map((elem, index) =>
                 <PortfolioTable
                     key={index}
-                    company={elem.company}
+                    company={elem.companyname}
                     holdingValue={elem.stockvalue}
                     type={elem.stocktype}
                     holdingAmount={elem.amount}
