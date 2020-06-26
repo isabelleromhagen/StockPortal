@@ -28,8 +28,14 @@ h1 {
   text-align: center;
   padding-left: 0;
 }
-form:disabled {
-  color: black;
+input{
+  color: rgb(40, 240, 40);
 }
-
+input:disabled {
+  color: red;
+}
+#errorMessagediv{
+  display: inline-flex;
+  
+}
 

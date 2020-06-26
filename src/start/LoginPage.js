@@ -16,7 +16,7 @@ const LoginPage = ({goToRegistation, goToLostPassword, props}) => {
             setDisabled(true)
         }
     })
-
+/** insert real password into if-statment and remove the alert */
     const onLoginAction = (event) => {
         event.preventDefault();
         if(password ==="1234"){
@@ -29,7 +29,7 @@ const LoginPage = ({goToRegistation, goToLostPassword, props}) => {
     }
     const wrongPassword = (event) =>{
             setloginCount(loginCount +1);
-            setMessage("wrong password " +(3-loginCount) +" trys left..")
+            setMessage(<div id="errorMessagediv"> <p>wrong password</p> {(3-loginCount)}<p>trys left.. </p> </div>)
             
     }
 
@@ -39,7 +39,7 @@ const LoginPage = ({goToRegistation, goToLostPassword, props}) => {
               inputFields = { 
               <div>
                   <InputField headline='Email: ' type = 'text' name='email' onChangeAction={ value => setEmail(value)}/>
-                  <InputField headline='Password: ' type = 'text' name='password' onChangeAction={ value => setPassword(value)}/>
+                  <InputField headline='Password: ' type = 'password' name='password' onChangeAction={ value => setPassword(value)}/>
               </div>  
               } 
           />
