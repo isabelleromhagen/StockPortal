@@ -3,18 +3,19 @@ import '../../styling/portfolio.css';
 import TablePagination from "@material-ui/core/TablePagination";
 import PortfolioTable from "../../component/PortfolioTable";
 const headerTitleList = ["Företag", "Innehav", "Aktietyp", "Antal Aktier", "Aktienummer", "Ägarandel", "Röstvärde"];
-let amountToshow = 10;
+
 
 
 
 const tableHeaderList = () => (headerTitleList.map((elem) => <th key={elem}>{elem}</th>));
 
 const MyPortfolio = ({ CompanyData }) => {
+    let amountToshow = 10;
     const site = "Min portfölj";
     const [lastupdate, setlastUpdate] = useState();
-    const [isInlogged, setIsinlogged] = useState(false); //TODO fix the metod for login
     const [items, setItems] = useState([]);
     const [header] = useState(tableHeaderList());
+    const id_token = localStorage.getItem('id_token');
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(amountToshow);
     const handleChangePage = (e, newPage) => { setPage(newPage); };
@@ -24,33 +25,34 @@ const MyPortfolio = ({ CompanyData }) => {
     };
     const currentItems = items.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
 
-    useEffect(() => {
-        setItems(isInlogged ? CompanyData : [])
-    }, []);
+
 
     useEffect(() => {
-        fetch("http://localhost:3000/portfolio", {
-            method: "GET"
+        fetch("http://localhost:3001/portfolio", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                id_token
+            }),
         })
             .then((response) => response.json())
             .then((data) => {
 
                 console.log(data[0])
                 setItems(data)
-               
-                setlastUpdate(data[0].datepurchased)
+                let date = new Date(data[0].datepurchased);
+                setlastUpdate(date.toLocaleDateString());
             })
     }, []);
-
-
-
 
     const Stocks = () => {
         return (
             <>{currentItems.map((elem, index) =>
                 <PortfolioTable
                     key={index}
-                    company={elem.companyname}
+                    companyname={elem.companyname}
                     holdingValue={elem.stockvalue}
                     type={elem.stocktype}
                     holdingAmount={elem.amount}
