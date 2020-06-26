@@ -18,17 +18,19 @@ const Dashboard = () => {
 //         setData(isInlogged ? data : [])
        
 //     }, []);
-   useEffect(()=>{
-       fetch("http://localhost:3000/users",{
-           method: "GET"
-       })
-       .then((response)=>response.json())
-       .then((data)=>{
-      
-        setUserData(data)
-        setLastUpdate(data[0].datepurchased)
-    })
-   },[]);
+    useEffect(()=>{
+       
+           fetch("http://localhost:3000/users/5",{
+                method: "GET"
+            })
+            .then((response)=>response.json())
+            .then((data)=>{
+           
+             setUserData(data)
+            
+         })
+        
+    },[]);
 
    useEffect(()=>{
     fetch("http://localhost:3000/portfolio",{
