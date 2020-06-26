@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import InputField from "../../component/InputField";
 import FormComp from "../../component/FormComp";
 import ButtonComp from "../../component/ButtonComp";
-import edit from "../../images/edit-button.svg";
+
 
 const MyProfile = () => {
   const [imageName, setImageName] = useState("");
@@ -85,9 +85,9 @@ const MyProfile = () => {
         )}
       <form onSubmit={handleSubmit(onSubmit)}>
 
-        <input ref={register} type="file" name="profilpic" />
+        <input className="fa fa-pencil-square-o" ref={register} type="file"  name="profilpic" />
 
-        <button style={{background:"#FDCC6B",color:"#FFFFFF"}}>Upload image</button> 
+        <button style={{background:"#FDCC6B",color:"#FFFFFF"}}></button> 
 
       </form>
 
