@@ -16,10 +16,10 @@ const Routes = (
     
     <div>  
 
-    <ProtectedRoute path ={["/home","/my_portfolio","/settings"]} component={SideBar} />
+    <ProtectedRoute exact ={true} path ={["/home","/my_portfolio","/settings"]} component={SideBar} />
     <Switch>
 
-    <Route exact path ='/' component={StartPage} />
+    <Route exact ={true} path ='/' component={StartPage} />
     <ProtectedRoute exact ={true} path ="/home" component ={Dashboard} />
     <ProtectedRoute exact ={true} path ="/my_portfolio" component ={MyPortfolio} />
     <ProtectedRoute exact ={true} path ="/settings" component ={SettingsPage} />

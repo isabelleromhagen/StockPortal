@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FormComp from '../component/FormComp';
 import InputField from '../component/InputField';
 import ButtonComp from '../component/ButtonComp';
@@ -11,6 +11,7 @@ const RegistrationPage = ({goToLogin}) => {
     const [secretword, setSecretWord] = useState('');
     const [gdpr, setGdpr] = useState(false);
     const [infoMessage, setInfoMessage] = useState('');
+    const [isDisabled, setDisabled] = useState(false);
 
     const onRegistrationAction = (event) => {
         event.preventDefault();
@@ -58,12 +59,12 @@ const RegistrationPage = ({goToLogin}) => {
 
     return (
         <div>
-            <FormComp headline ='Register' onSubmitAction = {onRegistrationAction} 
+            <FormComp headline ='Register' onSubmitAction = {onRegistrationAction} isDisabled={isDisabled}
                 inputFields = { 
                 <div>
                     <InputField headline='Email: ' type = 'text' name='username' onChangeAction={ value => setEmail(value)}/>
-                    <InputField headline='Password: ' type = 'text' name='password' onChangeAction={ value => setPassword(value)}/>
-                    <InputField headline='Re-enter Password: ' type = 'text' name='password2' onChangeAction={ value => setPassword2(value)}/>
+                    <InputField headline='Password: ' type = 'password' name='password' onChangeAction={ value => setPassword(value)}/>
+                    <InputField headline='Re-enter Password: ' type = 'password' name='password2' onChangeAction={ value => setPassword2(value)}/>
                     <InputField headline='Secret word: ' type = 'text' name='secretWord' onChangeAction={ value => setSecretWord(value)}/>
                     <InputField headline='Check this if you agree with GDPR: ' type = 'checkbox' name='gdpr' onChangeAction={ () => switchGdpr()}/>
                 </div>  

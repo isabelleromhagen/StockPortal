@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FormComp from '../component/FormComp';
 import InputField from '../component/InputField';
 import ButtonComp from '../component/ButtonComp';
@@ -8,7 +8,15 @@ const LoginPage = ({goToRegistation, goToLostPassword, props}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [infoMessage, setInfoMessage] = useState('');
+    const [loginCount, setloginCount] =useState(0);
+    const [isDisabled, setDisabled] = useState(false);
 
+    useEffect (()=>{
+        if(loginCount >3){
+            setDisabled(true)
+        }
+    })
+/** insert real password into if-statment and remove the alert */
     const onLoginAction = (event) => {
         event.preventDefault();
        Auth.login( email, password, (res, message) =>{
@@ -16,18 +24,20 @@ const LoginPage = ({goToRegistation, goToLostPassword, props}) => {
             props.history.push('/home');
             return;
            }
-           setInfoMessage(message);
+           setInfoMessage(message + (3-loginCount) + " tries left");
+           setloginCount(loginCount +1);
        });
+       
     };
     
 
     return (
       <div>
-          <FormComp headline ='Login' onSubmitAction = {onLoginAction} 
+          <FormComp headline ='Login' onSubmitAction = {onLoginAction} isDisabled ={isDisabled}
               inputFields = { 
               <div>
                   <InputField headline='Email: ' type = 'text' name='email' onChangeAction={ value => setEmail(value)}/>
-                  <InputField headline='Password: ' type = 'text' name='password' onChangeAction={ value => setPassword(value)}/>
+                  <InputField headline='Password: ' type = 'password' name='password' onChangeAction={ value => setPassword(value)}/>
               </div>  
               } 
             />

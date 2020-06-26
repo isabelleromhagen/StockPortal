@@ -9,7 +9,7 @@ const LostPasswordPage = ({goToLogin}) => {
     const [secretword, setSecretWord] = useState('');
     const [infoMessage, setInfoMessage] = useState('');
 
-    const onLoginAction = (event) => {
+    const getPassword = (event) => {
         event.preventDefault();
 
         if(!email || !secretword) {
@@ -41,7 +41,7 @@ const LostPasswordPage = ({goToLogin}) => {
 
     return (
       <div>
-          <FormComp headline ='Lost Password' onSubmitAction = {onLoginAction} 
+          <FormComp headline ='Lost Password' onSubmitAction = {getPassword} 
               inputFields = { 
               <div>
                   <InputField headline='Email: ' type = 'text' name='email' onChangeAction={ value => setEmail(value)}/>
