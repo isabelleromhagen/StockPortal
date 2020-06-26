@@ -30,7 +30,6 @@ const Dashboard = () => {
         })
             .then((response) => response.json())
             .then((data) => {
-                   
                     console.log(data);
                     setUserData(data);
                 
@@ -57,10 +56,12 @@ const Dashboard = () => {
     .then((response) => response.json())
     .then((data)=>{
    
-     setShareData(data);
-     console.log(data);
-     let date = new Date(data[0].datepurchased);
-     setLastUpdate(date.toLocaleDateString());
+        if(data[0]) {
+            setShareData(data);
+            console.log(data);
+            let date = new Date(data[0].datepurchased);
+            setLastUpdate(date.toLocaleDateString());
+        }
      
     })
     },[]);
