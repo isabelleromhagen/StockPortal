@@ -66,7 +66,7 @@ const RegistrationPage = ({goToLogin}) => {
                     <InputField InputClass='startFields' headline='Password: ' type = 'password' name='password' onChangeAction={ value => setPassword(value)}/>
                     <InputField InputClass='startFields' headline='Re-enter Password: ' type = 'password' name='password2' onChangeAction={ value => setPassword2(value)}/>
                     <InputField InputClass='startFields' headline='Secret word: ' type = 'password' name='secretWord' onChangeAction={ value => setSecretWord(value)}/>
-                    <a href="https://gdpr-info.eu/"> GDPR-INFO</a>
+                    <a id='gdprlink' href="https://gdpr-info.eu/"> GDPR-INFO</a>
                     <InputField InputClass='startFields' headline='Check this if you agree with GDPR: ' type = 'checkbox' name='gdpr' onChangeAction={ () => switchGdpr()}/>
                     </div>  
                 } 

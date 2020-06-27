@@ -27,7 +27,10 @@ h1 {
   text-align: center;
   padding-left: 0;
 }
-
+input[type=submit]:disabled{
+  color: #c9bea6;
+  background-color: #666565;
+}
 
 input[type=submit],input[type=submit]:focus{
   color: #C9B791;
@@ -41,12 +44,12 @@ input[type=submit],input[type=submit]:focus{
   text-align: center;
   outline: none;
 }
-input[type=submit]:hover,.startUpButtons:hover{
+input[type=submit]:hover:enabled,.startUpButtons:hover{
   box-shadow: 0 3px #c5c5c5;
   background-color:  #999999;
   color:  #FDCC6B;
 }
-a{
+#gdprlink{
   margin-left: 25%;
   font-size: 90%;
 }
