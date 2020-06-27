@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import '../../styling/SideBar.css' 
 import molndal from '../../images/molndal.png';
 import LinkComponent from '../../component/LinkComp';
 import Auth from '../../routes/Authenticated';
-
+import { NavLink} from 'react-router-dom'
 
 const nameArr =[['Hem','fa fa-home'], 
 ['Min Portfölj','fa fa-briefcase'],
@@ -14,7 +14,6 @@ const views = ["/home","/my_portfolio","/settings","/"];
 
 const SideBar = (props) =>{
 
-    
     const logoutAction = () =>{
         Auth.logout();
     };
@@ -39,8 +38,9 @@ const SideBar = (props) =>{
 
         return(
             <div className="sidediv">
-            
+            <NavLink to='/home'> 
             <img src={molndal} id ="sideImageLogo" alt="campusImage"></img>
+            </NavLink>
             {generateLinks}
             </div>
         )
