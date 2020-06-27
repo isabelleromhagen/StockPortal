@@ -59,15 +59,16 @@ const RegistrationPage = ({goToLogin}) => {
 
     return (
         <div className = 'StartDiv'>
-            <FormComp className ="FormDiv" headline ='Register' onSubmitAction = {onRegistrationAction} isDisabled={isDisabled} value ='Registera'
+            <FormComp headlineClass='startHeader' className ="FormDiv" headline ='Register' onSubmitAction = {onRegistrationAction} isDisabled={isDisabled} value ='Registera'
                 inputFields = { 
                 <div>
                     <InputField InputClass='startFields' headline='Email: ' type = 'text' name='username' onChangeAction={ value => setEmail(value)}/>
                     <InputField InputClass='startFields' headline='Password: ' type = 'password' name='password' onChangeAction={ value => setPassword(value)}/>
                     <InputField InputClass='startFields' headline='Re-enter Password: ' type = 'password' name='password2' onChangeAction={ value => setPassword2(value)}/>
                     <InputField InputClass='startFields' headline='Secret word: ' type = 'password' name='secretWord' onChangeAction={ value => setSecretWord(value)}/>
+                    <a href="https://gdpr-info.eu/"> GDPR-INFO</a>
                     <InputField InputClass='startFields' headline='Check this if you agree with GDPR: ' type = 'checkbox' name='gdpr' onChangeAction={ () => switchGdpr()}/>
-                </div>  
+                    </div>  
                 } 
             />
             {infoMessage && <p>{infoMessage}</p>}

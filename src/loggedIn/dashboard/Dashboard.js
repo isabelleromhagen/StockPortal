@@ -66,6 +66,7 @@ const Dashboard = () => {
     })
     },[]);
 
+    
     useEffect(()=>{
         fetch("http://localhost:3001/getPreferencesInfo",{
             method: "POST",
@@ -79,8 +80,9 @@ const Dashboard = () => {
         .then((response)=>response.json())
         .then((data)=>{
     
+            if(data[0]){
         setPrefData(data);
-        console.log(data);
+        console.log(data);}
     })
     },[]);
 

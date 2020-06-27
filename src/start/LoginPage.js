@@ -33,7 +33,7 @@ const LoginPage = ({goToRegistation, goToLostPassword, props}) => {
 
     return (
       <div className = 'StartDiv'>
-          <FormComp className ='FormDiv' headline ='Login' onSubmitAction = {onLoginAction} isDisabled ={isDisabled} value ='Login'
+          <FormComp headlineClass='startHeader' className ='FormDiv' headline ='Login' onSubmitAction = {onLoginAction} isDisabled ={isDisabled} value ='Login'
               inputFields = { 
               <div>
                   <InputField InputClass='startFields' headline='Email: ' type = 'text' name='email' onChangeAction={ value => setEmail(value)}/>

@@ -1,7 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins);
 
-* {
-  
+* {  
   margin: 0;
   padding: 0;
 }
@@ -29,31 +28,69 @@ h1 {
   padding-left: 0;
 }
 
-input{
-  color: green;
-  
-}
 
+input[type=submit],input[type=submit]:focus{
+  color: #C9B791;
+  background-color: #888787;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 3px #a8a8a8;
+  cursor: pointer;
+  width: 60px;
+  height: 3vh;
+  text-align: center;
+  outline: none;
+}
+input[type=submit]:hover,.startUpButtons:hover{
+  box-shadow: 0 3px #c5c5c5;
+  background-color:  #999999;
+  color:  #FDCC6B;
+}
+a{
+  margin-left: 25%;
+  font-size: 90%;
+}
 .StartDiv{
   border-radius: 5px;
   background-color:  #bebdbd;
   margin-left: 33vw;
-  width: 30vw;
-  height: 40vh; 
+  width: 35vw;
+  height: 87vh; 
   text-align: center;
 }
 
 .FormDiv{
-  color: red;
+  color: #9e6b06;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-left: 10%;
+}
+.startFields:focus{
+  outline: none;  
+}
+.startFields{
+  color: #656565;
+  width: 80%;
+  border-radius: 3px;
+  border: none;
+  margin: 5px;
+  background-color: #e6e0e0;
+}
+.startUpButtons,.startUpButtons:active{
+  border-radius: 5px;
+  margin: 2vw;
+  width: 70%;
+  background-color: #888787;
+  color: #C9B791;
+  cursor: pointer;
+  box-shadow: 0 3px #a8a8a8;
+  outline: none;
+  text-align: center;
+}
+.startHeader{
+  margin-right:10%;
+  padding: 0;
+  text-align: center;
   
 }
-
-.startFields{
-  color: blue;
-}
-.startUpButtons{
-}
-
 
 

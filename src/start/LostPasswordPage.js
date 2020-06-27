@@ -41,7 +41,7 @@ const LostPasswordPage = ({goToLogin}) => {
 
     return (
       <div className = 'StartDiv'>
-          <FormComp className="FormDiv" headline ='Lost Password' onSubmitAction = {getPassword} value= 'Hämta lösenord'
+          <FormComp headlineClass='startHeader' className="FormDiv" headline ='Lost Password' onSubmitAction = {getPassword} value= 'Hämta'
               inputFields = { 
               <div>
                   <InputField InputClass='startFields' headline='Email: ' type = 'text' name='email' onChangeAction={ value => setEmail(value)}/>
