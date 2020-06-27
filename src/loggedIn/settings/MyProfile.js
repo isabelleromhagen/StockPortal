@@ -151,12 +151,23 @@ const MyProfile = () => {
 
   return (
     <div className="settings-container">
-      {imageName ? (
-        <img className="profilepic" alt="hang" src={require("../../images/" + imageName + ".jpg")} />
+
+     <div className="choose-file"> 
+     {imageName ? (
+        <img  className="profilepic" alt="hang" src={require("../../images/" + imageName + ".jpg")} />
       ) : (
           <p></p>)}
+           
+          <input  register={register} type="file" name="profilepic" />
+
+          
+          </div>
+      
+
       <form onSubmit={handleSubmit(onProfileSave)}>
-        <FormInput register={register} type="file" name="profilepic" />
+     
+
+
         <div className="name">
           <FormInput register={register} headline="Förnamn " type="text" name="firstname" placeholder={userData.firstname} />
           <FormInput register={register} headline="Efternamn " type="text" name="lastname" placeholder={userData.lastname} />
