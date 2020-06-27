@@ -3,12 +3,10 @@ import '../../styling/Dashboard.css';
 import Shareholding from './Shareholding';
 import Banner from './Banner';
 import Profile from "./Profile";
-// import { response } from "express";
-// import { response, json } from "express";
 
 
 const Dashboard = () => {
-    // const [isInlogged, setIsinlogged] = useState(true);
+  
     const [userData, setUserData] = useState({});
     const [shareData, setShareData] = useState([]);
     const [prefData, setPrefData] = useState([]);
@@ -79,8 +77,11 @@ const Dashboard = () => {
         .then((response)=>response.json())
         .then((data)=>{
     
-        setPrefData(data);
-        console.log(data);
+        if(data[0]) {
+            setPrefData(data);
+            console.log(data);
+        }
+        
     })
     },[]);
 
