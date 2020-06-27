@@ -67,7 +67,7 @@ input[type=submit]:hover:enabled,.startUpButtons:hover{
   background-color:  #bebdbd;
   margin-left: 33vw;
   width: 35vw;
-  height: 87vh; 
+  height: 97vh; 
   text-align: center;
 }
 
@@ -86,6 +86,8 @@ input[type=submit]:hover:enabled,.startUpButtons:hover{
   border: none;
   margin: 5px;
   background-color: #e6e0e0;
+  height       : 5vh;
+  width        : 80%;
 }
 .startUpButtons,.startUpButtons:active{
   border-radius: 5px;
