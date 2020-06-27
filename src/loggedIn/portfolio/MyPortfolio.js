@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import '../../styling/portfolio.css';
 import TablePagination from "@material-ui/core/TablePagination";
 import PortfolioTable from "../../component/PortfolioTable";
-const headerTitleList = ["Företag", "Innehav", "Aktietyp", "Antal Aktier", "Aktienummer", "Ägarandel", "Röstvärde"];
+const headerTitleList = ["Företag", "Innehav", "Aktietyp", "Antal Aktier", "Aktienummer", "Ägarandel", "Röstvärde"," "];
 
 
 
@@ -39,14 +39,14 @@ const MyPortfolio = () => {
         })
             .then((response) => response.json())
             .then((data) => {
-                if(data[0]) {
-                console.log(data[0])
-                setCurrentItems(data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage));
-                setItems(data);
-                let date = new Date(data[0].datepurchased);
-                setlastUpdate(date.toLocaleDateString());
+                if (data[0]) {
+                    console.log(data[0])
+                    setCurrentItems(data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage));
+                    setItems(data);
+                    let date = new Date(data[0].datepurchased);
+                    setlastUpdate(date.toLocaleDateString());
                 }
-                
+
             })
     }, []);
 
@@ -71,31 +71,35 @@ const MyPortfolio = () => {
 
     return (
         <div className="background">
-            <div id="header"> <h4 > {site} </h4> | <p id="headerText">{lastupdate}</p></div>
+            <div id="header"> <h4 > {site} </h4> <p id="headerText">| Senast uppdaterat {lastupdate}</p></div>
             <div className="portFolio-container">
 
-                <table id="portfolio-table">
+                <table className="portfolio-container" id="portfolio-table">
                     <thead>
                         <tr>
                             {header}
                         </tr>
                     </thead>
                     <tbody>
-                        {currentItems ? <Stocks /> : <p>  Du har inget innehav</p>}
-
-
+                        {currentItems ? <Stocks /> : ''}
                     </tbody>
                 </table>
+                {!currentItems &&
+                    <p className="empty-portfolio">  Du har inget innehav</p>
+                }
+                <div id="pagination">
 
-                <TablePagination
-                    component="portFolio-container"
-                    rowsPerPageOptions={[5, 10, 25, 50, 75]}
-                    count={items.length}
-                    rowsPerPage={rowsPerPage}
-                    page={page}
-                    onChangePage={handleChangePage}
-                    onChangeRowsPerPage={handleChangeRowsPerPage}
-                />
+                    <TablePagination
+                        // className="pagination"
+                        component="portfolio-table"
+                        rowsPerPageOptions={[5, 10, 25, 50, 75]}
+                        count={items.length}
+                        rowsPerPage={rowsPerPage}
+                        page={page}
+                        onChangePage={handleChangePage}
+                        onChangeRowsPerPage={handleChangeRowsPerPage}
+                    />
+                </div>
 
             </div>
         </div>

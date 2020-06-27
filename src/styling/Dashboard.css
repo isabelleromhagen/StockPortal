@@ -83,6 +83,7 @@
   img {
     float: left;
     margin-top: 1vh;
+    margin-left: 1vw;
     border-radius: 80px;
     height: 15vh;
     width: 7vw;
