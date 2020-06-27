@@ -6,13 +6,15 @@ import { NavLink } from 'react-router-dom';
 
 
     const Profile = ({userData, prefData}) => {
+        const contactLabels = ["Telefon", "Email", "Adress", "Postnummer", "Postort"];
+        const contactData = [userData.phone, userData.email, userData.adress, userData.zipcode, userData.city];
         
         if(userData) {
             return(
                 <div id="profileDiv" className="container">
                         <h4 className="dashboardSubtitle">Min profil</h4>
                         <NavLink className="dashboardBtn" value={"Redigera"} to={"/settings"}>Redigiera</NavLink>  
-                        <img  alt="profile pic"/>
+                        <img alt="profilbild" id="profile-pic"/>
                             
                             <PersonalData firstname={userData.firstname}
                                 lastname={userData.lastname}/> 
@@ -23,7 +25,15 @@ import { NavLink } from 'react-router-dom';
                                     prefData.map((element, index) => <PreferredInd id={index} industryData={element} key={index}/>)
                                 }
                             </div>
-                            <Contact data={userData}/>
+                               <p className="profileSubtitle">Kontaktuppgifter</p> 
+                            <table id="contact">
+                                <tbody>
+                                      {
+                                          contactLabels.map((contactLabel, index) => <Contact label={contactLabel} labelData={contactData[index]} key={index}/>)
+                                      }  
+                                </tbody>     
+                            </table>
+                            
                     </div>
             );
         } else {

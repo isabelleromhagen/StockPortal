@@ -23,10 +23,6 @@
     text-align: left;
     font-family: 'Poppins';
     font-weight: lighter ;
-    
-    /* font: Light 16px/21px Poppins; */
-    
-  
     letter-spacing: 0.23px;
     color: #3D4465;
     opacity: 1;
@@ -83,6 +79,7 @@
   img {
     float: left;
     margin-top: 1vh;
+    margin-left: 2vw;
     border-radius: 80px;
     height: 15vh;
     width: 7vw;
@@ -101,7 +98,11 @@
   .profileSubtitle {
     float: left;
     margin-left: 5%;
+    margin-bottom: 2vh;
     width: 100%;
+    font-family: 'Poppins';
+    font-weight: bolder;
+
   }
 
   #industryDiv {
@@ -111,12 +112,30 @@
   }
   
   
-  #industry1 {
+  .prefInd {
   
     float: left;
-    margin-left: 5%;
-    width: 40%;
+    margin-left: 6vw;
+    width: 30%;
+    /* border: 1px solid red; */
+    font-family: 'Poppins';
   }
+
+  #contact {
+    /* border: 1px solid red; */
+    margin-left: 2vw;
+    width: 80%;
+  }
+
+ .contactLabel {
+   /* padding-right: 10%; */
+   text-align: left;
+  }
+
+ .contactData {
+  text-align: center;
+  }
+
 
   #propertyDiv {
     /* border: 1px solid red; */
@@ -146,53 +165,3 @@
     
     height: 80px;
   }
-
-  
-  /* #sectorColor {
-    background-color: blue;
-    width: 20px;
-    height: 20px;
-    margin: 20px;
-    float: left;
-  } */
-  
-  /* #sectorName {
-    float: left;
-    font-weight: bold;
-    width: 20%;
-  }
-  
-  #propertyAmount {
-   float: right; 
-   margin-right: 5%;
-   width: 20%;
-  }
-  
-  #companyName {
-    float: left;
-    margin-top: 7%;
-    margin-left: 5%;
-    width: 30%;
-   
-  } */
-
-
-  
-  /* .content {
-    background-color: #FFFFFF;
-
-    box-shadow: 0px 1px 15px #45414E14;
-    border-radius: 4px;
-    opacity: 1;
-    margin-right: 5vw;
-    margin-top: 15%;
-    height: 100%;
-  } */
-
- 
-  
-  
-  
-  
-  
-  /*border: 1px solid red;*/

@@ -56,7 +56,7 @@ const Dashboard = () => {
    
         if(data[0]) {
             setShareData(data);
-            console.log(data);
+            console.log('sharez',data);
             let date = new Date(data[0].datepurchased);
             setLastUpdate(date.toLocaleDateString());
         }
