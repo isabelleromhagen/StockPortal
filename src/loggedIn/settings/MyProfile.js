@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from 'react-hook-form';
-// import InputField from "../../component/InputField";
-// import FormComp from "../../component/FormComp";
 import ButtonComp from "../../component/ButtonComp";
 // import edit from "../../images/edit-button.svg";
 import FormInput from "../../component/FormInput";
@@ -154,7 +152,7 @@ const MyProfile = () => {
   return (
     <div className="settings-container">
       {imageName ? (
-        <img id="Hang-image" alt="hang" src={require("../../images/" + imageName + ".jpg")} />
+        <img className="profilepic" alt="hang" src={require("../../images/" + imageName + ".jpg")} />
       ) : (
           <p></p>)}
       <form onSubmit={handleSubmit(onProfileSave)}>
