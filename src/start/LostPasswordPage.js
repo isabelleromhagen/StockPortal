@@ -34,6 +34,7 @@ const LostPasswordPage = ({goToLogin}) => {
             }
             else {
                 setInfoMessage(data.message);
+                
             }
         });
 
