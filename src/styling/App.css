@@ -28,14 +28,32 @@ h1 {
   text-align: center;
   padding-left: 0;
 }
+
 input{
-  color: rgb(40, 240, 40);
-}
-input:disabled {
-  color: red;
-}
-#errorMessagediv{
-  display: inline-flex;
+  color: green;
   
 }
+
+.StartDiv{
+  border-radius: 5px;
+  background-color:  #bebdbd;
+  margin-left: 33vw;
+  width: 30vw;
+  height: 40vh; 
+  text-align: center;
+}
+
+.FormDiv{
+  color: red;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
+}
+
+.startFields{
+  color: blue;
+}
+.startUpButtons{
+}
+
+
 
