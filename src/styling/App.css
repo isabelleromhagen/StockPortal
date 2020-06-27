@@ -44,6 +44,7 @@ input[type=submit],input[type=submit]:focus{
   text-align: center;
   outline: none;
 }
+
 input[type=submit]:hover:enabled,.startUpButtons:hover{
   box-shadow: 0 3px #c5c5c5;
   background-color:  #999999;
