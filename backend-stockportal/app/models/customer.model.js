@@ -250,7 +250,7 @@ Customer.getPreferencesInfo = (id_token, result) => {
 
 Customer.delete = (id_token, result) => {
   const userId = deCodeIdToken(id_token);
-  sql.query(`UPDATE users SET firstname = '', lastname= '', socnumber = '', adress = '', zipcode = '', city='', phone='' WHERE userid = '${userId}'`, (err, res) => {
+  sql.query(`UPDATE users SET firstname = '', lastname= '', socnumber = '', adress = '', zipcode = '', city='', phone='', imgname=null WHERE userid = '${userId}'`, (err, res) => {
     if (err) {
       console.log("error", err);
       result(err, null);
