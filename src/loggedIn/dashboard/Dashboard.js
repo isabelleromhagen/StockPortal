@@ -13,6 +13,7 @@ const Dashboard = () => {
     const [lastUpdate, setLastUpdate] = useState();
     const id_token = localStorage.getItem('id_token');
 
+    const getUserName = () => userData.firstname ? userData.firstname : ""
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -111,8 +112,8 @@ const Dashboard = () => {
 
     return(
         <div>   git 
-            {userData && shareData && shareData.length > 0 ? <Banner text={`Välkommen ${userData.firstname}! 
-            Ditt innehav uppdaterades ${lastUpdate}. Ta gärna en titt!`} /> : <Banner text={`Välkommen ${userData.firstname}! 
+            {userData && shareData && shareData.length > 0 ? <Banner text={`Välkommen ${getUserName()}! 
+            Ditt innehav uppdaterades ${lastUpdate}. Ta gärna en titt!`} /> : <Banner text={`Välkommen ${getUserName()}! 
             Du har inte något innehav ännu. Du får ett mail så fort det är uppdaterat!`} />}
             <Profile userData={userData} prefData={prefData} />
             <Shareholding shares={shareData} />
