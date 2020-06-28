@@ -8,7 +8,6 @@ import FormInput from "../../component/FormInput";
 import '../../styling/Settings.css';
 
 const MyProfile = () => {
-  const [imageName, setImageName] = useState("");
   const { register, handleSubmit } = useForm();
   const [userData, setUserData] = useState({});
   const [infoMessage, setInfoMessage] = useState("");
@@ -114,11 +113,6 @@ const MyProfile = () => {
 
   }
 
-  //TODO get the image from ./image when API is incorp.
-  useEffect(() => {
-    setImageName("katten");
-  }, []);
-
 
   const deleteMyData = () => {
     if (!id_token) {
@@ -149,13 +143,12 @@ const MyProfile = () => {
 
   };
 
-
   return (
     <div className="settings-container">
-      {imageName ? (
-        <img id="Hang-image" className="profilepic" alt="hang" src={require("../../images/" + imageName + ".jpg")} />
+      {userData.imgname ? (
+        <img id="Hang-image" className="profilepic" alt="profile img" src={require(`../../uploads/profilepics/${userData.imgname}`)} ></img>
       ) : (
-          <p></p>)}
+          <p>Du har inte laddat upp en bild än</p>)}
       <form onSubmit={handleSubmit(onProfileSave)}>
         <FormInput register={register} type="file" name="profilepic" />
         <div className="name">
