@@ -4,9 +4,6 @@ import TablePagination from "@material-ui/core/TablePagination";
 import PortfolioTable from "../../component/PortfolioTable";
 const headerTitleList = ["Företag", "Innehav", "Aktietyp", "Antal Aktier", "Aktienummer", "Ägarandel", "Röstvärde"," "];
 
-
-
-
 const tableHeaderList = () => (headerTitleList.map((elem) => <th key={elem}>{elem}</th>));
 
 const MyPortfolio = () => {
@@ -19,12 +16,15 @@ const MyPortfolio = () => {
     const [page, setPage] = useState(0);
     const [currentItems, setCurrentItems] = useState('');
     const [rowsPerPage, setRowsPerPage] = useState(amountToshow);
-    const handleChangePage = (e, newPage) => { setPage(newPage); };
+    const handleChangePage = (e, newPage) => { setPage(newPage);};
     const handleChangeRowsPerPage = e => {
         setRowsPerPage(parseInt(e.target.value, amountToshow));
         setPage(0);
     };
 
+    useEffect(() => {
+        setCurrentItems(items.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage));
+    }, [page, rowsPerPage])
 
 
     useEffect(() => {
