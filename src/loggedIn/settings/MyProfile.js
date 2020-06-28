@@ -157,8 +157,9 @@ const MyProfile = () => {
         </div>
         <div className="snumber">
           <FormInput register={register} headline="Personnummer " type="text" name="socnumber" />
-          <FormInput register={register} headline="Adress " type="text" name="adress" placeholder={userData.adress} />
         </div>
+        <FormInput register={register} headline="Adress " type="text" name="adress" placeholder={userData.adress} />
+
         <div className="adress">
           <FormInput register={register} headline="Stad " type="text" name="city" placeholder={userData.city} />
           <FormInput register={register} headline="Postnummer " type="text" name="zipcode" placeholder={userData.zipcode} />
@@ -172,7 +173,9 @@ const MyProfile = () => {
         infoMessage && <p>{infoMessage}</p>
       }
       <br />
+      <div className="delete-div">
       <ButtonComp btnClassName="delete-data" btnName="Radera min data" onClickFunction={deleteMyData} />
+      </div>
     </div>
   );
 };
