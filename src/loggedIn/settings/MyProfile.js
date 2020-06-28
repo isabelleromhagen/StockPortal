@@ -12,7 +12,7 @@ const MyProfile = () => {
   const [userData, setUserData] = useState({});
   const [infoMessage, setInfoMessage] = useState("");
   const id_token = localStorage.getItem('id_token');
-
+  
   const onSubmitImg = async (data) => {
 
     const imgData = new FormData();

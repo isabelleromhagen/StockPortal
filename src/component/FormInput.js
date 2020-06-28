@@ -1,7 +1,11 @@
 import React from 'react';
 
 
+<<<<<<< HEAD
 const FormInput = ({headline, type, name, register, placeholder,inputvalue}) => {
+=======
+const FormInput = ({headline, type, name, register, placeholder,imageInputId}) => {
+>>>>>>> MattiasDev
     return (
     <div>
         <p>{headline}</p>
