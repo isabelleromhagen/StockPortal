@@ -1,5 +1,4 @@
 
-/*See example for colors etc.*/
 @import url(https://fonts.googleapis.com/css?family=Poppins);
 
 * {
@@ -29,13 +28,17 @@
   }
   
   .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
     background-color: #FFFFFF;
-     /* border: 1px solid red;  */
+     /* border: 1px solid green;  */
      margin-left: 15vw;
   }
   
   .dashboardBtn {
-    float: right;
+    align-self: flex-end;
+    margin-left: 20vw;
     margin-right: 5%;
     margin-top: 5%;
     padding: 2vh;
@@ -60,21 +63,23 @@
     width: 80%;
     margin: auto;
     padding: 10px;
-    
+    border: 1px solid blue;
   }
   
   #profileDiv {
     /* border: 1px solid red; */
+    display: flex;
+    flex-wrap: wrap;
     float: left;
-    width: 37%;
+    margin-left: 15vw;
+    width: 40%;
     height: 100%;
-    margin-right: 5vw;
+    margin-right: 2vw;
     margin-top: 1%;
     box-shadow: 0px 1px 15px #45414E14;
     border-radius: 4px;
     opacity: 1;
   }
-
   
   img {
     float: left;
@@ -84,15 +89,12 @@
     height: 15vh;
     width: 7vw;
     opacity: 1;
-    
   }
   
   #personalData {
-   
     margin-left: 45%;
     margin-top: 0%;
 /*  border: 1px solid red; */
-    
   }
   
   .profileSubtitle {
@@ -102,7 +104,6 @@
     width: 100%;
     font-family: 'Poppins';
     font-weight: bolder;
-
   }
 
   #industryDiv {
@@ -111,9 +112,7 @@
       height: 20vh;
   }
   
-  
   .prefInd {
-  
     float: left;
     margin-left: 6vw;
     width: 30%;
@@ -136,10 +135,11 @@
   text-align: center;
   }
 
-
   #propertyDiv {
     /* border: 1px solid red; */
-    margin-left: 55%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 53%;
     height: 100%;
     margin-right: 2vw;
     margin-top: 1%;
