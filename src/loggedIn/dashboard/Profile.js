@@ -13,7 +13,7 @@ import { NavLink } from 'react-router-dom';
             return(
                 <div id="profileDiv" className="dashboardContentContainer">
                         <h4 className="dashboardSubtitle">Min profil</h4>
-                        <NavLink className="dashboardBtn" value={"Redigera"} to={"/settings"}>Redigiera</NavLink>  
+                        <NavLink className="dashboardBtn" value={"Redigera"} to={"/settings"}>Redigera</NavLink>  
                         {userData.imgname ? (
                             <img id="Hang-image" className="profilepic" alt="profile img" src={require(`../../uploads/profilepics/${userData.imgname}`)} ></img>
                           ) : (

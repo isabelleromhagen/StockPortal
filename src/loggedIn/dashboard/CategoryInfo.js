@@ -9,7 +9,7 @@ const CategoryInfo = ({category, stockvalue}) => {
                 height: "20px",
                 
                 }}></div>
-                <p style={{marginLeft: "10vw", marginBottom: "2vh", fontWeight: "bold", }}>{category.catname}</p>
+                <p style={{marginLeft: "10vw", marginBottom: "2vh", fontWeight: "bold"}}>{category.catname}</p>
                 {
                     category.companies.map((company, index) => <p style={{display: "inline", marginLeft: "2vw", marginTop: "5vh"}} key={index}>{company}</p>)
                 }

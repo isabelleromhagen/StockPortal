@@ -15,6 +15,7 @@ const SettingPage = () => {
                 <ButtonComponent btnClassName="settingsButtons" btnName="Byt Lösenord" onClickFunction={() => setCurrentPage(1)} />
                 <ButtonComponent btnClassName="settingsButtons" btnName="Preferenser" onClickFunction={() => setCurrentPage(2)} />
             </div>
+            <hr/>
             {currentPage === 0 && <MyProfile />}
             {currentPage === 1 && <ChangePasswordPage />}
             {currentPage === 2 && <PreferencesPage />}
