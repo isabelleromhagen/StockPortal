@@ -50,7 +50,7 @@ import _ from 'lodash';
             }
             
         return(
-            <div id="propertyDiv" className="container">
+            <div id="propertyDiv" className="dashboardContentContainer">
                 <h4 className="dashboardSubtitle">Mitt innehav</h4>
                 <NavLink className="dashboardBtn"  to={"/my_portfolio"}>Min portfölj</NavLink> 
                     <div> 

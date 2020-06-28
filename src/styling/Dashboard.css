@@ -27,7 +27,7 @@
     opacity: 1;
   }
   
-  .container {
+  .dashboardContentContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
@@ -63,7 +63,7 @@
     width: 80%;
     margin: auto;
     padding: 10px;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
   }
   
   #profileDiv {
@@ -74,14 +74,15 @@
     margin-left: 15vw;
     width: 40%;
     height: 100%;
-    margin-right: 2vw;
+    margin-right: 1vw;
     margin-top: 1%;
+    padding-bottom: 2vh;
     box-shadow: 0px 1px 15px #45414E14;
     border-radius: 4px;
     opacity: 1;
   }
   
-  img {
+  #profile-pic {
     float: left;
     margin-top: 1vh;
     margin-left: 2vw;
@@ -92,8 +93,10 @@
   }
   
   #personalData {
-    margin-left: 45%;
-    margin-top: 0%;
+    margin-left: 3vw;
+    margin-top: 10vh;
+    font-size: 4vh;
+    font-family: 'Poppins';
 /*  border: 1px solid red; */
   }
   
@@ -139,11 +142,11 @@
     /* border: 1px solid red; */
     display: flex;
     flex-wrap: wrap;
-    margin-left: 53%;
     height: 100%;
+    margin-left: 50%;
     margin-right: 2vw;
     margin-top: 1%;
-    padding: 2vw;
+    padding:  1vh;
     box-shadow: 0px 1px 15px #45414E14;
     border-radius: 4px;
     opacity: 1;
@@ -156,12 +159,10 @@
   }
 
   .bar {
-        
     float: left;
     height: 40px;
     }
   
   .shareInfo {
-    
-    height: 80px;
+    height: 8vh;
   }

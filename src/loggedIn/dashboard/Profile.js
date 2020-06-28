@@ -11,7 +11,7 @@ import { NavLink } from 'react-router-dom';
         
         if(userData) {
             return(
-                <div id="profileDiv" className="container">
+                <div id="profileDiv" className="dashboardContentContainer">
                         <h4 className="dashboardSubtitle">Min profil</h4>
                         <NavLink className="dashboardBtn" value={"Redigera"} to={"/settings"}>Redigiera</NavLink>  
                         <img alt="profilbild" id="profile-pic"/>
