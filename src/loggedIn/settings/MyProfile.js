@@ -22,6 +22,8 @@ const MyProfile = () => {
       method: "POST",
       body: imgData,
     }).then(res => res.json())
+    .then((data)=>console.log(data))
+    
 
   }
 
@@ -153,12 +155,14 @@ const MyProfile = () => {
     <div className="settings-container">
 
      <div className="choose-file"> 
+
      {imageName ? (
         <img  className="profilepic" alt="hang" src={require("../../images/" + imageName + ".jpg")} />
       ) : (
           <p></p>)}
-           
           <input  register={register} type="file" name="profilepic" />
+
+           
 
           
           </div>
@@ -188,13 +192,13 @@ const MyProfile = () => {
         <div className="email">
         <FormInput  register={register} headline="Epost " type="text" name="email" placeholder={userData.email}  />
         </div>
-        <button buttonid="profileSaveButton" value="Spara">Spara</button>
+        <button className="profileSaveButton" value="Spara">Spara</button>
       </form>
       {
         infoMessage && <p>{infoMessage}</p>
       }
       <br />
-      <ButtonComp btnName="Radera min data" onClickFunction={deleteMyData} />
+      <ButtonComp btnClassName="delete-data" btnName="Radera min data" onClickFunction={deleteMyData} />
     </div>
   );
 };

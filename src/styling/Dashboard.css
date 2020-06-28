@@ -32,11 +32,7 @@
     opacity: 1;
   }
   
-  .container {
-    background-color: #FFFFFF;
-     /* border: 1px solid red;  */
-     margin-left: 15vw;
-  }
+  
   
   .dashboardBtn {
     float: right;
@@ -80,7 +76,7 @@
   }
 
   
-  img {
+  /* img {
     float: left;
     margin-top: 1vh;
     margin-left: 1vw;
@@ -90,7 +86,7 @@
     opacity: 1;
     
   }
-  
+   */
   #personalData {
    
     margin-left: 45%;
