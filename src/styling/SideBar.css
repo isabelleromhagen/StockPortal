@@ -42,7 +42,7 @@ vmax : max -||-
 }
 .sideLink{
     text-decoration: none;
-    margin-top: 22.5vh;
+    margin-top: 3.5vh;
     position: absolute;
     text-align: center;
     display:block;
@@ -57,7 +57,7 @@ vmax : max -||-
 }
 
 #Logga_ut {
-    margin-top: 70vh;
+    margin-top: 50vh;
     display: flex;
     flex-direction: column;
     display: block;

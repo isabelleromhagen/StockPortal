@@ -10,7 +10,7 @@ const FyraNollFyra = () =>{
         <h1 className="fyranollfyradiv">404 NOT FOUND</h1>
         <p className="fyranollfyradiv"> filthy hackers get nothing!</p>
         <br/>
-        <Link className="fyranollfyradiv" to="/">loggin page</Link>
+        <Link className="fyranollfyradiv" to="/">logga in</Link>
 
         </div>
 
