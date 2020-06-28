@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import InputField from "../../component/InputField";
 import FormComp from "../../component/FormComp";
+import '../../styling/ChangePassword.css'
 
 const ChangePasswordPage = () => {
   const [old_password, setCurrentPass] = useState("");
@@ -49,13 +50,13 @@ const ChangePasswordPage = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container-change-password">
       <FormComp
         onSubmitAction={onPasswordChangedSubmit}
         buttonId="profileSaveButton"
         value="Spara"
         inputFields={
-          <div>
+          <div className="input-form">
             <InputField
               headline="Nuvarande lösenord "
               type="password"
