@@ -8,7 +8,7 @@ const FormComp = ({ headline, inputFields, onSubmitAction, buttonId, value, isDi
                 <h1 className ={headlineClass}>{headline}</h1>
                 {inputFields}
                 <br />
-                <input disabled ={isDisabled} type='submit' id={buttonId} value={value}/> 
+                <input className={className} disabled ={isDisabled} type='submit' id={buttonId} value={value}/> 
             </form>
         </div>
     );

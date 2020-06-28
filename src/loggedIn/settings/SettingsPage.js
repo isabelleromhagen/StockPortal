@@ -11,9 +11,9 @@ const SettingPage = () => {
         <div className="settings-menu">
             <h2>Inställningar</h2>
             <div>
-                <ButtonComponent btnName="Min Profil" onClickFunction={() => setCurrentPage(0)} />
-                <ButtonComponent btnName="Byt Lösenord" onClickFunction={() => setCurrentPage(1)} />
-                <ButtonComponent btnName="Preferenser" onClickFunction={() => setCurrentPage(2)} />
+                <ButtonComponent btnClassName="settingsButtons" btnName="Min Profil" onClickFunction={() => setCurrentPage(0)} />
+                <ButtonComponent btnClassName="settingsButtons" btnName="Byt Lösenord" onClickFunction={() => setCurrentPage(1)} />
+                <ButtonComponent btnClassName="settingsButtons" btnName="Preferenser" onClickFunction={() => setCurrentPage(2)} />
             </div>
             {currentPage === 0 && <MyProfile />}
             {currentPage === 1 && <ChangePasswordPage />}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import InputCheckbox from "../../component/InputCheckbox";
 import FormComp from "../../component/FormComp";
+import '../../styling/Settings.css';
 
 const PreferencesPage = () => {
   const [constructionCheck, setConstructionCheck] = useState(false);
@@ -102,8 +103,9 @@ const PreferencesPage = () => {
   return (
     <div className="container">
 
-        <h2>Ställ in vad du gillar att investera i</h2>
+        <h2 id='preferenceHeadLine'>Ställ in vad du gillar att investera i</h2>
           <div>
+          <hr className="preferenceLine"></hr>
             <div className="inLine">
               <InputCheckbox
                 headline="Bygg"
@@ -147,6 +149,7 @@ const PreferencesPage = () => {
             </div>
             {infoMessage && <p>{infoMessage}</p>}
             <div id="tips">
+            <hr className="preferenceLine"></hr>
               <p className="greyText">
                 (Tips, ifall du väljer att intgrera din bank kan vi anpassa dina
                 investeringar utefter din ekonomi och preferences)
