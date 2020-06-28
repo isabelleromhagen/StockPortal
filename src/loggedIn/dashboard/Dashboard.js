@@ -78,8 +78,11 @@ const Dashboard = () => {
         .then((response)=>response.json())
         .then((data)=>{
     
-        setPrefData(data);
+      
+            setPrefData(data);
         console.log(data);
+        
+        
     })
     },[]);
 

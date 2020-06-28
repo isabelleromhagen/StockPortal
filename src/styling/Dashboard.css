@@ -1,5 +1,4 @@
 
-/*See example for colors etc.*/
 @import url(https://fonts.googleapis.com/css?family=Poppins);
 
 * {
@@ -23,23 +22,23 @@
     text-align: left;
     font-family: 'Poppins';
     font-weight: lighter ;
-    
-    /* font: Light 16px/21px Poppins; */
-    
-  
     letter-spacing: 0.23px;
     color: #3D4465;
     opacity: 1;
   }
   
-  .container {
+  .dashboardContentContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
     background-color: #FFFFFF;
-     /* border: 1px solid red;  */
+
      margin-left: 15vw;
   }
   
   .dashboardBtn {
-    float: right;
+    align-self: flex-end;
+    margin-left: 20vw;
     margin-right: 5%;
     margin-top: 5%;
     padding: 2vh;
@@ -64,67 +63,82 @@
     width: 80%;
     margin: auto;
     padding: 10px;
-    
   }
   
   #profileDiv {
-    /* border: 1px solid red; */
+    display: flex;
+    flex-wrap: wrap;
     float: left;
-    width: 37%;
+    margin-left: 15vw;
+    width: 40%;
     height: 100%;
-    margin-right: 5vw;
+    margin-right: 1vw;
     margin-top: 1%;
+    padding-bottom: 2vh;
     box-shadow: 0px 1px 15px #45414E14;
     border-radius: 4px;
     opacity: 1;
   }
-
   
-  img {
+  #profile-pic {
     float: left;
     margin-top: 1vh;
+    margin-left: 2vw;
     border-radius: 80px;
     height: 15vh;
     width: 7vw;
     opacity: 1;
-    
   }
   
   #personalData {
-   
-    margin-left: 45%;
-    margin-top: 0%;
-/*  border: 1px solid red; */
-    
+    margin-left: 3vw;
+    margin-top: 10vh;
+    font-size: 4vh;
+    font-family: 'Poppins';
   }
   
   .profileSubtitle {
     float: left;
     margin-left: 5%;
+    margin-bottom: 2vh;
     width: 100%;
+    font-family: 'Poppins';
+    font-weight: bolder;
   }
 
   #industryDiv {
-      /* border: 1px solid red; */
       margin-top: 10vh;
       height: 20vh;
   }
   
-  
-  #industry1 {
-  
+  .prefInd {
     float: left;
-    margin-left: 5%;
-    width: 40%;
+    margin-left: 6vw;
+    width: 30%;
+    font-family: 'Poppins';
+  }
+
+  #contact {
+    margin-left: 2vw;
+    width: 80%;
+  }
+
+ .contactLabel {
+   text-align: left;
+  }
+
+ .contactData {
+  text-align: center;
   }
 
   #propertyDiv {
-    /* border: 1px solid red; */
-    margin-left: 55%;
+    display: flex;
+    flex-wrap: wrap;
     height: 100%;
+    margin-left: 50%;
     margin-right: 2vw;
     margin-top: 1%;
-    padding: 2vw;
+    padding:  1vh;
     box-shadow: 0px 1px 15px #45414E14;
     border-radius: 4px;
     opacity: 1;
@@ -137,62 +151,10 @@
   }
 
   .bar {
-        
     float: left;
     height: 40px;
     }
   
   .shareInfo {
-    
-    height: 80px;
+    height: 8vh;
   }
-
-  
-  /* #sectorColor {
-    background-color: blue;
-    width: 20px;
-    height: 20px;
-    margin: 20px;
-    float: left;
-  } */
-  
-  /* #sectorName {
-    float: left;
-    font-weight: bold;
-    width: 20%;
-  }
-  
-  #propertyAmount {
-   float: right; 
-   margin-right: 5%;
-   width: 20%;
-  }
-  
-  #companyName {
-    float: left;
-    margin-top: 7%;
-    margin-left: 5%;
-    width: 30%;
-   
-  } */
-
-
-  
-  /* .content {
-    background-color: #FFFFFF;
-
-    box-shadow: 0px 1px 15px #45414E14;
-    border-radius: 4px;
-    opacity: 1;
-    margin-right: 5vw;
-    margin-top: 15%;
-    height: 100%;
-  } */
-
- 
-  
-  
-  
-  
-  
-  /*border: 1px solid red;*/
