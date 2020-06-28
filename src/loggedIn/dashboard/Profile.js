@@ -17,7 +17,7 @@ import { NavLink } from 'react-router-dom';
                         {userData.imgname ? (
                             <img id="Hang-image" className="profilepic" alt="profile img" src={require(`../../uploads/profilepics/${userData.imgname}`)} ></img>
                           ) : (
-                              <p>Du har inte laddat upp en bild än</p>)}
+                              <p id="nopic">Du har inte laddat upp en bild än</p>)}
                             
                             <PersonalData firstname={userData.firstname}
                                 lastname={userData.lastname}/> 
