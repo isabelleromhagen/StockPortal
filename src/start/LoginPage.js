@@ -32,19 +32,19 @@ const LoginPage = ({goToRegistation, goToLostPassword, props}) => {
     
 
     return (
-      <div>
-          <FormComp headline ='Login' onSubmitAction = {onLoginAction} isDisabled ={isDisabled}
+      <div className = 'StartDiv'>
+          <FormComp headlineClass='startHeader' className ='FormDiv' headline ='Login' onSubmitAction = {onLoginAction} isDisabled ={isDisabled} value ='Login'
               inputFields = { 
               <div>
-                  <InputField headline='Email: ' type = 'text' name='email' onChangeAction={ value => setEmail(value)}/>
-                  <InputField headline='Password: ' type = 'password' name='password' onChangeAction={ value => setPassword(value)}/>
+                  <InputField InputClass='startFields' headline='Email: ' type = 'text' name='email' onChangeAction={ value => setEmail(value)}/>
+                  <InputField InputClass='startFields' headline='Password: ' type = 'password' name='password' onChangeAction={ value => setPassword(value)}/>
               </div>  
               } 
             />
             {infoMessage && <p>{infoMessage}</p>}
           <br />
-          <ButtonComp btnName = 'Register Here' onClickFunction ={() => goToRegistation()}/>
-          <ButtonComp btnName = 'Lost Password' onClickFunction ={() => goToLostPassword()}/>
+          <ButtonComp btnClassName ='startUpButtons' btnName = 'Register Here' onClickFunction ={() => goToRegistation()}/>
+          <ButtonComp btnClassName ='startUpButtons' btnName = 'Lost Password' onClickFunction ={() => goToLostPassword()}/>
       </div>
     );
   };

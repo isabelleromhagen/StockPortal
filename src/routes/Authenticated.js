@@ -32,6 +32,8 @@ class Auth {
     isAuthenticated(){
         return localStorage.getItem('id_token') != null;
     }
+
+    
 }
 
 export default new Auth();

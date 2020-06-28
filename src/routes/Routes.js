@@ -6,20 +6,22 @@ import {BrowserRouter, Route, Switch, Redirect} from "react-router-dom";
 import StartPage from '../start/StartPage';
 import SideBar from '../loggedIn/sidebar/Sidebar'
 import FyraNollFyra from '../loggedIn/404error/fyranollfyra';
-import { RootRef } from '@material-ui/core';
 import ProtectedRoute from '../component/ProtectedRouteComp'
+import Auth from './Authenticated';
 
 const Routes = (
-
 
     <BrowserRouter>
     
     <div>  
 
+    {((Auth.isAuthenticated) && window.location.pathname ==="/") ? <Redirect to ="/home"/> : <Redirect to ="/404"/>}
+
     <ProtectedRoute exact ={true} path ={["/home","/my_portfolio","/settings"]} component={SideBar} />
     <Switch>
 
     <Route exact ={true} path ='/' component={StartPage} />
+
     <ProtectedRoute exact ={true} path ="/home" component ={Dashboard} />
     <ProtectedRoute exact ={true} path ="/my_portfolio" component ={MyPortfolio} />
     <ProtectedRoute exact ={true} path ="/settings" component ={SettingsPage} />

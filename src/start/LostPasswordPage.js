@@ -34,24 +34,25 @@ const LostPasswordPage = ({goToLogin}) => {
             }
             else {
                 setInfoMessage(data.message);
+                
             }
         });
 
     }
 
     return (
-      <div>
-          <FormComp headline ='Lost Password' onSubmitAction = {getPassword} 
+      <div className = 'StartDiv'>
+          <FormComp headlineClass='startHeader' className="FormDiv" headline ='Lost Password' onSubmitAction = {getPassword} value= 'Hämta'
               inputFields = { 
               <div>
-                  <InputField headline='Email: ' type = 'text' name='email' onChangeAction={ value => setEmail(value)}/>
-                  <InputField headline='Secret word: ' type = 'text' name='secret' onChangeAction={ value => setSecretWord(value)}/>
+                  <InputField InputClass='startFields' headline='Email: ' type = 'text' name='email' onChangeAction={ value => setEmail(value)}/>
+                  <InputField InputClass='startFields' headline='Secret word: ' type = 'text' name='secret' onChangeAction={ value => setSecretWord(value)}/>
               </div>  
               } 
           />
           {infoMessage && <p>{infoMessage}</p>}
           <br />
-          <ButtonComp btnName = 'Login Here' onClickFunction ={() => goToLogin()}/>
+          <ButtonComp btnClassName ='startUpButtons' btnName = 'Login Here' onClickFunction ={() => goToLogin()}/>
       </div>
     );
   };

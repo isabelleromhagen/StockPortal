@@ -4,54 +4,74 @@
     letter-spacing: 0px;
     text-align    : left;
     opacity       : 1;
-}
 
-.background {
-    background: #F6FAFB;
-    opacity   : 1;
-
-}
-
-.portFolio-container {
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    box-shadow: 0px 1px 0px #45414E14;
-    float  : right;
-}
-
-#portfolio-table {
-    width  : 1012px;
-    height : 521px;
-    opacity: 1;
 }
 
 #header {
     padding    : 3vh;
     display    : flex;
-    margin-left: 244px;
-    width      : 100%;
+    margin-left: 15vw;
     color      : #656565;
+    position   : relative;
 }
 
 
 #headerText {
-    display: inline;
-    color  : #A1A8C3;
+    margin-left: 1vw;
+    display    : inline;
+    color      : #A1A8C3;
+    position   : relative;
+
 }
 
-
-.paginationBar {
-    float: left;
+.portFolio-container {
+    margin-left  : 16vw;
+    background   : #FFFFFF 0% 0% no-repeat border-box;
+    box-shadow   : 0px 1px 15px #45414E14;
+    border-radius: 4px;
+    float        : left;
+    width        : 81vw;
 }
 
-tbody,
-th,
-tr,
-td {
-    color: #3C3C3B;
+#portfolio-table {
+    border-collapse: separate;
+    border-spacing : 0px 0px;
+    width          : 100%;
 }
 
-th {
+#pagination {
+    position: relative;
+    display : block;
+
+}
+
+.empty-portfolio {
+    margin    : 20vw 0;
+    text-align: center;
+}
+
+#portfolio-table th,
+#portfolio-table td {
+    border-bottom: .15vw solid #EEF3FF;
+}
+
+#portfolio-table tbody,
+#portfolio-table th,
+#portfolio-table tr,
+#portfolio-table td {
+    border-spacing : 0;
+    border-collapse: collapse;
+    width          : 0;
+    height         : 0;
+    font-size      : 1vw;
+    padding        : 2vw 0;
+    color          : #3C3C3B;
+    text-align     : center;
+}
+
+#portfolio-table th {
     color: #A1A8C3;
+
 }
 
 button {

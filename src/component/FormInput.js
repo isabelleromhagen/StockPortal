@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const FormInput = ({headline, type, name, register, placeholder}) => {
+const FormInput = ({headline, type, name, register, placeholder,inputvalue}) => {
     return (
     <div>
         <p>{headline}</p>
@@ -10,6 +10,7 @@ const FormInput = ({headline, type, name, register, placeholder}) => {
         name={name}
         placeholder={placeholder}
         ref={register}
+        value={inputvalue}
         
         />
     </div>

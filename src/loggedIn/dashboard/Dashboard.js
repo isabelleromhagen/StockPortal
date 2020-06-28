@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import '../../styling/Dashboard.css';
 import Shareholding from './Shareholding';
 import Banner from './Banner';
@@ -14,10 +14,35 @@ const Dashboard = () => {
     const id_token = localStorage.getItem('id_token');
 
 
-      useEffect(() => {
-          const fetchUserData = async () => {
-              
-        await fetch("http://localhost:3001/getProfileInfo", {
+    useEffect(() => {
+        const fetchUserData = async () => {
+
+            await fetch("http://localhost:3001/getProfileInfo", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    id_token
+                }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    setUserData(data);
+
+
+
+                    console.log(userData);
+                })
+        }
+
+        fetchUserData();
+
+    }, []);
+
+    useEffect(() => {
+        fetch("http://localhost:3001/portfolio", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -28,17 +53,15 @@ const Dashboard = () => {
         })
             .then((response) => response.json())
             .then((data) => {
-                    console.log(data);
-                    setUserData(data);
-                
-                
-                
-               console.log(userData);
-            })
-          }
 
-          fetchUserData();
-          
+                if (data[0]) {
+                    setShareData(data);
+                    console.log(data);
+                    let date = new Date(data[0].datepurchased);
+                    setLastUpdate(date.toLocaleDateString());
+                }
+
+            })
     }, []);
 
    useEffect(()=>{
@@ -64,11 +87,12 @@ const Dashboard = () => {
     })
     },[]);
 
+    
     useEffect(()=>{
         fetch("http://localhost:3001/getPreferencesInfo",{
             method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
+            headers: {
+                "Content-Type": "application/json",
             },
             body: JSON.stringify({
                 id_token
@@ -88,10 +112,10 @@ const Dashboard = () => {
     return(
         <div>   git 
             {userData && shareData && shareData.length > 0 ? <Banner text={`Välkommen ${userData.firstname}! 
-            Ditt innehav uppdaterades ${lastUpdate}. Ta gärna en titt!`}/> : <Banner text={`Välkommen ${userData.firstname}! 
-            Du har inte något innehav ännu. Du får ett mail så fort det är uppdaterat!`}/>}
-            <Profile userData={userData} prefData={prefData}/>
-            <Shareholding shares={shareData}/>
+            Ditt innehav uppdaterades ${lastUpdate}. Ta gärna en titt!`} /> : <Banner text={`Välkommen ${userData.firstname}! 
+            Du har inte något innehav ännu. Du får ett mail så fort det är uppdaterat!`} />}
+            <Profile userData={userData} prefData={prefData} />
+            <Shareholding shares={shareData} />
         </div>
     );
 };

@@ -4,40 +4,43 @@ vw : width
 vmin : min storlek vid skärm ändring?
 vmax : max -||-
 */
-*{
+* {
 
-    margin: 0;
+    margin : 0;
     padding: 0;
 }
 
-.sidediv{
-    
-    position: fixed;
+.sidediv {
+
+    position  : fixed;
     background: #3C3C3B 0% 0% no-repeat padding-box;
-    width: 13.6vw;
-    height: 100vh;
-    top: 0;
+    width     : 13.6vw;
+    height    : 100vh;
+    top       : 0;
 }
-.sidebar{
-    display: block;
-    width: 13.6vw; 
-    border: none;
-    height: 6vh;
+
+.sidebar {
+    display   : block;
+    width     : 13.6vw;
+    border    : none;
+    height    : 6vh;
     background: #3C3C3B 0% 0% no-repeat padding-box;
-    opacity: 1;
+    opacity   : 1;
 }
+
 .sideLink:hover {
     box-shadow: 2vh;
-    color: #FDCC6B;
-    background: #292929 0% 0% no-repeat padding-box;;
+    color     : #FDCC6B;
+    background: #292929 0% 0% no-repeat padding-box;
+    ;
     opacity: 1;
 }
-.sideLink:active{
-    color: hotpink;
+
+.sideLink:active {
+    color     : hotpink;
     box-shadow: 2vh;
 }
 .sideLink{
-    
     text-decoration: none;
     margin-top: 22.5vh;
     position: absolute;
@@ -47,30 +50,36 @@ vmax : max -||-
     width: 100%;
     height: 6vh;
     opacity: 0.4;
+    justify-content: center;
+    align-items    : center;
+    font-size: 1.5vw;
+
 }
-#Logga_ut{
+
+#Logga_ut {
     margin-top: 70vh;
-    
+    display: flex;
+    flex-direction: column;
+    display: block;
+    text-align: center;
 }
-#Logga_ut:hover{
-    background: #3C3C3B 0% 0% no-repeat padding-box;;
+
+#Logga_ut:hover {
+    background: #3C3C3B 0% 0% no-repeat padding-box;
     text-decoration: #FDCC6B;
 
 }
-#logg_out_line, #logg_out_line:hover{
-    width: 50%;
-    margin:auto;
+
+#logg_out_line,
+#logg_out_line:hover {
+    width        : 50%;
+    margin       : auto;
     margin-bottom: 2vh;
 }
-#sideImageLogo{    
-    width: 12.6vw;
-    margin-top: 3vh;
+
+#sideImageLogo {
+    width        : 12.6vw;
+    margin-top   : 3vh;
     margin-bottom: 3vh;
-    height: auto;
+    height       : auto;
 }
-
-
-
-
-
-

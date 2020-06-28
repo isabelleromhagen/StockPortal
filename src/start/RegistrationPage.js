@@ -58,21 +58,22 @@ const RegistrationPage = ({goToLogin}) => {
     }
 
     return (
-        <div>
-            <FormComp headline ='Register' onSubmitAction = {onRegistrationAction} isDisabled={isDisabled}
+        <div className = 'StartDiv'>
+            <FormComp headlineClass='startHeader' className ="FormDiv" headline ='Register' onSubmitAction = {onRegistrationAction} isDisabled={isDisabled} value ='Registera'
                 inputFields = { 
                 <div>
-                    <InputField headline='Email: ' type = 'text' name='username' onChangeAction={ value => setEmail(value)}/>
-                    <InputField headline='Password: ' type = 'password' name='password' onChangeAction={ value => setPassword(value)}/>
-                    <InputField headline='Re-enter Password: ' type = 'password' name='password2' onChangeAction={ value => setPassword2(value)}/>
-                    <InputField headline='Secret word: ' type = 'text' name='secretWord' onChangeAction={ value => setSecretWord(value)}/>
-                    <InputField headline='Check this if you agree with GDPR: ' type = 'checkbox' name='gdpr' onChangeAction={ () => switchGdpr()}/>
-                </div>  
+                    <InputField InputClass='startFields' headline='Email: ' type = 'text' name='username' onChangeAction={ value => setEmail(value)}/>
+                    <InputField InputClass='startFields' headline='Password: ' type = 'password' name='password' onChangeAction={ value => setPassword(value)}/>
+                    <InputField InputClass='startFields' headline='Re-enter Password: ' type = 'password' name='password2' onChangeAction={ value => setPassword2(value)}/>
+                    <InputField InputClass='startFields' headline='Secret word: ' type = 'password' name='secretWord' onChangeAction={ value => setSecretWord(value)}/>
+                    <a id='gdprlink' href="https://gdpr-info.eu/"> GDPR-INFO</a>
+                    <InputField InputClass='startFields' headline='Check this if you agree with GDPR: ' type = 'checkbox' name='gdpr' onChangeAction={ () => switchGdpr()}/>
+                    </div>  
                 } 
             />
             {infoMessage && <p>{infoMessage}</p>}
             <br />
-            <ButtonComp btnName = 'Login Here' onClickFunction ={() => goToLogin()} />
+            <ButtonComp btnClassName ='startUpButtons' btnName = 'Login Here' onClickFunction ={() => goToLogin()} />
         </div>
     );
 };

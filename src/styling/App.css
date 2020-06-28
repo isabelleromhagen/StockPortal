@@ -1,41 +1,110 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins);
 
+html,
+body {
+  width : 100%;
+  height: 100%;
+  background-color: #F6FAFB;
+}
+
 * {
-  
-  margin: 0;
+
+  margin : 0;
   padding: 0;
 }
 
 .App {
-  
+
   text-align: center;
 }
 
 h1 {
-  text-align: left;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 8vw;
-  padding-top: 2vh;
+  text-align    : left;
+  margin-left   : auto;
+  margin-right  : auto;
+  padding-left  : 8vw;
+  padding-top   : 2vh;
   padding-bottom: 2vh;
   letter-spacing: 0px;
-  color: #656565;
-  font-family: 'Poppins';
-  opacity: 1;
+  color         : #656565;
+  font-family   : 'Poppins';
+  opacity       : 1;
 }
 
-.fyranollfyradiv{
-  text-align: center;
+.fyranollfyradiv {
+  text-align  : center;
   padding-left: 0;
 }
-input{
-  color: rgb(40, 240, 40);
+input[type=submit]:disabled{
+  color: #c9bea6;
+  background-color: #666565;
 }
-input:disabled {
-  color: red;
+
+input[type=submit],input[type=submit]:focus{
+  color: #C9B791;
+  background-color: #888787;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 3px #a8a8a8;
+  cursor: pointer;
+  width: 60px;
+  height: 3vh;
+  text-align: center;
+  outline: none;
 }
-#errorMessagediv{
-  display: inline-flex;
+
+input[type=submit]:hover:enabled,.startUpButtons:hover{
+  box-shadow: 0 3px #c5c5c5;
+  background-color:  #999999;
+  color:  #FDCC6B;
+}
+#gdprlink{
+  margin-left: 25%;
+  font-size: 90%;
+}
+.StartDiv{
+  border-radius: 5px;
+  background-color:  #bebdbd;
+  margin-left: 33vw;
+  width: 35vw;
+  height: 97vh; 
+  text-align: center;
+}
+
+.FormDiv{
+  color: #9e6b06;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-left: 10%;
+}
+.startFields:focus{
+  outline: none;  
+}
+.startFields{
+  color: #656565;
+  width: 80%;
+  border-radius: 3px;
+  border: none;
+  margin: 5px;
+  background-color: #e6e0e0;
+  height       : 5vh;
+  width        : 80%;
+}
+.startUpButtons,.startUpButtons:active{
+  border-radius: 5px;
+  margin: 2vw;
+  width: 70%;
+  background-color: #888787;
+  color: #C9B791;
+  cursor: pointer;
+  box-shadow: 0 3px #a8a8a8;
+  outline: none;
+  text-align: center;
+}
+.startHeader{
+  margin-right:10%;
+  padding: 0;
+  text-align: center;
   
 }
+
 

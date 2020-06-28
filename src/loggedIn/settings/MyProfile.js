@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from 'react-hook-form';
-// import InputField from "../../component/InputField";
-// import FormComp from "../../component/FormComp";
 import ButtonComp from "../../component/ButtonComp";
 // import edit from "../../images/edit-button.svg";
 import FormInput from "../../component/FormInput";
+import '../../styling/Settings.css';
 
 
 const MyProfile = () => {
@@ -151,27 +150,44 @@ const MyProfile = () => {
 
 
   return (
-    <div className="container">
-      {imageName ? (
-        <img id="Hang-image" alt="hang" src={require("../../images/" + imageName + ".jpg")} />
+    <div className="settings-container">
+
+     <div className="choose-file"> 
+     {imageName ? (
+        <img  className="profilepic" alt="hang" src={require("../../images/" + imageName + ".jpg")} />
       ) : (
           <p></p>)}
+           
+          <input  register={register} type="file" name="profilepic" />
+
+          
+          </div>
+      
+
       <form onSubmit={handleSubmit(onProfileSave)}>
-        <FormInput register={register} type="file" name="profilepic" />
-        <div>
+     
+
+
+        <div className="name">
           <FormInput register={register} headline="Förnamn " type="text" name="firstname" placeholder={userData.firstname} />
           <FormInput register={register} headline="Efternamn " type="text" name="lastname" placeholder={userData.lastname} />
         </div>
-        <div className="inLine">
+        <div className="snumber">
           <FormInput register={register} headline="Personnummer " type="text" name="socnumber" />
+          </div>
+          <div className="adress">
           <FormInput register={register} headline="Adress " type="text" name="adress" placeholder={userData.adress} />
-        </div>
-        <div className="inLine">
+          </div>
+        <div className="postalcode-city">
           <FormInput register={register} headline="Stad " type="text" name="city" placeholder={userData.city} />
           <FormInput register={register} headline="Postnummer " type="text" name="zipcode" placeholder={userData.zipcode} />
         </div>
+        <div className="phone">
         <FormInput register={register} headline="Telefonnummer " type="text" name="phone" placeholder={userData.phone} />
-        <FormInput register={register} headline="Epost " type="text" name="email" placeholder={userData.email} />
+        </div>
+        <div className="email">
+        <FormInput  register={register} headline="Epost " type="text" name="email" placeholder={userData.email}  />
+        </div>
         <button buttonid="profileSaveButton" value="Spara">Spara</button>
       </form>
       {
