@@ -47,7 +47,7 @@ input[type=submit],input[type=submit]:focus{
   border: none;
   box-shadow: 0 3px #a8a8a8;
   cursor: pointer;
-  width: 60px;
+  width: 70%;
   height: 3vh;
   text-align: center;
   outline: none;

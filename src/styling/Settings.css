@@ -118,3 +118,21 @@
     /* margin : 10px 5px; */
     display: flex;
 }
+
+.settingsButtons{
+    width           : 9vw;
+    height          : 6vh;
+    background-color: #FDCC6B;
+    color           : white;
+    font-size       : medium;
+    text-align      : center;
+    border-radius: 5px;
+    margin-right: 1vw;
+}
+.settingsButtons:focus,.settingsButtons:hover{
+    background-color: #fdb31e;
+    color: rgb(228, 228, 228);
+    outline: none;
+}
+
+
