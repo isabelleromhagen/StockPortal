@@ -22,8 +22,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "client": "npm start",
-    "server": "node ./backend-stockportal/server.js && npm start",
+    "client": "npm run-script build",
+    "server": "node ./backend-stockportal/server.js && npm build",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "eslintConfig": {
