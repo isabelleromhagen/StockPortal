@@ -134,5 +134,18 @@
     color: rgb(228, 228, 228);
     outline: none;
 }
-
-
+#preferenceHeadLine{
+   margin-top: 2vh;
+   margin-bottom: 2vh;
+}
+.preferenceLine{
+    margin-top: 2vh;
+    width        : 50%;
+    margin-bottom: 2vh;
+}
+.greyText{
+    font-size: 1.2vw;
+    margin-top: 1.2vh;
+    margin-bottom: 1.2vh;
+    font-style: oblique;
+}

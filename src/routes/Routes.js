@@ -15,7 +15,7 @@ const Routes = (
     
     <div>  
 
-    {((Auth.isAuthenticated) && window.location.pathname ==="/") ? <Redirect to ="/home"/> : <Redirect to ="/404"/>}
+    {((Auth.isAuthenticated) && window.location.pathname ==="/") ? <Redirect to ="/home"/> :null}
 
     <ProtectedRoute exact ={true} path ={["/home","/my_portfolio","/settings"]} component={SideBar} />
     <Switch>
