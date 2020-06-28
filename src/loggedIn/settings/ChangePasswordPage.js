@@ -52,8 +52,9 @@ const ChangePasswordPage = () => {
   return (
     <div className="container-change-password">
       <FormComp
+      headline=""
         onSubmitAction={onPasswordChangedSubmit}
-        buttonId="profileSaveButton"
+        buttonId="profileSaveButton-password"
         value="Spara"
         inputFields={
           <div className="input-form">
