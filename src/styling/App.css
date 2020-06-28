@@ -40,7 +40,7 @@ input[type=submit]:disabled{
   background-color: #666565;
 }
 
-input[type=submit],input[type=submit]:focus{
+.FormDiv input[type=submit],input[type=submit]:focus{
   color: #C9B791;
   background-color: #888787;
   border-radius: 3px;
@@ -53,7 +53,7 @@ input[type=submit],input[type=submit]:focus{
   outline: none;
 }
 
-input[type=submit]:hover:enabled,.startUpButtons:hover{
+.FormDiv input[type=submit]:hover:enabled,.startUpButtons:hover{
   box-shadow: 0 3px #c5c5c5;
   background-color:  #999999;
   color:  #FDCC6B;
@@ -106,5 +106,10 @@ input[type=submit]:hover:enabled,.startUpButtons:hover{
   text-align: center;
   
 }
-
-
+input[type=checkbox]{
+  cursor: pointer;
+  color: black;
+}
+.inLine{
+  font-size    : 1.vw;
+}
