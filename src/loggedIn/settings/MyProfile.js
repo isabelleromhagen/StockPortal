@@ -173,7 +173,9 @@ const MyProfile = () => {
         infoMessage && <p>{infoMessage}</p>
       }
       <br />
+      <hr/>
       <div className="delete-div">
+  
       <ButtonComp btnClassName="delete-data" btnName="Radera min data" onClickFunction={deleteMyData} />
       </div>
     </div>

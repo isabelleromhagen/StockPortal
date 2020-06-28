@@ -5,6 +5,7 @@ body {
   width : 100%;
   height: 100%;
   background-color: #F6FAFB;
+  font-family: 'Poppins';
 }
 
 * {
@@ -113,3 +114,10 @@ input[type=checkbox]{
 .inLine{
   font-size    : 1.0vw;
 }
+button:focus,button:hover{
+  background-color: #fdb31e;
+    color           : rgb(235, 233, 233);
+    outline         :none;
+}
+
+

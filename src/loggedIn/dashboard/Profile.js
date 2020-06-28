@@ -13,11 +13,11 @@ import { NavLink } from 'react-router-dom';
             return(
                 <div id="profileDiv" className="dashboardContentContainer">
                         <h4 className="dashboardSubtitle">Min profil</h4>
-                        <NavLink className="dashboardBtn" value={"Redigera"} to={"/settings"}>Redigiera</NavLink>  
+                        <NavLink className="dashboardBtn" value={"Redigera"} to={"/settings"}>Redigera</NavLink>  
                         {userData.imgname ? (
                             <img id="Hang-image" className="profilepic" alt="profile img" src={require(`../../uploads/profilepics/${userData.imgname}`)} ></img>
                           ) : (
-                              <p>Du har inte laddat upp en bild än</p>)}
+                              <p id="nopic">Du har inte laddat upp en bild än</p>)}
                             
                             <PersonalData firstname={userData.firstname}
                                 lastname={userData.lastname}/> 

@@ -8,23 +8,25 @@
 
   body {
     background-color: #F6FAFB;
+    font-family: 'Poppins';
   }
 
   .welcomeBanner {
-    width: 80%;
-    height: 5vh;
-    margin-left: 15vw;
-    margin-right: auto;
-    padding: 1.5vw;
-    border-radius: 4px;
-    box-shadow: 0px 1px 15px #45414E14;
-    background-color: #FFD98D;
-    text-align: left;
-    font-family: 'Poppins';
-    font-weight: lighter ;
-    letter-spacing: 0.23px;
-    color: #3D4465;
-    opacity: 1;
+      font-size: 1.6vw;
+      position: inherit;
+      width: 75%;
+      height: 5vh;
+      margin-left: 15vw;
+      padding: 2.5vw;
+      border-radius: 4px;
+      box-shadow: 0px 1px 15px #45414E14;
+      background-color: #FFD98D;
+      text-align: left;
+      font-family: 'Poppins';
+      font-weight: lighter;
+      letter-spacing: 0.23px;
+      color: #3D4465;
+      opacity: 1;
   }
   
   .dashboardContentContainer {
@@ -37,15 +39,17 @@
   
   .dashboardBtn {
     align-self: flex-end;
-    margin-left: 20vw;
-    margin-right: 5%;
-    margin-top: 5%;
-    padding: 2vh;
+    margin-left: 29vw;
+    margin-right: 3%;
+    margin-top: -7%;
+    padding: 1vh;
     border-radius: 4px;
     background: #3C3C3B;
     color: #FFFFFF;
     text-decoration: none;
     opacity: 1;
+    font-size: 1.5vw;
+  
   }
   
   .dashboardSubtitle {
@@ -56,6 +60,8 @@
     letter-spacing: 0px;
     color: #3C4368;
     opacity: 1;
+    font-size: 1.4vw;
+    
   }
 
   #dashboardContainer {
@@ -63,6 +69,7 @@
     margin: auto;
     padding: 10px;
   }
+
   
   #profileDiv {
     display: flex;
@@ -80,20 +87,26 @@
   }
   
   #profile-pic {
-    float: left;
-    margin-top: 1vh;
-    margin-left: 2vw;
-    border-radius: 80px;
-    height: 15vh;
-    width: 7vw;
+    border-radius: 100%;
+    width: 10vw;
+    height: 20vh;
     opacity: 1;
+    margin-left: 5vw;
+    margin-top: 4vh;
+  }
+  #nopic{
+    margin: 1vw;
+    color: #3D4465;
+    font-weight: lighter;
+    font-size: small;
   }
    
   #personalData {
     margin-left: 3vw;
     margin-top: 10vh;
-    font-size: 4vh;
+    font-size: 1.3vw;
     font-family: 'Poppins';
+    color: #3D4465;
   }
   
   .profileSubtitle {
@@ -103,30 +116,37 @@
     width: 100%;
     font-family: 'Poppins';
     font-weight: bolder;
+    color:#A1A8C3;
   }
 
   #industryDiv {
       margin-top: 10vh;
       height: 20vh;
+      color: #A1A8C3;
   }
   
   .prefInd {
     float: left;
-    margin-left: 6vw;
+    margin-left: 2vw;
     width: 30%;
     font-family: 'Poppins';
+    color: #3D4465;
+    font-size: 1.3vw;
   }
 
   #contact {
     margin-left: 2vw;
     width: 80%;
+    font-size: 1.4vw;
   }
 
  .contactLabel {
+  color:#3D4465;
    text-align: left;
   }
 
  .contactData {
+  color:#3D4465;
   text-align: center;
   }
 
@@ -137,10 +157,17 @@
     margin-left: 50%;
     margin-right: 2vw;
     margin-top: 1%;
-    padding:  1vh;
     box-shadow: 0px 1px 15px #45414E14;
     border-radius: 4px;
     opacity: 1;
+  }
+  #propertyDiv h2{
+    color: #3C4368;
+    font-size: 2.0vw;
+    margin-left: 2vw;
+  }
+  .moneydiv{
+    font-size: 1.7vw;
   }
 
   #fullbar {
@@ -153,7 +180,16 @@
     float: left;
     height: 40px;
     }
-  
+  .cat-container{
+    font-size: 1.3vw;
+    }
+    .cat-container p{
+        margin-top: -3vh;
+        margin-left: 0v;
+        display: table;
+    
+    }
   .shareInfo {
     height: 8vh;
   }
+  
