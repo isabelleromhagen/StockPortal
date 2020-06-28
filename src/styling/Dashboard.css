@@ -32,7 +32,6 @@
     flex-wrap: wrap;
     justify-content: left;
     background-color: #FFFFFF;
-     /* border: 1px solid green;  */
      margin-left: 15vw;
   }
   
@@ -63,11 +62,9 @@
     width: 80%;
     margin: auto;
     padding: 10px;
-    /* border: 1px solid blue; */
   }
   
   #profileDiv {
-    /* border: 1px solid red; */
     display: flex;
     flex-wrap: wrap;
     float: left;
@@ -97,7 +94,6 @@
     margin-top: 10vh;
     font-size: 4vh;
     font-family: 'Poppins';
-/*  border: 1px solid red; */
   }
   
   .profileSubtitle {
@@ -110,7 +106,6 @@
   }
 
   #industryDiv {
-      /* border: 1px solid red; */
       margin-top: 10vh;
       height: 20vh;
   }
@@ -119,18 +114,15 @@
     float: left;
     margin-left: 6vw;
     width: 30%;
-    /* border: 1px solid red; */
     font-family: 'Poppins';
   }
 
   #contact {
-    /* border: 1px solid red; */
     margin-left: 2vw;
     width: 80%;
   }
 
  .contactLabel {
-   /* padding-right: 10%; */
    text-align: left;
   }
 
@@ -139,7 +131,6 @@
   }
 
   #propertyDiv {
-    /* border: 1px solid red; */
     display: flex;
     flex-wrap: wrap;
     height: 100%;
