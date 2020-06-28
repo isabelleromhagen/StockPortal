@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const FormInput = ({headline, type, name, register, placeholder}) => {
+const FormInput = ({headline, type, name, register, placeholder,imageInputId}) => {
     return (
     <div>
         <p>{headline}</p>
